@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Course Dashboard</title>
+</head>
+<body>
+  <h1>Welcome, <span id="username"></span>!</h1>
+  <p>You have lifetime access to the full course.</p>
+
+  <button onclick="deleteAccount()">Delete Account</button>
+
+  <script>
+    const isLoggedIn = localStorage.getItem("user_logged_in");
+    const username = localStorage.getItem("username");
+
+    if (isLoggedIn !== "true" || !username) {
+      window.location.href = "pay.html";
+    } else {
+      document.getElementById("username").textContent = username;
+    }
+
+    function deleteAccount() {
+      if (confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+        localStorage.clear();
+        alert("Your account has been deleted.");
+        window.location.href = "pay.html";
+      }
+    }
+  </script>
+</body>
+</html>
