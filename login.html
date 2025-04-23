@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Thank You for Buying!</title>
+</head>
+<body>
+  <h2>Thank you for buying the full course!</h2>
+  <p id="username-msg"></p>
+  <button onclick="redirectToCourse()">Access Course</button>
+
+  <script>
+    const generatedUser = "user_" + Math.floor(100000 + Math.random() * 900000);
+    localStorage.setItem("user_logged_in", "true");
+    localStorage.setItem("username", generatedUser);
+    document.getElementById("username-msg").textContent = "Your Username: " + generatedUser;
+
+    function redirectToCourse() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
