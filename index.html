@@ -1,146 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>AIcodejs Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      padding: 20px;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f6fa;
-      color: #222;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
     }
-
     .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #ffffff;
       padding: 15px 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      margin-bottom: 20px;
+      background: #343a40;
+      color: white;
     }
-
     .logo {
-      width: 40px;
       height: 40px;
-      object-fit: contain;
     }
-
-    .titles {
-      flex-grow: 1;
-      margin-left: 15px;
-    }
-
     .titles h1 {
       margin: 0;
-      font-size: 1.5rem;
-      color: #333;
+      font-size: 24px;
     }
-
     .titles p {
       margin: 0;
-      font-size: 0.95rem;
-      color: #666;
+      font-size: 14px;
+      color: #ccc;
     }
-
     .burger {
-      font-size: 1.8rem;
+      font-size: 24px;
       cursor: pointer;
-      padding: 5px 10px;
     }
-
     .menu {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      background: #495057;
+      color: white;
+      padding: 10px 20px;
     }
-
     .menu a {
-      display: block;
-      margin: 5px 0;
-      color: #4a90e2;
+      color: white;
       text-decoration: none;
-      font-weight: 500;
+      margin: 5px 0;
     }
-
     .menu.hidden {
       display: none;
     }
-
-    #features {
+    .features {
       text-align: center;
-      margin-bottom: 30px;
+      padding: 30px 20px;
     }
-
-    #features h2 {
-      font-size: 1.8rem;
-      color: #4a90e2;
-    }
-
-    #features p {
-      font-size: 1.1rem;
-    }
-
-    button {
+    .features button {
+      margin-top: 10px;
       padding: 10px 20px;
-      background-color: #f44336;
+      background: #dc3545;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 1rem;
     }
-
-    button:hover {
-      background-color: #d32f2f;
-    }
-
-    .grid {
+    .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 1200px;
-      margin: auto;
+      padding: 20px;
     }
-
-    .card {
+    .product-card {
       background: white;
+      border: 1px solid #dee2e6;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
     }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #333;
+    .product-card:hover {
+      transform: scale(1.03);
     }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #666;
-      margin: 10px 0;
-    }
-
-    .card a {
-      display: inline-block;
-      padding: 8px 16px;
-      background-color: #4a90e2;
-      color: white;
-      border-radius: 6px;
+    .product-card a {
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      color: #212529;
     }
-
-    .card a:hover {
-      background-color: #357ac9;
+    .product-card h2 {
+      color: #007bff;
+      margin: 10px 0 5px;
+    }
+    .product-card p {
+      margin: 0;
     }
   </style>
 </head>
@@ -156,7 +105,7 @@
   </div>
 
   <div id="menu" class="menu hidden">
-    <!-- Sample 10 links, can extend up to 100 -->
+    <!-- Sample 10 links -->
     <a href="page1.html">Lesson 1</a>
     <a href="page2.html">Lesson 2</a>
     <a href="page3.html">Lesson 3</a>
@@ -169,24 +118,27 @@
     <a href="page10.html">Lesson 10</a>
   </div>
 
-  <div id="features" class="features">
+  <div class="features">
     <h2>Welcome, <span id="username"></span>!</h2>
-    <p>You have lifetime access to the full course and features.</p>
+    <p>You are now accessing full AI-powered JavaScript features.</p>
     <button onclick="deleteAccount()">Delete Account</button>
   </div>
 
-  <div class="grid">
+  <div class="product-grid">
     <!-- 30 Product Cards -->
     <script>
-      for (let i = 1; i <= 30; i++) {
-        document.write(`
-          <div class="card">
-            <h3>Module ${i}</h3>
-            <p>Subtitle for Module ${i}</p>
-            <a href="module${i}.html">Explore</a>
-          </div>
-        `);
-      }
+      const productNames = [
+        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty",
+        "twentyone", "twentytwo", "twentythree", "twentyfour", "twentyfive", "twentysix", "twentyseven", "twentyeight", "twentynine", "thirty"
+      ];
+      document.write(productNames.map((name, i) => `
+        <div class="product-card">
+          <a href="${name}.html">
+            <h2>Product ${i + 1}</h2>
+            <p>Click to explore Product ${i + 1} details.</p>
+          </a>
+        </div>`).join(""));
     </script>
   </div>
 
@@ -201,9 +153,9 @@
     }
 
     function deleteAccount() {
-      if (confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+      if (confirm("Are you sure you want to delete your account?")) {
         localStorage.clear();
-        alert("Your account has been deleted.");
+        alert("Account deleted.");
         window.location.href = "pay.html";
       }
     }
