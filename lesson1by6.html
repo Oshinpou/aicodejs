@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 1.6 – Functions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #222;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #output {
+      background: #222;
+      color: lime;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 1.6 – Functions</h1>
+  <p>In this lesson, you'll learn how to define and call functions like a pro in JavaScript. Functions are essential for writing reusable and clean code.</p>
+
+  <div class="card">
+    <h2>What is a Function?</h2>
+    <p>A function is a block of code that performs a specific task and can be reused.</p>
+    <pre><code>function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+console.log(greet("AI Student"));</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>Function Declaration vs Expression</h2>
+    <pre><code>// Declaration
+function add(x, y) {
+  return x + y;
+}
+
+// Expression
+const multiply = function(x, y) {
+  return x * y;
+};</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>Arrow Functions</h2>
+    <p>Introduced in ES6 for a shorter syntax.</p>
+    <pre><code>const divide = (x, y) => x / y;
+
+console.log(divide(10, 2));</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>Try it Yourself</h2>
+    <textarea id="code" rows="8" style="width: 100%;">
+// Write your function here
+function square(n) {
+  return n * n;
+}
+
+console.log(square(5));
+    </textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById("code").value;
+      try {
+        const result = eval(code);
+        document.getElementById("output").innerText = result ?? "Code executed successfully.";
+      } catch (e) {
+        document.getElementById("output").innerText = "Error: " + e.message;
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById("output").innerText = "";
+    }
+  </script>
+
+</body>
+</html>
