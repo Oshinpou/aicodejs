@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.1 - DOM Basics</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h1 { color: #333; }
+    .example, .task, .code-output { background: #fff; border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; }
+    pre { background: #eee; padding: 10px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>Lesson 2.1: DOM Basics</h1>
+  <p>This lesson introduces you to the Document Object Model (DOM) and how JavaScript can be used to interact with it.</p>  <div class="example">
+    <h2>Example: Changing Text with DOM</h2>
+    <p id="text">Original Text</p>
+    <button onclick="document.getElementById('text').textContent='Updated Text via DOM!'">Change Text</button>
+  </div>  <div class="task">
+    <h2>Task:</h2>
+    <p>Create a paragraph with an id and a button. When clicked, the button should change the paragraph content to your name.</p>
+  </div>  <div class="code-output">
+    <h2>Test Your Code:</h2>
+    <textarea id="userCode" rows="6" cols="50" placeholder="Write your JS DOM code here..."></textarea><br>
+    <button onclick="runUserCode()">Run Code</button>
+    <h3>Output:</h3>
+    <div id="outputBox"></div>
+  </div>  <script>
+    function runUserCode() {
+      const code = document.getElementById("userCode").value;
+      try {
+        const outputDiv = document.getElementById("outputBox");
+        outputDiv.innerHTML = "<script>" + code + "<\/script>";
+      } catch (e) {
+        document.getElementById("outputBox").innerText = "Error: " + e.message;
+      }
+    }
+  </script></body>
+</html>
