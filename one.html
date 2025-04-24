@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIcodejs - Level 1 Lessons</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: #333;
+    }
+    .card p {
+      color: #666;
+    }
+    .card a {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #222;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .card a:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AIcodejs - Level 1: JavaScript Basics in AI</h1>
+    <p>Explore 8 foundational lessons</p>
+  </header>
+
+  <div class="grid" id="lessonGrid">
+    <!-- Cards will be injected here -->
+  </div>
+
+  <script src="levelone.js"></script>
+</body>
+</html>
