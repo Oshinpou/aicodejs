@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 2.6 - Timers and Delays</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f2f2f2; }
+    .container { background: white; padding: 20px; border-radius: 8px; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1, h2 { color: #333; }
+    code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+    .output { background: #111; color: #0f0; padding: 10px; font-family: monospace; margin-top: 10px; border-radius: 4px; }
+    button { margin-top: 10px; padding: 8px 12px; background: #007acc; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lesson 2.6 - Timers and Delays</h1>
+    <h2>Overview</h2>
+    <p>Timers and delays allow you to run JavaScript code after a specific amount of time. You can use <code>setTimeout()</code> to delay code execution and <code>setInterval()</code> to repeat code execution at intervals.</p><h2>Example 1: Using <code>setTimeout</code></h2>
+<pre><code>setTimeout(function() {
+
+console.log("Executed after 2 seconds"); }, 2000);</code></pre>
+
+<button onclick="runTimeout()">Run Timeout Example</button>
+<div id="timeoutOutput" class="output"></div>
+
+<h2>Example 2: Using <code>setInterval</code></h2>
+<pre><code>let counter = 0;
+
+const intervalId = setInterval(() => { counter++; console.log("Interval count: " + counter); if (counter === 5) clearInterval(intervalId); }, 1000);</code></pre>
+
+<button onclick="runInterval()">Run Interval Example</button>
+<div id="intervalOutput" class="output"></div>
+
+<h2>Task</h2>
+<p>Create a countdown from 5 to 0 using <code>setInterval</code>, then display "Liftoff!"</p>
+
+<button onclick="startCountdown()">Start Countdown</button>
+<div id="countdownOutput" class="output"></div>
+
+  </div>  <script>
+    function runTimeout() {
+      document.getElementById('timeoutOutput').textContent = "Waiting 2 seconds...";
+      setTimeout(() => {
+        document.getElementById('timeoutOutput').textContent = "Executed after 2 seconds!";
+      }, 2000);
+    }
+
+    function runInterval() {
+      let count = 0;
+      document.getElementById('intervalOutput').textContent = "";
+      const interval = setInterval(() => {
+        count++;
+        document.getElementById('intervalOutput').textContent += `Interval count: ${count}\n`;
+        if (count === 5) clearInterval(interval);
+      }, 1000);
+    }
+
+    function startCountdown() {
+      let countdown = 5;
+      const output = document.getElementById('countdownOutput');
+      output.textContent = "";
+      const timer = setInterval(() => {
+        output.textContent = `Countdown: ${countdown}`;
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(timer);
+          output.textContent = "Liftoff!";
+        }
+      }, 1000);
+    }
+  </script></body>
+</html>
