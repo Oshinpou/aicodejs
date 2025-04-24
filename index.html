@@ -125,22 +125,57 @@
   </div>
 
   <div class="product-grid">
-    <!-- 30 Product Cards -->
-    <script>
-      const productNames = [
-        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty",
-        "twentyone", "twentytwo", "twentythree", "twentyfour", "twentyfive", "twentysix", "twentyseven", "twentyeight", "twentynine", "thirty"
-      ];
-      document.write(productNames.map((name, i) => `
-        <div class="product-card">
-          <a href="${name}.html">
-            <h2>Product ${i + 1}</h2>
-            <p>Click to explore Product ${i + 1} details.</p>
-          </a>
-        </div>`).join(""));
-    </script>
-  </div>
+  <!-- 30 Product Cards with Titles and Subtitles -->
+  <script>
+    const courseTitles = [
+      ["Level 1: Getting Started", "Learn the basics of JavaScript in AI."],
+      ["Level 2: Variables & Data Types", "Understand how AI handles JavaScript variables and data."],
+      ["Level 3: Operators & Expressions", "Master JavaScript logic to control AI behavior."],
+      ["Level 4: Conditional Statements", "Teach AI to make decisions with if, else, and switch."],
+      ["Level 5: Loops in AI Logic", "Train your AI to repeat tasks with loops."],
+      ["Level 6: Functions & Modularity", "Create reusable blocks of logic for smart AI."],
+      ["Level 7: Arrays & Iteration", "Organize AI memory using JavaScript arrays."],
+      ["Level 8: Objects & Properties", "Structure AI knowledge with object-oriented code."],
+      ["Level 9: DOM Manipulation", "Control HTML with JavaScript for AI-powered interfaces."],
+      ["Level 10: Events & Interaction", "Make your AI react to user behavior."],
+      ["Level 11: Form Handling", "Build intelligent forms with AI-powered validation."],
+      ["Level 12: JSON & Data Handling", "Train your AI to handle structured data using JSON."],
+      ["Level 13: Timers & Intervals", "Manage time-based tasks in AI with setTimeout and setInterval."],
+      ["Level 14: Error Handling", "Create resilient AI with try-catch and debugging skills."],
+      ["Level 15: JavaScript Scope", "Understand local and global knowledge in AI logic."],
+      ["Level 16: Closures & Context", "Teach AI to remember and control execution context."],
+      ["Level 17: Classes & Prototypes", "Implement advanced object patterns for smart AI modeling."],
+      ["Level 18: Asynchronous JavaScript", "Learn how AI handles tasks in parallel using async/await."],
+      ["Level 19: Fetch API & AJAX", "Connect your AI to live data through APIs."],
+      ["Level 20: Storage & Persistence", "Give your AI memory with localStorage and sessionStorage."],
+      ["Level 21: Modular JavaScript", "Build organized AI brains using modules and imports."],
+      ["Level 22: Regular Expressions", "Make your AI understand and search patterns in data."],
+      ["Level 23: Canvas & Graphics", "Create visual intelligence using the canvas API."],
+      ["Level 24: AI Logic with Math", "Integrate mathematical thinking into your AI logic."],
+      ["Level 25: WebSockets & Live Data", "Stream real-time intelligence into your JavaScript AI."],
+      ["Level 26: AI-Powered Chat Interfaces", "Design basic chatbots and smart responders in JS."],
+      ["Level 27: Voice & Speech Recognition", "Integrate speech into your JavaScript AI system."],
+      ["Level 28: Machine Learning Integration", "Plug AI models into your JS app using TensorFlow.js."],
+      ["Level 29: Real-World Projects", "Build intelligent tools and assistants with JavaScript."],
+      ["Level 30: AIcodeJS Mastery", "Achieve pro status and launch your AI+JS career."]
+    ];
+
+    const fileNames = [
+      "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+      "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty",
+      "twentyone", "twentytwo", "twentythree", "twentyfour", "twentyfive", "twentysix", "twentyseven", "twentyeight", "twentynine", "thirty"
+    ];
+
+    document.write(courseTitles.map((title, i) => `
+      <div class="product-card">
+        <a href="${fileNames[i]}.html">
+          <h2>${title[0]}</h2>
+          <p>${title[1]}</p>
+        </a>
+      </div>
+    `).join(""));
+  </script>
+</div>
 
   <script>
     const isLoggedIn = localStorage.getItem("user_logged_in");
