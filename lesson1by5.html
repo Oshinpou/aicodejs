@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 1.5 - Loops</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    h1, h2 { color: #2c3e50; }
+    code { background: #ecf0f1; padding: 2px 5px; border-radius: 4px; display: block; margin: 10px 0; }
+    .task, .quiz, .summary { margin-top: 30px; }
+    .quiz ul { list-style-type: none; padding-left: 0; }
+    .quiz li { margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <h1>Lesson 1.5: Loops</h1>
+  <h2>while, for, and loop control in AI code</h2>  <p>Loops allow you to repeat a block of code multiple times. In AI programming, you might loop through data sets, repeat training processes, or iterate over input combinations.</p>  <h2>1. while Loop</h2>
+  <p>The <code>while</code> loop runs a block of code as long as a condition is true.</p>
+  <code>
+    let count = 0;
+    while (count < 3) {
+      console.log("AI Cycle " + count);
+      count++;
+    }
+  </code>  <h2>2. for Loop</h2>
+  <p>The <code>for</code> loop gives you more control with an initializer, condition, and incrementer.</p>
+  <code>
+    for (let i = 0; i < 3; i++) {
+      console.log("Training round: " + i);
+    }
+  </code>  <h2>3. Loop Control: break and continue</h2>
+  <p>Use <code>break</code> to exit a loop early. Use <code>continue</code> to skip the current iteration.</p>
+  <code>
+    for (let i = 0; i < 5; i++) {
+      if (i === 2) continue;
+      if (i === 4) break;
+      console.log(i);
+    }
+  </code>  <div class="task">
+    <h2>Task</h2>
+    <p>Create a <code>for</code> loop that prints numbers 1 to 10 but skips 5 and stops at 8.</p>
+  </div>  <div class="quiz">
+    <h2>Quiz</h2>
+    <p>1. What is the output of this code?</p>
+    <code>
+      let x = 0;
+      while (x < 2) {
+        console.log(x);
+        x++;
+      }
+    </code>
+    <ul>
+      <li>A) 1, 2</li>
+      <li>B) 0, 1</li>
+      <li>C) 0, 1, 2</li>
+      <li>D) 1, 2, 3</li>
+    </ul><p>2. What keyword skips one iteration in a loop?</p>
+<ul>
+  <li>A) skip</li>
+  <li>B) continue</li>
+  <li>C) break</li>
+  <li>D) jump</li>
+</ul>
+
+  </div>  <div class="summary">
+    <h2>Summary</h2>
+    <p>You now know how to use <code>while</code>, <code>for</code> loops, and control them using <code>break</code> and <code>continue</code>. This is essential for handling repeated operations in your AI logic.</p>
+  </div>
+</body>
+</html>
