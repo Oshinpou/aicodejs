@@ -1,13 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Course Dashboard</title>
+  <title>AIcodejs Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6fa;
+      color: #222;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .titles {
+      flex-grow: 1;
+      margin-left: 15px;
+    }
+
+    .titles h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .titles p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .burger {
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .menu {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    .menu a {
+      display: block;
+      margin: 5px 0;
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .menu.hidden {
+      display: none;
+    }
+
+    #features {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #features h2 {
+      font-size: 1.8rem;
+      color: #4a90e2;
+    }
+
+    #features p {
+      font-size: 1.1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #d32f2f;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #666;
+      margin: 10px 0;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #4a90e2;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .card a:hover {
+      background-color: #357ac9;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome, <span id="username"></span>!</h1>
-  <p>You have lifetime access to the full course.</p>
 
-  <button onclick="deleteAccount()">Delete Account</button>
+  <div class="header">
+    <img src="iconr.webp" alt="AIcodejs Logo" class="logo">
+    <div class="titles">
+      <h1>AIcodejs</h1>
+      <p>Learn JavaScript in AI</p>
+    </div>
+    <div class="burger" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div id="menu" class="menu hidden">
+    <!-- Sample 10 links, can extend up to 100 -->
+    <a href="page1.html">Lesson 1</a>
+    <a href="page2.html">Lesson 2</a>
+    <a href="page3.html">Lesson 3</a>
+    <a href="page4.html">Lesson 4</a>
+    <a href="page5.html">Lesson 5</a>
+    <a href="page6.html">Lesson 6</a>
+    <a href="page7.html">Lesson 7</a>
+    <a href="page8.html">Lesson 8</a>
+    <a href="page9.html">Lesson 9</a>
+    <a href="page10.html">Lesson 10</a>
+  </div>
+
+  <div id="features" class="features">
+    <h2>Welcome, <span id="username"></span>!</h2>
+    <p>You have lifetime access to the full course and features.</p>
+    <button onclick="deleteAccount()">Delete Account</button>
+  </div>
+
+  <div class="grid">
+    <!-- 30 Product Cards -->
+    <script>
+      for (let i = 1; i <= 30; i++) {
+        document.write(`
+          <div class="card">
+            <h3>Module ${i}</h3>
+            <p>Subtitle for Module ${i}</p>
+            <a href="module${i}.html">Explore</a>
+          </div>
+        `);
+      }
+    </script>
+  </div>
 
   <script>
     const isLoggedIn = localStorage.getItem("user_logged_in");
@@ -26,6 +207,11 @@
         window.location.href = "pay.html";
       }
     }
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("hidden");
+    }
   </script>
+
 </body>
 </html>
