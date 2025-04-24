@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 1.1 - Intro to JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #202020;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #202020;
+    }
+    .code-block {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+      margin: 20px 0;
+    }
+    .task, .quiz {
+      background: #ffffff;
+      border-left: 4px solid #4CAF50;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .quiz input[type="text"] {
+      padding: 8px;
+      width: 80%;
+      margin-top: 10px;
+      display: block;
+    }
+    .quiz button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body><header>
+  <h1>AIcodeJS - Lesson 1.1</h1>
+  <p>Intro to JavaScript: Learn the basics of JavaScript in AI</p>
+</header><main>
+  <section>
+    <h2>What is JavaScript?</h2>
+    <p>JavaScript is a programming language that allows you to implement complex features on web pages — displaying content updates, interactive maps, animated graphics, and more.</p>
+  </section>  <section>
+    <h2>Why Learn JavaScript for AI?</h2>
+    <p>JavaScript helps you create logic, control data, and interact with users. In AI development for web-based systems, it's essential for connecting user input to intelligent models.</p>
+  </section>  <section>
+    <h2>Example: Your First JavaScript Code</h2>
+    <div class="code-block">
+// Display a message on the page
+document.write("Hello, AI World!");// Show an alert alert("Welcome to AIcodeJS!"); </div>
+
+  </section>  <section class="task">
+    <h2>Task for You</h2>
+    <p>Create a webpage that shows a welcome message using <code>document.write</code> and a greeting using <code>alert</code>.</p>
+  </section>  <section class="quiz">
+    <h2>Quick Quiz</h2>
+    <p>What does <code>alert()</code> do in JavaScript?</p>
+    <input type="text" id="quizAnswer" placeholder="Type your answer here..." />
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="quizResult"></p>
+  </section>  <section>
+    <h2>Summary</h2>
+    <p>In this lesson, you learned what JavaScript is, why it’s useful for AI, and how to write basic output using <code>document.write</code> and <code>alert</code>.</p>
+  </section>
+</main><footer>
+  &copy; 2025 AIcodeJS. All rights reserved.
+</footer><script>
+  function checkAnswer() {
+    const input = document.getElementById("quizAnswer").value.toLowerCase();
+    const result = document.getElementById("quizResult");
+
+    if (input.includes("popup") || input.includes("alert") || input.includes("message")) {
+      result.innerText = "Correct! alert() shows a popup message.";
+      result.style.color = "green";
+    } else {
+      result.innerText = "Try again. Hint: It shows a popup.";
+      result.style.color = "red";
+    }
+  }
+</script></body>
+</html>
