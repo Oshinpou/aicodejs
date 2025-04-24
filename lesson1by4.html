@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 1.4 - Control Flow</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; background: #f9f9f9; }
+    h1, h2 { color: #333; }
+    .code-block { background: #eee; padding: 15px; border-radius: 5px; margin: 10px 0; font-family: monospace; }
+    .task, .quiz, .summary { background: #fff; border-left: 4px solid #4CAF50; padding: 10px 15px; margin: 15px 0; }
+    .quiz ol { padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Lesson 1.4: Control Flow</h1>
+  <h2>Mastering Conditions and Logic</h2>
+  <p>
+    Control flow in JavaScript determines how code is executed based on different conditions. It helps your AI logic make decisions and react differently under varying inputs.
+  </p>  <h2>if, else if, and else</h2>
+  <div class="code-block">
+    let score = 85;if (score >= 90) {
+  console.log("Excellent");
+} else if (score >= 75) {
+  console.log("Very Good");
+} else {
+  console.log("Keep Practicing");
+}
+
+  </div>  <h2>switch Statement</h2>
+  <div class="code-block">
+    let grade = 'B';switch (grade) {
+  case 'A':
+    console.log("Outstanding");
+    break;
+  case 'B':
+    console.log("Great Job");
+    break;
+  default:
+    console.log("Try Again");
+}
+
+  </div>  <div class="task">
+    <h3>Task:</h3>
+    <p>Create a simple program that asks a user for temperature and logs a message:</p>
+    <ul>
+      <li>If temp > 30: "It's hot outside."</li>
+      <li>If temp between 15-30: "It's pleasant."</li>
+      <li>Else: "It's cold."</li>
+    </ul>
+  </div>  <div class="quiz">
+    <h3>Quiz:</h3>
+    <ol>
+      <li>What does the <code>break</code> statement do in a switch block?</li>
+      <li>How is <code>else if</code> different from <code>if</code>?</li>
+      <li>What will be the output of:<br>
+        <code>
+          let x = 5;
+          if (x > 3) console.log("Hi");
+        </code>
+      </li>
+    </ol>
+  </div>  <div class="summary">
+    <h3>Summary:</h3>
+    <p>Control flow structures such as if-else and switch help guide how your JavaScript code makes decisions, which is critical in building intelligent behaviors in AI code.</p>
+  </div>
+</body>
+</html>
