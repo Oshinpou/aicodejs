@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.4 - DOM Manipulation Basics</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; color: #333; }
+    h1 { color: #4CAF50; }
+    .example { background: #fff; padding: 20px; margin-top: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    button { padding: 10px 20px; background: #4CAF50; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    #output { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Lesson 2.4: DOM Manipulation Basics</h1>
+  <p>Learn how to access and modify HTML elements using JavaScript in an AI-enhanced coding environment.</p>  <div class="example">
+    <h2>Example: Changing Content</h2>
+    <p id="text">Original Text</p>
+    <button onclick="changeText()">Change Text</button>
+    <script>
+      function changeText() {
+        document.getElementById("text").innerText = "Updated by JavaScript!";
+      }
+    </script>
+  </div>  <div class="example">
+    <h2>Example: Creating Elements</h2>
+    <button onclick="createElement()">Add Paragraph</button>
+    <div id="container"></div>
+    <script>
+      function createElement() {
+        const p = document.createElement("p");
+        p.innerText = "This is a new paragraph added dynamically.";
+        document.getElementById("container").appendChild(p);
+      }
+    </script>
+  </div>  <div class="example">
+    <h2>Task</h2>
+    <p>Create a button that adds a list item to a list each time it's clicked.</p>
+    <ul id="myList"></ul>
+    <button onclick="addItem()">Add Item</button>
+    <script>
+      let count = 1;
+      function addItem() {
+        const li = document.createElement("li");
+        li.innerText = "Item " + count++;
+        document.getElementById("myList").appendChild(li);
+      }
+    </script>
+  </div></body>
+</html>
