@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 1.7 – Objects & Arrays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #222;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #output {
+      background: #222;
+      color: lime;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 1.7 – Objects & Arrays</h1>
+  <p>Objects and arrays are essential structures in JavaScript to store and manipulate data efficiently, especially in AI applications.</p>
+
+  <div class="card">
+    <h2>What is an Array?</h2>
+    <p>An array holds a list of values.</p>
+    <pre><code>const fruits = ["apple", "banana", "mango"];
+console.log(fruits[1]); // Output: banana</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>What is an Object?</h2>
+    <p>An object stores data as key-value pairs.</p>
+    <pre><code>const student = {
+  name: "John",
+  age: 22,
+  course: "AI & JS"
+};
+
+console.log(student.name); // Output: John</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>Combining Arrays & Objects</h2>
+    <pre><code>const users = [
+  { name: "Alice", score: 85 },
+  { name: "Bob", score: 90 }
+];
+
+console.log(users[1].score); // Output: 90</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>Try It Yourself</h2>
+    <textarea id="code" rows="10" style="width: 100%;">
+// Try your own object/array code here
+const pets = ["cat", "dog", "parrot"];
+console.log(pets.length);
+    </textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById("code").value;
+      try {
+        const result = eval(code);
+        document.getElementById("output").innerText = result ?? "Code executed.";
+      } catch (e) {
+        document.getElementById("output").innerText = "Error: " + e.message;
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById("output").innerText = "";
+    }
+  </script>
+
+</body>
+</html>
