@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 2.8 - Introduction to AI in JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f1f1;
+      padding: 40px;
+      line-height: 1.7;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .code {
+      background: #eee;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #2ecc71;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lesson 2.8 - Introduction to AI in JavaScript</h1>
+    <p>Artificial Intelligence is not just for Python. JavaScript can also be used to build lightweight AI logic for the web. In this lesson, we'll explore how you can begin working with basic AI techniques in JavaScript.</p>
+
+    <div class="section">
+      <h2>Basic AI: Rule-Based Decisions</h2>
+      <p>Simple AI systems use decision trees and logic conditions. Here's a basic example:</p>
+      <div class="code">
+        const userInput = "hello";<br>
+        if (userInput.includes("hello")) {<br>
+         console.log("Hi there, how can I assist you today?");<br>
+        }
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Learning from Data: Pattern Matching</h2>
+      <p>Using basic statistical methods or pattern matching, we can mimic a learning system:</p>
+      <div class="code">
+        const responses = {<br>
+         "hello": "Hi!",<br>
+         "how are you": "I'm a script, I feel no pain!",<br>
+         "bye": "Goodbye!"<br>
+        };<br><br>
+        function chatBot(input) {<br>
+         return responses[input.toLowerCase()] || "I don't understand that yet.";<br>
+        }<br><br>
+        console.log(chatBot("hello")); // Output: Hi!
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Try It Out</h2>
+      <input type="text" id="inputBox" placeholder="Type something..." />
+      <button onclick="reply()">Ask</button>
+      <p id="response"></p>
+
+      <script>
+        function reply() {
+          const input = document.getElementById("inputBox").value.toLowerCase();
+          const responses = {
+            "hello": "Hi!",
+            "how are you": "I'm a script, I feel no pain!",
+            "bye": "Goodbye!"
+          };
+          const output = responses[input] || "I don't understand that yet.";
+          document.getElementById("response").textContent = output;
+        }
+      </script>
+    </div>
+  </div>
+</body>
+</html>
