@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 1.2 - Variables & Data Types</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+    h1 {
+      color: #007acc;
+    }
+    pre {
+      background: #eee;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .task, .quiz, .summary {
+      margin-top: 30px;
+    }
+    .quiz input {
+      margin-right: 10px;
+    }
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #007acc;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #005f99;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 1.2: Variables & Data Types</h1>
+  <p>In JavaScript, variables are containers for storing data values. You can use <code>let</code>, <code>const</code>, or the older <code>var</code> keyword to declare them.</p>
+
+  <h2>JavaScript Data Types</h2>
+  <ul>
+    <li><strong>String</strong> — Text (e.g., "Hello")</li>
+    <li><strong>Number</strong> — Integers and decimals (e.g., 42, 3.14)</li>
+    <li><strong>Boolean</strong> — true or false</li>
+    <li><strong>Undefined</strong> — a declared variable without a value</li>
+    <li><strong>Null</strong> — an empty or non-existent value</li>
+    <li><strong>Object</strong> — collections of key/value pairs</li>
+    <li><strong>Array</strong> — ordered lists of values</li>
+  </ul>
+
+  <h2>Example Code</h2>
+  <pre><code>// Declaring variables
+let name = "Alice";
+const age = 30;
+var isStudent = true;
+
+// Output to console
+console.log("Name:", name);
+console.log("Age:", age);
+console.log("Student?", isStudent);</code></pre>
+
+  <div class="task">
+    <h2>Task</h2>
+    <p>Create 3 variables: one for your name (string), your age (number), and a boolean if you're learning AIcodejs.</p>
+    <pre><code>// Your code here:
+let myName = "Your Name";
+let myAge = 25;
+let learningAIcodejs = true;
+
+console.log(myName, myAge, learningAIcodejs);</code></pre>
+  </div>
+
+  <div class="quiz">
+    <h2>Quiz</h2>
+    <p>Which of these is a correct variable declaration in JavaScript?</p>
+    <label><input type="radio" name="q1"> let 123name = "John";</label><br>
+    <label><input type="radio" name="q1"> const = age 21;</label><br>
+    <label><input type="radio" name="q1" id="correct"> let city = "Paris";</label><br>
+    <button class="btn" onclick="checkAnswer()">Check Answer</button>
+    <p id="quiz-result"></p>
+  </div>
+
+  <div class="summary">
+    <h2>Summary</h2>
+    <p>Variables store data and can be declared using <code>let</code>, <code>const</code>, or <code>var</code>. JavaScript supports many data types that help structure information effectively in AI programming.</p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const result = document.getElementById("quiz-result");
+      const correct = document.getElementById("correct");
+      if (correct.checked) {
+        result.textContent = "Correct! Great job.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>
