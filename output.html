@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AIcodejs Output</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f8fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #007acc;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .code-area, .output-area {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    #output {
+      background-color: #111;
+      color: #0f0;
+      padding: 15px;
+      font-family: monospace;
+      font-size: 16px;
+      min-height: 100px;
+      white-space: pre-wrap;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>AIcodejs Code Output Viewer</h1>
+
+    <div class="code-area">
+      <label for="code"><strong>Your JavaScript Code:</strong></label>
+      <textarea id="code" placeholder="Type your JavaScript code here...">console.log('Hello, AIcodejs!');</textarea>
+      <div class="buttons">
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="clearOutput()">Clear Output</button>
+      </div>
+    </div>
+
+    <div class="output-area">
+      <h2>Output:</h2>
+      <div id="output">// Output will appear here...</div>
+    </div>
+  </div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById("code").value;
+      const outputDiv = document.getElementById("output");
+      outputDiv.textContent = ""; // Clear previous output
+
+      try {
+        const result = new Function(code);
+        const consoleLog = console.log;
+        const logs = [];
+
+        console.log = (...args) => {
+          logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : a).join(" "));
+        };
+
+        result();
+        outputDiv.textContent = logs.length ? logs.join("\n") : "[No output]";
+        console.log = consoleLog;
+      } catch (err) {
+        outputDiv.textContent = "Error:\n" + err;
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById("output").textContent = "// Output will appear here...";
+    }
+  </script>
+
+</body>
+</html>
