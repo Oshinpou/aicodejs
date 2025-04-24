@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 2.5 - DOM Events</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 2.5: DOM Events</h1>
+    <p>Handle events and build dynamic user interactions</p>
+  </header>  <main>
+    <section>
+      <h2>What are DOM Events?</h2>
+      <p>Events are actions or occurrences that happen in the browser, such as clicks, mouse movements, key presses, and more. JavaScript can listen for and respond to these events using event listeners.</p>
+    </section><section>
+  <h2>Basic Event Listening</h2>
+  <pre><code>document.getElementById("btn").addEventListener("click", function() {
+
+alert("Button clicked!"); });</code></pre> <button id="btn">Click Me</button> </section>
+
+<section>
+  <h2>Common Event Types</h2>
+  <ul>
+    <li><code>click</code></li>
+    <li><code>mouseover</code></li>
+    <li><code>keydown</code></li>
+    <li><code>submit</code></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Task</h2>
+  <p>Create a form with an input field and a submit button. When the form is submitted, prevent the page from reloading and show the entered text in an alert.</p>
+</section>
+
+<section>
+  <h2>Try It</h2>
+  <form id="eventForm">
+    <input type="text" id="textInput" placeholder="Type something..." />
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    document.getElementById("eventForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const input = document.getElementById("textInput").value;
+      alert("You entered: " + input);
+    });
+  </script>
+</section>
+
+  </main>  <footer>
+    <p>AIcodejs Course - Level 2</p>
+  </footer>
+</body>
+</html>
