@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 1.8 – Events & Interaction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #222;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #output {
+      background: #222;
+      color: lime;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>  <h1>Lesson 1.8 – Events & Interaction</h1>
+  <p>In this lesson, you'll learn how to interact with users and handle events such as clicks, form submissions, and key presses in your AI code.</p>  <div class="card">
+    <h2>What are Events?</h2>
+    <p>Events are user actions such as clicking a button or pressing a key.</p>
+    <pre><code>document.getElementById("myBtn").addEventListener("click", function() {
+  alert("Button clicked!");
+});</code></pre>
+  </div>  <div class="card">
+    <h2>Interactive Button Example</h2>
+    <button id="helloBtn">Say Hello</button>
+    <script>
+      document.getElementById("helloBtn").addEventListener("click", function() {
+        alert("Hello from AIcodeJS!");
+      });
+    </script>
+  </div>  <div class="card">
+    <h2>Try It Yourself</h2>
+    <textarea id="code" rows="10" style="width: 100%;">
+// Try handling your own event
+const btn = document.createElement('button');
+btn.textContent = 'Click Me';
+btn.onclick = () => alert('You clicked the button!');
+document.body.appendChild(btn);
+    </textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div id="output"></div>
+  </div>  <script>
+    function runCode() {
+      const code = document.getElementById("code").value;
+      try {
+        const result = eval(code);
+        document.getElementById("output").innerText = result ?? "Code executed.";
+      } catch (e) {
+        document.getElementById("output").innerText = "Error: " + e.message;
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById("output").innerText = "";
+    }
+  </script></body>
+</html>
