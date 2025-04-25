@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Level 4: Advanced JavaScript Lessons</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Level 4: Advanced JavaScript Lessons</h1>
+    <p>Advanced concepts of JavaScript programming for AI and optimization techniques.</p>
+  </header>
+
+  <main class="lesson-cards">
+    <div class="grid" id="lessonGrid">
+      <!-- Product cards for Level 4 lessons will be injected here -->
+      <script>
+        const lessons = [
+          { id: 1, title: "Advanced Functions", subtitle: "Explore closures, currying, and higher-order functions" },
+          { id: 2, title: "Asynchronous Programming", subtitle: "Master Promises, Async/Await, and concurrency in AI tasks" },
+          { id: 3, title: "Error Handling & Debugging", subtitle: "Learn best practices for managing errors in large codebases" },
+          { id: 4, title: "Web APIs", subtitle: "Introduction to browser APIs for AI interactions like Web Workers and WebSockets" },
+          { id: 5, title: "Algorithms & Data Structures", subtitle: "Optimize sorting, searching, and algorithmic logic for AI tasks" },
+          { id: 6, title: "Memory Management & Optimization", subtitle: "Learn memory usage optimization for JavaScript in AI" },
+          { id: 7, title: "Modular Programming", subtitle: "Organizing JavaScript for scalable AI code using modules" },
+          { id: 8, title: "Working with WebAssembly (Wasm)", subtitle: "Running high-performance code for AI and machine learning tasks" }
+        ];
+
+        const grid = document.getElementById("lessonGrid");
+        lessons.forEach(lesson => {
+          grid.innerHTML += `
+            <div class="card">
+              <h3>${lesson.title}</h3>
+              <p>${lesson.subtitle}</p>
+              <a href="lesson${lesson.id}by1.html">Explore Lesson ${lesson.id}</a>
+            </div>
+          `;
+        });
+      </script>
+    </div>
+  </main>
+</body>
+</html>
