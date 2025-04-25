@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 3.7 - Debugging JavaScript</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 3.7: Debugging JavaScript</h1>
+    <p>Master tools and methods to fix issues and enhance your AI-driven JS code.</p>
+  </header>
+
+  <main class="lesson-content">
+    <section>
+      <h2>What is Debugging?</h2>
+      <p>Debugging is the process of finding and fixing errors or bugs in your code. It's an essential skill for every developer, especially when working with complex AI-based logic in JavaScript.</p>
+    </section>
+
+    <section>
+      <h2>Common Debugging Techniques</h2>
+      <ul>
+        <li><strong>Console Logging:</strong> Use <code>console.log()</code> to track variables and outputs.</li>
+        <li><strong>Breakpoints:</strong> Use browser dev tools to pause code at specific lines.</li>
+        <li><strong>Try/Catch:</strong> Handle exceptions and errors gracefully in your code.</li>
+        <li><strong>Linting:</strong> Use linters like ESLint to catch syntax issues.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example</h2>
+      <pre><code>
+function getUserAge(user) {
+  try {
+    if (!user.age) throw "Age not found";
+    return user.age;
+  } catch (error) {
+    console.error("Error:", error);
+    return null;
+  }
+}
+
+const testUser = { name: "AI Learner" };
+console.log(getUserAge(testUser)); // Should log error
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Task</h2>
+      <p>Debug the following faulty function using <code>console.log()</code> and <code>try/catch</code>:</p>
+      <pre><code>
+function calculateAI(input) {
+  let result = input * 2;
+  if (result > 10) {
+    result = input + unknownVar;
+  }
+  return result;
+}
+
+console.log(calculateAI(6));
+      </code></pre>
+      <p><strong>Hint:</strong> There's an undefined variable!</p>
+    </section>
+
+    <section>
+      <h2>Interactive Debug Area</h2>
+      <textarea id="debugInput" rows="6" style="width:100%;">// Paste your code here</textarea><br/>
+      <button onclick="runDebug()">Run & Debug</button>
+      <h3>Console Output:</h3>
+      <pre id="debugOutput"></pre>
+    </section>
+  </main>
+
+  <script>
+    function runDebug() {
+      const code = document.getElementById('debugInput').value;
+      const output = document.getElementById('debugOutput');
+      output.textContent = '';
+      try {
+        const result = new Function(code)();
+        if (result !== undefined) output.textContent += 'Result: ' + result + '\n';
+      } catch (err) {
+        output.textContent += 'Error: ' + err.message + '\n';
+      }
+    }
+  </script>
+</body>
+</html>
