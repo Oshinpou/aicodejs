@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 3.6 - DOM Manipulation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 3.6 - DOM Manipulation</h1>
+    <p>Interact with the webpage using JavaScript</p>
+  </header>  <main>
+    <section class="lesson-content">
+      <h2>What is the DOM?</h2>
+      <p>
+        The Document Object Model (DOM) is a programming interface for HTML and XML documents. It allows JavaScript to access and manipulate the content, structure, and style of a website dynamically.
+      </p><h3>Example</h3>
+  <pre><code>// Selecting an element
+
+const heading = document.getElementById("myHeading");
+
+// Changing its text heading.textContent = "Hello from JavaScript!";
+
+// Adding a class heading.classList.add("highlight");</code></pre>
+
+<h3>Try It Out</h3>
+  <div id="interactive">
+    <h2 id="myHeading">Click the button to change me!</h2>
+    <button onclick="changeHeading()">Change Heading</button>
+  </div>
+
+  <script>
+    function changeHeading() {
+      const heading = document.getElementById("myHeading");
+      heading.textContent = "Changed with JavaScript!";
+      heading.classList.toggle("highlight");
+    }
+  </script>
+
+  <h3>Task</h3>
+  <ul>
+    <li>Create an HTML page with a heading and button.</li>
+    <li>Use JavaScript to update the heading text when the button is clicked.</li>
+    <li>Toggle a class that changes the heading style.</li>
+  </ul>
+</section>
+
+  </main>  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+    #interactive {
+      margin-top: 20px;
+    }
+  </style></body>
+</html>
