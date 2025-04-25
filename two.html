@@ -1,86 +1,165 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Level 2 - AIcodejs Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Level 2: Variables & Data Types</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      padding: 2rem;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f7;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background-color: #2c3e50;
+      padding: 20px;
+      text-align: center;
+      color: white;
     }
     h1 {
-      text-align: center;
-      margin-bottom: 2rem;
+      margin: 0;
+      font-size: 2.5em;
+    }
+    h2 {
+      margin-top: 5px;
+      font-size: 1.2em;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+      overflow-y: auto;
+      flex-grow: 1;
     }
     .card {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
     .card h3 {
-      margin: 0 0 0.5rem;
+      margin-top: 0;
+      color: #34495e;
+      font-size: 1.5em;
     }
     .card p {
-      margin: 0 0 1rem;
-      color: #555;
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 15px;
     }
     .card a {
+      display: inline-block;
+      padding: 10px;
+      background-color: #2980b9;
+      color: white;
       text-decoration: none;
-      color: #007bff;
+      border-radius: 8px;
+      text-align: center;
       font-weight: bold;
+    }
+    .card a:hover {
+      background-color: #1f618d;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
 <body>
-  <h1>Level 2 – Intermediate AI JavaScript Mastery</h1>
+
+  <header>
+    <h1>Level 2: Variables & Data Types</h1>
+    <h2>Understand how AI handles JavaScript variables and data.</h2>
+  </header>
+
   <div class="grid">
+    <!-- Lesson Cards -->
     <div class="card">
-      <h3>Lesson 2.1 – DOM Manipulation</h3>
-      <p>Learn how to select, modify, and interact with webpage elements using JavaScript.</p>
-      <a href="lesson2by1.html">Explore Lesson 2.1</a>
+      <h3>Lesson 2.1</h3>
+      <p>Introduction to Variables in AI</p>
+      <a href="lesson2by1.html">Explore</a>
     </div>
+
     <div class="card">
-      <h3>Lesson 2.2 – Advanced Functions</h3>
-      <p>Dive deeper into arrow functions, callback functions, and closures.</p>
-      <a href="lesson2by2.html">Explore Lesson 2.2</a>
+      <h3>Lesson 2.2</h3>
+      <p>Data Types in AI Variables</p>
+      <a href="lesson2by2.html">Explore</a>
     </div>
+
     <div class="card">
-      <h3>Lesson 2.3 – Scope & Hoisting</h3>
-      <p>Understand local/global scope and how JavaScript variables behave.</p>
-      <a href="lesson2by3.html">Explore Lesson 2.3</a>
+      <h3>Lesson 2.3</h3>
+      <p>Working with Strings in AI Data</p>
+      <a href="lesson2by3.html">Explore</a>
     </div>
+
     <div class="card">
-      <h3>Lesson 2.4 – Error Handling & Debugging</h3>
-      <p>Learn try...catch, throw, and effective debugging in AI applications.</p>
-      <a href="lesson2by4.html">Explore Lesson 2.4</a>
+      <h3>Lesson 2.4</h3>
+      <p>Numbers and Math Operations in AI</p>
+      <a href="lesson2by4.html">Explore</a>
     </div>
+
     <div class="card">
-      <h3>Lesson 2.5 – JavaScript Timing & Delays</h3>
-      <p>Use setTimeout, setInterval, and understand asynchronous logic.</p>
-      <a href="lesson2by5.html">Explore Lesson 2.5</a>
+      <h3>Lesson 2.5</h3>
+      <p>Booleans and Logical Operators in AI</p>
+      <a href="lesson2by5.html">Explore</a>
     </div>
+
     <div class="card">
-      <h3>Lesson 2.6 – ES6+ Features</h3>
-      <p>Work with let, const, destructuring, template literals, and spread/rest.</p>
-      <a href="lesson2by6.html">Explore Lesson 2.6</a>
+      <h3>Lesson 2.6</h3>
+      <p>Arrays for Storing AI Data</p>
+      <a href="lesson2by6.html">Explore</a>
     </div>
+
     <div class="card">
-      <h3>Lesson 2.7 – JSON & Data Parsing</h3>
-      <p>Parse, stringify, and work with AI-relevant JSON data structures.</p>
-      <a href="lesson2by7.html">Explore Lesson 2.7</a>
+      <h3>Lesson 2.7</h3>
+      <p>Null and Undefined in AI Data Handling</p>
+      <a href="lesson2by7.html">Explore</a>
     </div>
+
     <div class="card">
-      <h3>Lesson 2.8 – Storage in JavaScript</h3>
-      <p>Explore localStorage, sessionStorage, and cookies to store AI inputs.</p>
-      <a href="lesson2by8.html">Explore Lesson 2.8</a>
+      <h3>Lesson 2.8</h3>
+      <p>Working with Constants in AI Applications</p>
+      <a href="lesson2by8.html">Explore</a>
+    </div>
+
+    <div class="card">
+      <h3>Lesson 2.9</h3>
+      <p>Template Literals for AI Data Formatting</p>
+      <a href="lesson2by9.html">Explore</a>
+    </div>
+
+    <div class="card">
+      <h3>Lesson 2.10</h3>
+      <p>The for Loop for Iterating Over AI Data</p>
+      <a href="lesson2by10.html">Explore</a>
     </div>
   </div>
+
+  <footer>
+    <p>&copy; 2025 AIcodejs - All Rights Reserved</p>
+  </footer>
+
 </body>
 </html>
