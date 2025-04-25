@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 3.4 - DOM Manipulation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 3.4: DOM Manipulation</h1>
+    <p>Interact with web pages using JavaScript</p>
+  </header>
+  <main>
+    <section>
+      <h2>What is the DOM?</h2>
+      <p>The Document Object Model (DOM) represents the page content as a tree of objects. JavaScript can use this to read and modify content, structure, and styling.</p>
+    </section><section>
+  <h2>Common Methods</h2>
+  <ul>
+    <li><code>getElementById()</code> - selects an element by ID</li>
+    <li><code>querySelector()</code> - selects the first matching element</li>
+    <li><code>createElement()</code> - creates a new HTML element</li>
+    <li><code>appendChild()</code> - adds an element to the DOM</li>
+    <li><code>innerHTML</code> - gets or sets HTML content</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Example</h2>
+  <pre><code>document.getElementById("demo").innerHTML = "Hello, DOM!";
+
+const newPara = document.createElement("p"); newPara.textContent = "This is a new paragraph."; document.body.appendChild(newPara);</code></pre> </section>
+
+<section>
+  <h2>Task</h2>
+  <p>Create a button that adds a new list item to a list each time it is clicked.</p>
+</section>
+
+<section>
+  <h2>Test Your Code</h2>
+  <p>Use this interactive area to try DOM examples.</p>
+  <textarea id="codeArea" rows="6" style="width:100%">document.body.style.backgroundColor = "lightyellow";</textarea>
+  <button onclick="runCode()">Run Code</button>
+  <button onclick="clearOutput()">Clear</button>
+  <pre id="output"></pre>
+</section>
+
+  </main>  <script>
+    function runCode() {
+      const code = document.getElementById("codeArea").value;
+      try {
+        const result = eval(code);
+        document.getElementById("output").textContent = result || "Executed Successfully!";
+      } catch (e) {
+        document.getElementById("output").textContent = e.message;
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById("output").textContent = "";
+    }
+  </script></body>
+</html>
