@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 9: DOM Manipulation</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 20px;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .card h3 {
+      color: #34495e;
+      font-size: 1.5em;
+    }
+    .card p {
+      color: #666;
+      font-size: 1rem;
+    }
+    .card a {
+      color: #2980b9;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #2c3e50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Level 9: DOM Manipulation</h1>
+    <p>Control HTML with JavaScript for AI-powered interfaces</p>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Lesson 9.1</h3>
+      <p>Introduction to the DOM</p>
+      <a href="lesson9by1.html">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Lesson 9.2</h3>
+      <p>Manipulating HTML Content</p>
+      <a href="lesson9by2.html">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Lesson 9.3</h3>
+      <p>DOM Events and Event Handling</p>
+      <a href="lesson9by3.html">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Lesson 9.4</h3>
+      <p>Modifying Styles with JavaScript</p>
+      <a href="lesson9by4.html">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Lesson 9.5</h3>
+      <p>Traversing the DOM</p>
+      <a href="lesson9by5.html">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Lesson 9.6</h3>
+      <p>Creating Dynamic Forms with the DOM</p>
+      <a href="lesson9by6.html">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Lesson 9.7</h3>
+      <p>Handling Animations and Transitions</p>
+      <a href="lesson9by7.html">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Lesson 9.8</h3>
+      <p>Managing the DOM with Libraries</p>
+      <a href="lesson9by8.html">Explore</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AIcodejs Lessons | All rights reserved</p>
+  </footer>
+
+</body>
+</html>
