@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asynchronous Programming - Lesson 4.2 | JavaScript for AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 4.2: Asynchronous Programming</h1>
+    <p>Learn how to handle asynchronous tasks in JavaScript using callbacks, promises, and async/await.</p>
+  </header>
+
+  <main class="lesson-content">
+    <section class="lesson-overview">
+      <h2>What You'll Learn:</h2>
+      <ul>
+        <li>Callbacks and their use cases</li>
+        <li>Working with promises</li>
+        <li>Async/Await for cleaner async code</li>
+      </ul>
+      <p>Asynchronous programming allows JavaScript to perform non-blocking operations, which is crucial for AI applications requiring real-time data processing.</p>
+    </section>
+
+    <section class="lesson-details">
+      <h2>Callbacks</h2>
+      <p>A callback is a function passed into another function as an argument to be executed later. Here's an example:</p>
+      <pre><code>
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = "AI Data Loaded";
+    callback(data);
+  }, 1000);
+}
+
+fetchData(function(data) {
+  console.log(data); // Output: "AI Data Loaded"
+});
+      </code></pre>
+      <p>In this example, the function 'fetchData' uses a callback to return data asynchronously after a 1-second delay.</p>
+
+      <h2>Promises</h2>
+      <p>Promises represent the result of an asynchronous operation that may not be completed yet. A promise can be in one of three states: pending, resolved, or rejected. Example:</p>
+      <pre><code>
+const fetchDataPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const data = "AI Data Loaded";
+    resolve(data); // The promise is resolved with data
+  }, 1000);
+});
+
+fetchDataPromise.then(data => {
+  console.log(data); // Output: "AI Data Loaded"
+}).catch(error => {
+  console.error("Error:", error);
+});
+      </code></pre>
+      <p>Here, we use a promise to handle the data asynchronously. If successful, the promise is resolved with the data, and the result is logged to the console.</p>
+
+      <h2>Async/Await</h2>
+      <p>Async/await provides a more readable way to handle asynchronous operations by writing asynchronous code in a synchronous-like manner. Here's an example:</p>
+      <pre><code>
+async function fetchDataAsync() {
+  const data = await fetchDataPromise;
+  console.log(data); // Output: "AI Data Loaded"
+}
+
+fetchDataAsync();
+      </code></pre>
+      <p>In this example, 'await' pauses the execution of the async function until the promise resolves, making it easier to read and write asynchronous code.</p>
+    </section>
+
+    <section class="interactive-quiz">
+      <h2>Interactive Quiz:</h2>
+      <p>Test your understanding of callbacks, promises, and async/await with the following questions:</p>
+      <form id="quizForm">
+        <div>
+          <label for="q1">1. What is a callback in JavaScript?</label>
+          <textarea id="q1" placeholder="Write your answer here..."></textarea>
+        </div>
+        <div>
+          <label for="q2">2. Explain the difference between a resolved and rejected promise.</label>
+          <textarea id="q2" placeholder="Write your answer here..."></textarea>
+        </div>
+        <div>
+          <label for="q3">3. How does async/await improve asynchronous programming?</label>
+          <textarea id="q3" placeholder="Write your answer here..."></textarea>
+        </div>
+        <button type="submit">Submit Answers</button>
+      </form>
+      <div id="quizResults"></div>
+    </section>
+
+    <section class="next-lesson">
+      <p>Ready to move to the next lesson?</p>
+      <a href="lesson4by3.html">Proceed to Lesson 4.3: Error Handling</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AIcodeJS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Handle quiz submission
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const q3 = document.getElementById('q3').value;
+      
+      const result = `
+        <h3>Your Answers:</h3>
+        <p><strong>Q1:</strong> ${q1}</p>
+        <p><strong>Q2:</strong> ${q2}</p>
+        <p><strong>Q3:</strong> ${q3}</p>
+      `;
+      document.getElementById('quizResults').innerHTML = result;
+    });
+  </script>
+</body>
+</html>
