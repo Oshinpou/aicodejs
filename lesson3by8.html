@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 3.8 - Performance Optimization</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 3.8: Performance Optimization</h1>
+    <p>Learn how to optimize your JavaScript code for better performance, especially in AI computations.</p>
+  </header>
+
+  <main class="lesson-content">
+    <section>
+      <h2>Why Optimize?</h2>
+      <p>Performance optimization ensures your application runs efficiently, uses fewer resources, and handles larger AI operations smoothly.</p>
+    </section>
+
+    <section>
+      <h2>Tips for Optimizing JavaScript</h2>
+      <ul>
+        <li><strong>Avoid unnecessary computations:</strong> Cache results if possible.</li>
+        <li><strong>Use efficient loops:</strong> Prefer <code>for</code> or <code>forEach</code> for clarity and speed.</li>
+        <li><strong>Minimize DOM access:</strong> Accessing the DOM is expensive; cache selectors.</li>
+        <li><strong>Limit global variables:</strong> Scope your variables properly.</li>
+        <li><strong>Debounce & throttle:</strong> Use these techniques for input-heavy events like scrolling or resizing.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example: Optimized Loop</h2>
+      <pre><code>
+const numbers = Array.from({ length: 100000 }, (_, i) => i);
+let sum = 0;
+
+// Unoptimized
+for (let i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+
+// Optimized
+let len = numbers.length;
+for (let i = 0; i < len; i++) {
+  sum += numbers[i];
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Task</h2>
+      <p>Try optimizing this code:</p>
+      <pre><code>
+function slowFunction(data) {
+  let total = 0;
+  for (let i = 0; i < data.length; i++) {
+    total += data[i];
+  }
+  return total;
+}
+
+const result = slowFunction([1,2,3,4,5,6,7,8,9,10]);
+console.log(result);
+      </code></pre>
+      <p><strong>Hint:</strong> Can you reduce computations or memory usage?</p>
+    </section>
+
+    <section>
+      <h2>Try It Yourself</h2>
+      <textarea id="perfInput" rows="6" style="width:100%;">// Write your optimized code here</textarea><br/>
+      <button onclick="runPerf()">Run & Check</button>
+      <h3>Output:</h3>
+      <pre id="perfOutput"></pre>
+    </section>
+  </main>
+
+  <script>
+    function runPerf() {
+      const code = document.getElementById('perfInput').value;
+      const output = document.getElementById('perfOutput');
+      output.textContent = '';
+      try {
+        const result = new Function(code)();
+        if (result !== undefined) output.textContent += 'Result: ' + result + '\n';
+      } catch (err) {
+        output.textContent += 'Error: ' + err.message + '\n';
+      }
+    }
+  </script>
+</body>
+</html>
