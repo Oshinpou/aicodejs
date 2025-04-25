@@ -3,42 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Level 4: Advanced JavaScript Lessons</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Level 4 Lessons</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #2b2d42;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #2b2d42;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.5rem 1rem;
+      background-color: #ef233c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .card a:hover {
+      background-color: #d90429;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #edf2f4;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Level 4: Advanced JavaScript Lessons</h1>
-    <p>Advanced concepts of JavaScript programming for AI and optimization techniques.</p>
+    <h1>Level 4: JavaScript Intermediate Lessons</h1>
+    <p>Dive deeper into the workings of JavaScript logic and interactivity.</p>
   </header>
 
-  <main class="lesson-cards">
+  <main>
     <div class="grid" id="lessonGrid">
-      <!-- Product cards for Level 4 lessons will be injected here -->
-      <script>
-        const lessons = [
-          { id: 1, title: "Advanced Functions", subtitle: "Explore closures, currying, and higher-order functions" },
-          { id: 2, title: "Asynchronous Programming", subtitle: "Master Promises, Async/Await, and concurrency in AI tasks" },
-          { id: 3, title: "Error Handling & Debugging", subtitle: "Learn best practices for managing errors in large codebases" },
-          { id: 4, title: "Web APIs", subtitle: "Introduction to browser APIs for AI interactions like Web Workers and WebSockets" },
-          { id: 5, title: "Algorithms & Data Structures", subtitle: "Optimize sorting, searching, and algorithmic logic for AI tasks" },
-          { id: 6, title: "Memory Management & Optimization", subtitle: "Learn memory usage optimization for JavaScript in AI" },
-          { id: 7, title: "Modular Programming", subtitle: "Organizing JavaScript for scalable AI code using modules" },
-          { id: 8, title: "Working with WebAssembly (Wasm)", subtitle: "Running high-performance code for AI and machine learning tasks" }
-        ];
-
-        const grid = document.getElementById("lessonGrid");
-        lessons.forEach(lesson => {
-          grid.innerHTML += `
-            <div class="card">
-              <h3>${lesson.title}</h3>
-              <p>${lesson.subtitle}</p>
-              <a href="lesson${lesson.id}by1.html">Explore Lesson ${lesson.id}</a>
-            </div>
-          `;
-        });
-      </script>
+      <div class="card">
+        <h3>Lesson 4.1: JavaScript Timing Events</h3>
+        <p>Learn setTimeout and setInterval</p>
+        <a href="lesson4by1.html">Explore Lesson 4.1</a>
+      </div>
+      <div class="card">
+        <h3>Lesson 4.2: DOM Manipulation Basics</h3>
+        <p>Change content and styles dynamically</p>
+        <a href="lesson4by2.html">Explore Lesson 4.2</a>
+      </div>
+      <div class="card">
+        <h3>Lesson 4.3: Working with Forms</h3>
+        <p>Get data from input fields and forms</p>
+        <a href="lesson4by3.html">Explore Lesson 4.3</a>
+      </div>
+      <div class="card">
+        <h3>Lesson 4.4: Keyboard & Mouse Events</h3>
+        <p>Capture and respond to user input</p>
+        <a href="lesson4by4.html">Explore Lesson 4.4</a>
+      </div>
+      <div class="card">
+        <h3>Lesson 4.5: Building a Counter App</h3>
+        <p>Use buttons and logic to count</p>
+        <a href="lesson4by5.html">Explore Lesson 4.5</a>
+      </div>
+      <div class="card">
+        <h3>Lesson 4.6: Project: AI Dice Game</h3>
+        <p>Make a fun dice game using random numbers</p>
+        <a href="lesson4by6.html">Explore Lesson 4.6</a>
+      </div>
+      <div class="card">
+        <h3>Lesson 4.7: Quiz: DOM & Events</h3>
+        <p>Check your knowledge with questions</p>
+        <a href="lesson4by7.html">Explore Lesson 4.7</a>
+      </div>
+      <div class="card">
+        <h3>Lesson 4.8: Introduction to Local Storage</h3>
+        <p>Save data in your browser</p>
+        <a href="lesson4by8.html">Explore Lesson 4.8</a>
+      </div>
     </div>
   </main>
+
+  <footer>
+    <p>&copy; 2025 AIcodeJS. All rights reserved.</p>
+  </footer>
 </body>
 </html>
