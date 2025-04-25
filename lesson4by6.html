@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Handling - Lesson 4.6 | JavaScript for AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 4.6: Error Handling</h1>
+    <p>Learn how to handle errors in JavaScript using try-catch, throw, and custom error handling mechanisms.</p>
+  </header>
+
+  <main class="lesson-content">
+    <section class="lesson-overview">
+      <h2>What You'll Learn:</h2>
+      <ul>
+        <li>How to handle errors in JavaScript with try-catch</li>
+        <li>Throw custom errors to handle specific conditions</li>
+        <li>Best practices for error handling in asynchronous code</li>
+      </ul>
+      <p>Error handling is essential to building robust applications. In this lesson, you will learn how to deal with errors in JavaScript and ensure your application doesn’t break due to unhandled exceptions.</p>
+    </section>
+
+    <section class="lesson-details">
+      <h2>Using Try-Catch Blocks</h2>
+      <p>The try-catch statement allows you to test a block of code for errors and handle them gracefully:</p>
+      <pre><code>
+try {
+  // Code that may throw an error
+  let result = riskyFunction();
+} catch (error) {
+  // Handle the error
+  console.error("An error occurred:", error);
+}
+      </code></pre>
+      <p>If an error occurs inside the try block, the catch block is executed, and you can log or handle the error accordingly.</p>
+
+      <h2>Throwing Custom Errors</h2>
+      <p>Sometimes, you may need to throw your own errors to handle specific situations in your code:</p>
+      <pre><code>
+function validateAge(age) {
+  if (age < 18) {
+    throw new Error("Age must be 18 or older");
+  }
+  return "Valid age";
+}
+
+try {
+  console.log(validateAge(15));
+} catch (error) {
+  console.error(error.message);
+}
+      </code></pre>
+      <p>The <code>throw</code> statement is used to create custom error messages when conditions aren’t met.</p>
+
+      <h2>Handling Errors in Asynchronous Code</h2>
+      <p>When working with asynchronous code, error handling becomes even more important. Here’s how you can handle errors in promises and async functions:</p>
+      <pre><code>
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("Failed to fetch data");
+    }, 1000);
+  });
+}
+
+fetchData().catch((error) => {
+  console.error(error); // "Failed to fetch data"
+});
+
+async function fetchDataAsync() {
+  try {
+    let response = await fetchData();
+    console.log(response);
+  } catch (error) {
+    console.error("Error in async function:", error);
+  }
+}
+      </code></pre>
+      <p>In asynchronous code, you can handle errors using the <code>catch()</code> method for promises and the <code>try-catch</code> block for async functions.</p>
+    </section>
+
+    <section class="interactive-quiz">
+      <h2>Interactive Quiz:</h2>
+      <p>Test your understanding of error handling with the following questions:</p>
+      <form id="quizForm">
+        <div>
+          <label for="q1">1. How do you handle errors in synchronous JavaScript code?</label>
+          <textarea id="q1" placeholder="Write your answer here..."></textarea>
+        </div>
+        <div>
+          <label for="q2">2. What is the purpose of the throw statement in JavaScript?</label>
+          <textarea id="q2" placeholder="Write your answer here..."></textarea>
+        </div>
+        <div>
+          <label for="q3">3. How do you handle errors in asynchronous JavaScript code?</label>
+          <textarea id="q3" placeholder="Write your answer here..."></textarea>
+        </div>
+        <button type="submit">Submit Answers</button>
+      </form>
+      <div id="quizResults"></div>
+    </section>
+
+    <section class="next-lesson">
+      <p>Ready to move to the next lesson?</p>
+      <a href="lesson4by7.html">Proceed to Lesson 4.7: Working with APIs</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AIcodeJS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Handle quiz submission
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const q3 = document.getElementById('q3').value;
+      
+      const result = `
+        <h3>Your Answers:</h3>
+        <p><strong>Q1:</strong> ${q1}</p>
+        <p><strong>Q2:</strong> ${q2}</p>
+        <p><strong>Q3:</strong> ${q3}</p>
+      `;
+      document.getElementById('quizResults').innerHTML = result;
+    });
+  </script>
+</body>
+</html>
