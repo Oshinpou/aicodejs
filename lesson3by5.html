@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 3.5 - Introduction to ES6</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 3.5: Introduction to ES6</h1>
+    <p>Explore modern JavaScript features and syntax.</p>
+  </header>  <main>
+    <section>
+      <h2>Overview</h2>
+      <p>ECMAScript 6 (ES6) introduced many new features that significantly improve JavaScript development. Let's go over some core features.</p>
+    </section><section>
+  <h2>Key ES6 Features</h2>
+  <ul>
+    <li><strong>Let & Const:</strong> Block-scoped variable declarations</li>
+    <li><strong>Arrow Functions:</strong> Compact syntax for function expressions</li>
+    <li><strong>Template Literals:</strong> Multi-line strings and embedded expressions</li>
+    <li><strong>Destructuring:</strong> Extract values from arrays or objects</li>
+    <li><strong>Default Parameters:</strong> Default values in function parameters</li>
+    <li><strong>Spread & Rest:</strong> Spread operator and rest parameters</li>
+    <li><strong>Classes:</strong> Cleaner way to create objects and inheritance</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Task</h2>
+  <p>Create a function using arrow syntax that accepts two parameters and returns their sum. Use <code>const</code> for declaration.</p>
+  <pre><code>// Your Code Here
+
+const add = (a, b) => a + b; console.log(add(4, 5)); // Output: 9</code></pre> </section>
+
+<section>
+  <h2>Try It Yourself</h2>
+  <textarea id="codeArea" rows="8" cols="50">const greet = name => `Hello, ${name}!`;
+
+console.log(greet("World"));</textarea> <br /> <button onclick="runCode()">Run Code</button> <button onclick="clearOutput()">Clear Output</button> <pre id="output"></pre> </section>
+
+  </main>  <footer>
+    <p>AIcodejs Course - Lesson 3.5</p>
+  </footer>  <script>
+    function runCode() {
+      const code = document.getElementById("codeArea").value;
+      const output = document.getElementById("output");
+      try {
+        const result = eval(code);
+        output.textContent += `\n${result}`;
+      } catch (e) {
+        output.textContent += `\nError: ${e.message}`;
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById("output").textContent = "";
+    }
+  </script></body>
+</html>
