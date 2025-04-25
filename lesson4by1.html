@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Functions - Lesson 4.1 | JavaScript for AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Lesson 4.1: Advanced Functions</h1>
+    <p>Learn closures, currying, and higher-order functions in JavaScript to enhance AI logic and efficiency.</p>
+  </header>
+
+  <main class="lesson-content">
+    <section class="lesson-overview">
+      <h2>What You'll Learn:</h2>
+      <ul>
+        <li>Closures in JavaScript</li>
+        <li>Function Currying</li>
+        <li>Higher-Order Functions</li>
+      </ul>
+      <p>This lesson covers advanced concepts of JavaScript functions that are crucial for writing efficient, reusable, and modular code in AI applications.</p>
+    </section>
+
+    <section class="lesson-details">
+      <h2>Closures</h2>
+      <p>A closure is a function that retains access to its lexical scope, even when the function is executed outside that scope. Let's look at an example:</p>
+      <pre><code>
+function outer() {
+  let counter = 0;
+
+  return function inner() {
+    counter++;
+    console.log(counter);
+  }
+}
+
+const increment = outer(); // 'increment' is the closure
+increment(); // Output: 1
+increment(); // Output: 2
+      </code></pre>
+      <p>In the above example, the inner function retains access to the variable 'counter' defined in the outer function, even after the outer function has executed.</p>
+
+      <h2>Function Currying</h2>
+      <p>Currying is the technique of transforming a function that takes multiple arguments into a sequence of functions, each taking a single argument. Here's an example:</p>
+      <pre><code>
+function multiply(a) {
+  return function(b) {
+    return a * b;
+  }
+}
+
+const multiplyBy2 = multiply(2);
+console.log(multiplyBy2(5)); // Output: 10
+      </code></pre>
+      <p>In the above example, the multiply function is curried, and we create a new function 'multiplyBy2' that always multiplies any input by 2.</p>
+
+      <h2>Higher-Order Functions</h2>
+      <p>A higher-order function is a function that either takes one or more functions as arguments, returns a function as a result, or both. For example:</p>
+      <pre><code>
+function processData(data, operation) {
+  return operation(data);
+}
+
+function square(x) {
+  return x * x;
+}
+
+console.log(processData(5, square)); // Output: 25
+      </code></pre>
+      <p>Here, 'processData' is a higher-order function that accepts a function ('square') as an argument and applies it to the data.</p>
+    </section>
+
+    <section class="interactive-quiz">
+      <h2>Interactive Quiz:</h2>
+      <p>Test your knowledge of closures, currying, and higher-order functions with the following questions:</p>
+      <form id="quizForm">
+        <div>
+          <label for="q1">1. What is a closure in JavaScript?</label>
+          <textarea id="q1" placeholder="Write your answer here..."></textarea>
+        </div>
+        <div>
+          <label for="q2">2. How does currying benefit function calls?</label>
+          <textarea id="q2" placeholder="Write your answer here..."></textarea>
+        </div>
+        <div>
+          <label for="q3">3. What is a higher-order function? Provide an example.</label>
+          <textarea id="q3" placeholder="Write your answer here..."></textarea>
+        </div>
+        <button type="submit">Submit Answers</button>
+      </form>
+      <div id="quizResults"></div>
+    </section>
+
+    <section class="next-lesson">
+      <p>Ready to move to the next lesson?</p>
+      <a href="lesson4by2.html">Proceed to Lesson 4.2: Asynchronous Programming</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AIcodeJS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Handle quiz submission
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const q3 = document.getElementById('q3').value;
+      
+      const result = `
+        <h3>Your Answers:</h3>
+        <p><strong>Q1:</strong> ${q1}</p>
+        <p><strong>Q2:</strong> ${q2}</p>
+        <p><strong>Q3:</strong> ${q3}</p>
+      `;
+      document.getElementById('quizResults').innerHTML = result;
+    });
+  </script>
+</body>
+</html>
