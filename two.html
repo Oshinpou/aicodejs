@@ -9,81 +9,91 @@
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f2f2f7;
+      background-color: #f5f7fb;
       display: flex;
       flex-direction: column;
       height: 100vh;
+      color: #333;
     }
     header {
-      background-color: #2c3e50;
-      padding: 20px;
+      background-color: #1e2a47;
+      padding: 40px;
       text-align: center;
       color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    h1 {
+    header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em;
+      font-weight: 600;
     }
-    h2 {
-      margin-top: 5px;
+    header h2 {
       font-size: 1.2em;
+      margin-top: 10px;
+      font-weight: 400;
     }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 30px;
       padding: 40px;
       max-width: 1200px;
       margin: auto;
       overflow-y: auto;
       flex-grow: 1;
+      box-sizing: border-box;
     }
     .card {
       background-color: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-      height: 250px;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 280px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      text-align: center;
+      overflow: hidden;
     }
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
     .card h3 {
       margin-top: 0;
       color: #34495e;
-      font-size: 1.5em;
+      font-size: 1.8em;
+      font-weight: 500;
     }
     .card p {
-      color: #666;
+      color: #777;
       font-size: 1rem;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      line-height: 1.4;
     }
     .card a {
       display: inline-block;
-      padding: 10px;
+      padding: 12px 20px;
       background-color: #2980b9;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: bold;
+      border-radius: 25px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
     }
     .card a:hover {
       background-color: #1f618d;
     }
     footer {
-      background-color: #2c3e50;
+      background-color: #1e2a47;
       color: white;
       text-align: center;
-      padding: 10px;
-      position: sticky;
-      bottom: 0;
-      width: 100%;
+      padding: 15px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 0.9em;
     }
   </style>
 </head>
