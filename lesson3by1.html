@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.1 - DOM Manipulation for AI Interfaces</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+    code {
+      font-family: monospace;
+    }
+    .task {
+      background: #eef;
+      padding: 15px;
+      border-left: 5px solid #66f;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lesson 3.1: DOM Manipulation for AI Interfaces</h1><p>Welcome to Level 3! In this lesson, you'll dive into DOM manipulation techniques to make your web pages interactive and responsive — a key part of building smart AI interfaces.</p>
+
+<h2>What is the DOM?</h2>
+<p>The Document Object Model (DOM) represents the structure of an HTML document as a tree of objects. You can use JavaScript to select and modify these objects in real-time.</p>
+
+<h2>Selectors</h2>
+<p>You can select elements using methods like <code>getElementById</code>, <code>querySelector</code>, and <code>getElementsByClassName</code>.</p>
+
+<pre><code>// Select an element
+
+const title = document.getElementById('main-title'); title.textContent = "Welcome to AI!";</code></pre>
+
+<h2>Modifying Content</h2>
+<p>You can change content and style dynamically using JavaScript:</p>
+<pre><code>document.querySelector(".subtitle").style.color = "blue";
+
+document.querySelector(".subtitle").textContent = "AI is Learning You.";</code></pre>
+
+<h2>Creating Elements</h2>
+<pre><code>const newDiv = document.createElement("div");
+
+newDiv.textContent = "I'm a new AI-generated element!"; document.body.appendChild(newDiv);</code></pre>
+
+<div class="task">
+  <strong>Task:</strong> Create a button that, when clicked, adds a new paragraph with the text "Hello AI World!" to a container div.
+</div>
+
+<h2>Example:</h2>
+<pre><code>// HTML
+
+<div id="outputContainer"></div> <button onclick="addText()">Add Text</button>
+
+// JavaScript function addText() { const p = document.createElement('p'); p.textContent = "Hello AI World!"; document.getElementById("outputContainer").appendChild(p); }</code></pre>
+
+<p>That's it for Lesson 3.1. Practice adding, removing, and modifying DOM elements using JavaScript to simulate AI responses and actions!</p>
+
+  </div>
+</body>
+</html>
