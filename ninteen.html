@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 19: Fetch API & AJAX</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fb;
+    }
+    header {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .card {
+      background-color: #fff;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card-header {
+      background-color: #3498db;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+    }
+    .card-body {
+      padding: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+    .card-footer {
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
+    }
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Level 19: Fetch API & AJAX</h1>
+  <p>Connect your AI to live data through APIs.</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.1: Introduction to Fetch API
+    </div>
+    <div class="card-body">
+      <p>Learn the basics of the Fetch API and how it allows you to make network requests in JavaScript.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by1.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.2: Making GET Requests with Fetch
+    </div>
+    <div class="card-body">
+      <p>Learn how to make GET requests using the Fetch API and work with JSON data.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by2.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.3: Working with Query Parameters
+    </div>
+    <div class="card-body">
+      <p>Learn how to send parameters with a Fetch request to filter data.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by3.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.4: Making POST Requests with Fetch
+    </div>
+    <div class="card-body">
+      <p>Learn how to send data to a server using POST requests with Fetch API.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by4.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.5: Using async/await with Fetch
+    </div>
+    <div class="card-body">
+      <p>Simplify asynchronous code with async/await when working with Fetch API.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by5.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.6: Introduction to AJAX
+    </div>
+    <div class="card-body">
+      <p>Understand the fundamentals of AJAX (Asynchronous JavaScript and XML) and how it works.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by6.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.7: Handling Response Types in Fetch & AJAX
+    </div>
+    <div class="card-body">
+      <p>Learn how to handle different response types (JSON, text, etc.) when making requests.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by7.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.8: Updating the UI with Fetched Data
+    </div>
+    <div class="card-body">
+      <p>Learn how to dynamically update the user interface with data fetched from APIs.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by8.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.9: Error Handling in AJAX and Fetch
+    </div>
+    <div class="card-body">
+      <p>Learn how to handle errors gracefully in asynchronous JavaScript operations.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by9.html">Go to Lesson</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Lesson 19.10: Real-World Project: Building a Weather App
+    </div>
+    <div class="card-body">
+      <p>Use what you have learned about Fetch API and AJAX to build a weather app that fetches live data from a weather API.</p>
+    </div>
+    <div class="card-footer">
+      <a href="lesson19by10.html">Go to Lesson</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 JavaScript AI Learning Platform | All rights reserved.</p>
+</footer>
+
+</body>
+</html>
