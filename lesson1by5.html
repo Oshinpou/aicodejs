@@ -1,70 +1,411 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 1.5 - Loops</title>
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
-    h1, h2 { color: #2c3e50; }
-    code { background: #ecf0f1; padding: 2px 5px; border-radius: 4px; display: block; margin: 10px 0; }
-    .task, .quiz, .summary { margin-top: 30px; }
-    .quiz ul { list-style-type: none; padding-left: 0; }
-    .quiz li { margin: 8px 0; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5: Loops in AI Logic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin: 10px 0;
+        }
+
+        .task, .quiz, .example {
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .task h3, .quiz h3, .example h3 {
+            color: #333;
+        }
+
+        .task p, .quiz p, .example p {
+            color: #555;
+        }
+
+        .code-block {
+            background-color: #282c34;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .input-output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #eaeaea;
+            border-radius: 5px;
+        }
+
+        .input-output button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .input-output input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+
+        .input-output pre {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+    </style>
 </head>
 <body>
-  <h1>Lesson 1.5: Loops</h1>
-  <h2>while, for, and loop control in AI code</h2>  <p>Loops allow you to repeat a block of code multiple times. In AI programming, you might loop through data sets, repeat training processes, or iterate over input combinations.</p>  <h2>1. while Loop</h2>
-  <p>The <code>while</code> loop runs a block of code as long as a condition is true.</p>
-  <code>
-    let count = 0;
-    while (count < 3) {
-      console.log("AI Cycle " + count);
-      count++;
-    }
-  </code>  <h2>2. for Loop</h2>
-  <p>The <code>for</code> loop gives you more control with an initializer, condition, and incrementer.</p>
-  <code>
-    for (let i = 0; i < 3; i++) {
-      console.log("Training round: " + i);
-    }
-  </code>  <h2>3. Loop Control: break and continue</h2>
-  <p>Use <code>break</code> to exit a loop early. Use <code>continue</code> to skip the current iteration.</p>
-  <code>
-    for (let i = 0; i < 5; i++) {
-      if (i === 2) continue;
-      if (i === 4) break;
-      console.log(i);
-    }
-  </code>  <div class="task">
-    <h2>Task</h2>
-    <p>Create a <code>for</code> loop that prints numbers 1 to 10 but skips 5 and stops at 8.</p>
-  </div>  <div class="quiz">
-    <h2>Quiz</h2>
-    <p>1. What is the output of this code?</p>
-    <code>
-      let x = 0;
-      while (x < 2) {
-        console.log(x);
-        x++;
-      }
-    </code>
-    <ul>
-      <li>A) 1, 2</li>
-      <li>B) 0, 1</li>
-      <li>C) 0, 1, 2</li>
-      <li>D) 1, 2, 3</li>
-    </ul><p>2. What keyword skips one iteration in a loop?</p>
-<ul>
-  <li>A) skip</li>
-  <li>B) continue</li>
-  <li>C) break</li>
-  <li>D) jump</li>
-</ul>
 
-  </div>  <div class="summary">
-    <h2>Summary</h2>
-    <p>You now know how to use <code>while</code>, <code>for</code> loops, and control them using <code>break</code> and <code>continue</code>. This is essential for handling repeated operations in your AI logic.</p>
-  </div>
+<header>
+    <h1>Lesson 5: Loops in AI Logic</h1>
+    <p>Train your AI to repeat tasks efficiently with loops. Control repetition in your program.</p>
+</header>
+
+<div class="content">
+    <section>
+        <h2 class="section-title">Concepts of Loops</h2>
+        <ul class="feature-list">
+            <li>1. What is a loop?</li>
+            <li>2. Importance of loops in programming.</li>
+            <li>3. Types of loops in JavaScript.</li>
+            <li>4. While loop basics.</li>
+            <li>5. Do...while loop basics.</li>
+            <li>6. For loop basics.</li>
+            <li>7. Infinite loops (how to avoid them).</li>
+            <li>8. Loop control: break.</li>
+            <li>9. Loop control: continue.</li>
+            <li>10. Nested loops introduction.</li>
+        </ul>
+    </section>
+
+    <section class="task">
+        <h3>Task 1: Basic Loop</h3>
+        <p>Write a simple `for` loop that counts from 1 to 5 and prints each number to the console.</p>
+        <div class="code-block">
+            <pre>
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+            </pre>
+        </div>
+    </section>
+
+    <section class="quiz">
+        <h3>Quiz 1: Loop Basics</h3>
+        <p>What is the purpose of a loop in programming?</p>
+        <p>1. To repeat tasks until a condition is met.</p>
+        <p>2. To run only once.</p>
+        <p>3. To create an infinite program.</p>
+        <p>Answer: <strong>1. To repeat tasks until a condition is met.</strong></p>
+    </section>
+
+    <section class="example">
+        <h3>Example 1: While Loop</h3>
+        <p>In this example, a `while` loop is used to count down from 10 to 1.</p>
+        <div class="code-block">
+            <pre>
+let count = 10;
+while (count >= 1) {
+    console.log(count);
+    count--;
+}
+            </pre>
+        </div>
+    </section>
+
+    <section class="input-output">
+        <h3>Try It Yourself: For Loop</h3>
+        <p>Use the following input to test the loop:</p>
+        <input type="text" id="inputCount" placeholder="Enter a number (e.g., 5)">
+        <button onclick="runLoop()">Run Loop</button>
+        <pre id="outputResult"></pre>
+    </section>
+
+    <section>
+        <h2 class="section-title">While Loops</h2>
+        <ul class="feature-list">
+            <li>11. Syntax of while loop.</li>
+            <li>12. Simple counter example.</li>
+            <li>13. Using conditions inside while loop.</li>
+            <li>14. Common mistakes in while loops.</li>
+            <li>15. Breaking a while loop manually.</li>
+            <li>16. Using user input in while loops.</li>
+            <li>17. Looping until a correct answer.</li>
+            <li>18. Summing numbers with while.</li>
+            <li>19. Iterating over array with while.</li>
+            <li>20. Creating countdown timers.</li>
+        </ul>
+    </section>
+
+    <section class="task">
+        <h3>Task 2: While Loop</h3>
+        <p>Write a `while` loop that sums numbers from 1 to a user input value and prints the total.</p>
+        <div class="code-block">
+            <pre>
+let sum = 0;
+let number = prompt("Enter a number to sum up to:");
+let i = 1;
+while (i <= number) {
+    sum += i;
+    i++;
+}
+console.log("The total sum is: " + sum);
+            </pre>
+        </div>
+    </section>
+
+    <section class="example">
+        <h3>Example 2: Do...While Loop</h3>
+        <p>The `do...while` loop is guaranteed to execute at least once, even if the condition is false at the start.</p>
+        <div class="code-block">
+            <pre>
+let number = 0;
+do {
+    number = prompt("Enter a number greater than 10:");
+} while (number <= 10);
+console.log("You entered a valid number: " + number);
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">For Loops</h2>
+        <ul class="feature-list">
+            <li>31. Syntax of for loop.</li>
+            <li>32. Components of for loop (init; condition; increment).</li>
+            <li>33. Simple for loop counter example.</li>
+            <li>34. Decrementing loops.</li>
+            <li>35. For loops iterating over arrays.</li>
+            <li>36. For loops with conditionals inside.</li>
+            <li>37. Summing values with for loops.</li>
+            <li>38. Creating multiplication tables.</li>
+            <li>39. Nested for loops example.</li>
+            <li>40. Using continue and break in for loops.</li>
+        </ul>
+    </section>
+
+    <section class="task">
+        <h3>Task 3: For Loop with Array</h3>
+        <p>Write a `for` loop that loops through an array of numbers and prints the square of each number.</p>
+        <div class="code-block">
+            <pre>
+let numbers = [1, 2, 3, 4, 5];
+for (let i = 0; i < numbers.length; i++) {
+    console.log(numbers[i] * numbers[i]);
+}
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Nested Loops</h2>
+        <ul class="feature-list">
+            <li>41. What is a nested loop?</li>
+            <li>42. How to create nested loops.</li>
+            <li>43. Iterating over multi-dimensional arrays using nested loops.</li>
+            <li>44. Understanding performance issues with nested loops.</li>
+            <li>45. Use cases for nested loops.</li>
+            <li>46. Example: Printing multiplication tables with nested loops.</li>
+            <li>47. Nested loops inside a while loop.</li>
+            <li>48. Practical example: Traversing a matrix.</li>
+            <li>49. Breaking nested loops with a flag.</li>
+            <li>50. Exiting from multiple nested loops.</li>
+        </ul>
+    </section>
+
+    <section class="task">
+        <h3>Task 4: Nested Loop</h3>
+        <p>Write a nested loop to print a multiplication table for numbers 1 to 5.</p>
+        <div class="code-block">
+            <pre>
+for (let i = 1; i <= 5; i++) {
+    for (let j = 1; j <= 5; j++) {
+        console.log(i * j);
+    }
+}
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Loop Control</h2>
+        <ul class="feature-list">
+            <li>51. Using `break` to exit a loop.</li>
+            <li>52. Using `continue` to skip an iteration.</li>
+            <li>53. Labeling loops with `break` and `continue`.</li>
+            <li>54. Controlling infinite loops using `break`.</li>
+            <li>55. Performance concerns with loop control.</li>
+            <li>56. Using flags to control loops.</li>
+            <li>57. Break out of multiple nested loops.</li>
+            <li>58. Examples: Exiting a loop after a condition is met.</li>
+            <li>59. Handling user input in infinite loops with break.</li>
+            <li>60. Nested loops with break and continue.</li>
+        </ul>
+    </section>
+
+    <section class="task">
+        <h3>Task 5: Break and Continue</h3>
+        <p>Write a loop that prints numbers from 1 to 10, but skips numbers that are divisible by 3.</p>
+        <div class="code-block">
+            <pre>
+for (let i = 1; i <= 10; i++) {
+    if (i % 3 === 0) {
+        continue;
+    }
+    console.log(i);
+}
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Advanced Loop Topics</h2>
+        <ul class="feature-list">
+            <li>61. Using `forEach` method with arrays.</li>
+            <li>62. Looping through objects in JavaScript.</li>
+            <li>63. `for...in` loop for object properties.</li>
+            <li>64. `for...of` loop for array iteration.</li>
+            <li>65. Using `map`, `filter`, and `reduce` for array transformations.</li>
+            <li>66. Efficient looping in large datasets.</li>
+            <li>67. Parallel iteration with asynchronous operations.</li>
+            <li>68. Looping over strings in JavaScript.</li>
+            <li>69. Performance comparison between different loops.</li>
+            <li>70. Recursion vs loops: when to use each.</li>
+        </ul>
+    </section>
+
+    <section class="task">
+        <h3>Task 6: Array Iteration</h3>
+        <p>Write a function that takes an array of names and returns the list of names that have more than 5 characters using a loop.</p>
+        <div class="code-block">
+            <pre>
+let names = ["Alice", "Bob", "Charlie", "David"];
+let longNames = [];
+
+for (let i = 0; i < names.length; i++) {
+    if (names[i].length > 5) {
+        longNames.push(names[i]);
+    }
+}
+console.log(longNames);
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Practical Use Cases for Loops</h2>
+        <ul class="feature-list">
+            <li>71. Loops for creating countdown timers.</li>
+            <li>72. Loops for generating random numbers.</li>
+            <li>73. Loops for looping through DOM elements.</li>
+            <li>74. Using loops to create dynamic HTML content.</li>
+            <li>75. Loops for calculating factorials of numbers.</li>
+            <li>76. Loops for implementing search algorithms.</li>
+            <li>77. Loops for sorting arrays.</li>
+            <li>78. Loops for creating animations in JavaScript.</li>
+            <li>79. Loops for handling game loops in AI.</li>
+            <li>80. Loops for managing real-time data updates in apps.</li>
+        </ul>
+    </section>
+
+    <section class="task">
+        <h3>Task 7: Factorial Calculation</h3>
+        <p>Write a loop to calculate the factorial of a number entered by the user.</p>
+        <div class="code-block">
+            <pre>
+let number = prompt("Enter a number:");
+let factorial = 1;
+
+for (let i = 1; i <= number; i++) {
+    factorial *= i;
+}
+
+console.log("The factorial of " + number + " is: " + factorial);
+            </pre>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Conclusion and Summary</h2>
+        <p>In this lesson, you learned the essential concepts of loops in JavaScript, including various types of loops (for, while, do-while), and how to control the flow of execution with `break` and `continue`. You also saw examples of nested loops and advanced use cases, such as iterating over arrays, objects, and dynamically updating the DOM.</p>
+        <p>Loops are crucial in AI and programming in general for efficient data manipulation, repetitive tasks, and optimizing code. Practice using loops to control repetitions in your applications and develop more complex algorithms.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Learn AI with JavaScript. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function runLoop() {
+            const input = document.getElementById('inputCount').value;
+            const output = document.getElementById('outputResult');
+            let result = '';
+            if (input && !isNaN(input)) {
+                for (let i = 1; i <= input; i++) {
+                    result += `Looping number: ${i}\n`;
+                }
+                output.textContent = result;
+            } else {
+                output.textContent = 'Please enter a valid number!';
+            }
+        }
+    </script>
+
 </body>
-</html>
+    </html>
