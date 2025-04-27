@@ -5,6 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 1: Getting Started - AIcodeJS</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    function runCode() {
+      const code = document.getElementById('codeInput').value;
+      try {
+        const output = eval(code);
+        document.getElementById('outputResult').innerHTML = output;
+      } catch (error) {
+        document.getElementById('outputResult').innerHTML = 'Error: ' + error.message;
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById('codeInput').value = '';
+      document.getElementById('outputResult').innerHTML = '';
+    }
+  </script>
+
+<style>
+
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 2.5em;
+}
+
+#logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lesson-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  color: #333;
+}
+
+pre {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1.1em;
+  overflow-x: auto;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-size: 1.1em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+footer ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input[type="radio"] {
+  margin-right: 5px;
+}
+
+pre code {
+  font-family: 'Courier New', Courier, monospace;
+}
+</style>
 </head>
 <body>
 
@@ -20,9 +156,6 @@
     <section class="lesson-content">
       <h2>Lesson Overview</h2>
       <p>In this lesson, you will set up your JavaScript development environment and write your first JavaScript program. By the end of this lesson, you'll understand how JavaScript interacts with AI systems, and you'll have written a simple AI program!</p>
-
-      <h2>Getting Started with Your First JavaScript Program</h2>
-      <p>To begin with, you'll need to open a browser console or use an online code editor like <a href="https://codepen.io/" target="_blank">CodePen</a> or <a href="https://jsfiddle.net/" target="_blank">JSFiddle</a>. JavaScript code is executed in the browser, which makes it easy to test and see results immediately.</p>
 
       <h3>1. Example Task: Print "Hello World" to the Console</h3>
       <p>In JavaScript, the simplest way to interact with the user is by printing text to the console. Let's write the first piece of code:</p>
@@ -44,29 +177,17 @@
       <p>Output: The console will display:</p>
       <pre><code>Hello, AI!</code></pre>
 
-      <h3>3. Example Task: Basic Math with Variables</h3>
-      <p>In JavaScript, you can also perform mathematical operations with variables:</p>
+      <h3>3. Interactive Code Input Area</h3>
+      <p>Try writing your own code below to practice JavaScript! Enter your code in the text area and click "Run Code" to see the result.</p>
 
-      <pre><code>let num1 = 5;
-let num2 = 10;
-let sum = num1 + num2;
-console.log(sum);</code></pre>
-      
-      <p>Output: This will print:</p>
-      <pre><code>15</code></pre>
+      <textarea id="codeInput" rows="10" cols="50"></textarea><br>
+      <button onclick="runCode()">Run Code</button>
+      <button onclick="clearOutput()">Clear Output</button>
 
-      <h3>4. Example Task: Using Functions</h3>
-      <p>In JavaScript, functions allow you to organize your code into reusable blocks. Here's how to define and call a function:</p>
+      <h3>Output:</h3>
+      <pre id="outputResult"></pre>
 
-      <pre><code>function sayHello(name) {
-  console.log("Hello, " + name + "!");
-}
-sayHello("AI");</code></pre>
-      
-      <p>Output: The console will display:</p>
-      <pre><code>Hello, AI!</code></pre>
-
-      <h3>5. Quiz: JavaScript Basics</h3>
+      <h3>4. Quiz: JavaScript Basics</h3>
       <p>Answer the following questions:</p>
       <form>
         <label for="question1">1. Which of these is the correct syntax to print a message to the console?</label><br>
@@ -80,7 +201,39 @@ sayHello("AI");</code></pre>
 
       <p>Correct Answer: <strong>console.log("Hello")</strong></p>
 
-      <h3>6. Example Task: Strings & Concatenation</h3>
+      <h3>5. Coding Task: Create a Simple Math Program</h3>
+      <p>Write a program that calculates the sum of two numbers and prints the result:</p>
+      <pre><code>let num1 = 5;
+let num2 = 10;
+let sum = num1 + num2;
+console.log(sum);</code></pre>
+      <p>Expected Output:</p>
+      <pre><code>15</code></pre>
+
+      <h3>6. Example Task: Using Functions</h3>
+      <p>In JavaScript, functions allow you to organize your code into reusable blocks. Here's how to define and call a function:</p>
+
+      <pre><code>function sayHello(name) {
+  console.log("Hello, " + name + "!");
+}
+sayHello("AI");</code></pre>
+      
+      <p>Output: The console will display:</p>
+      <pre><code>Hello, AI!</code></pre>
+
+      <h3>7. Quiz: Variable Assignment</h3>
+      <p>What keyword is used to define a variable that can be reassigned in JavaScript?</p>
+      <form>
+        <input type="radio" id="q2a1" name="question2" value="incorrect">
+        <label for="q2a1">var</label><br>
+        <input type="radio" id="q2a2" name="question2" value="incorrect">
+        <label for="q2a2">const</label><br>
+        <input type="radio" id="q2a3" name="question2" value="correct">
+        <label for="q2a3">let</label><br>
+      </form>
+      <p>Correct Answer: <strong>let</strong></p>
+
+      <h3>8. Example Task: Strings & Concatenation</h3>
       <p>Learn how to join strings together using concatenation:</p>
 
       <pre><code>let firstName = "John";
@@ -91,7 +244,7 @@ console.log(fullName);</code></pre>
       <p>Output: This will display:</p>
       <pre><code>John Doe</code></pre>
 
-      <h3>7. Example Task: Boolean Logic</h3>
+      <h3>9. Example Task: Boolean Logic</h3>
       <p>Let's explore Boolean logic. A Boolean is either true or false. Here's an example:</p>
 
       <pre><code>let isAI = true;
@@ -103,27 +256,6 @@ if (isAI) {
       
       <p>Output: If the condition is true, the console will display:</p>
       <pre><code>AI is cool!</code></pre>
-
-      <h3>8. Example Task: Working with Arrays</h3>
-      <p>Arrays store multiple values. You can create and use them like this:</p>
-
-      <pre><code>let fruits = ["Apple", "Banana", "Cherry"];
-console.log(fruits[0]); // Apple</code></pre>
-      
-      <p>Output: This will display:</p>
-      <pre><code>Apple</code></pre>
-
-      <h3>9. Example Task: Loops in JavaScript</h3>
-      <p>Loops help you repeat tasks. Let's use a <code>for</code> loop to print all items in an array:</p>
-
-      <pre><code>for (let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i]);
-}</code></pre>
-      
-      <p>Output: This will display:</p>
-      <pre><code>Apple
-Banana
-Cherry</code></pre>
 
       <h3>10. Summary and Next Steps</h3>
       <p>In this lesson, you've learned the following:</p>
@@ -142,13 +274,5 @@ Cherry</code></pre>
     </section>
   </main>
 
-  <footer>
-    <ul>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms & Conditions</a></li>
-      <li><a href="#">Help</a></li>
-    </ul>
-  </footer>
-
 </body>
-      </html>
+</html>
