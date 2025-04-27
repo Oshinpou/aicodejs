@@ -3,109 +3,221 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIcodejs - Level 1 Lessons</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      color: white;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-    .card h3 {
-      margin: 0 0 10px;
-      color: #333;
-    }
-    .card p {
-      color: #666;
-    }
-    .card a {
-      margin-top: 15px;
-      display: inline-block;
-      padding: 10px 20px;
-      background: #222;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-    .card a:hover {
-      background: #444;
-    }
-  </style>
+  <title>AIcodeJS - Product Cards</title>
+  <link rel="stylesheet" href="style.css">
+
+<style>
+
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header #logo img {
+  width: 50px;
+  vertical-align: middle;
+}
+
+header h1 {
+  display: inline;
+  margin-left: 10px;
+}
+
+header p {
+  margin: 5px 0;
+}
+
+main {
+  padding: 20px;
+}
+
+.product-cards h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 15px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  padding: 15px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  padding: 0 15px 15px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+footer ul li a {
+  color: white;
+  text-decoration: none;
+}
+</style>
 </head>
 <body>
+
   <header>
-    <h1>AIcodejs - Level 1: JavaScript Basics in AI</h1>
-    <p>Explore 8 foundational lessons</p>
+    <div id="logo">
+      <img src="ai-logo.png" alt="AIcodeJS Logo" />
+      <h1>AIcodeJS</h1>
+      <p>Learn JavaScript in AI</p>
+    </div>
   </header>
 
-<div class="grid" id="lessonGrid">
-  <div class="card">
-    <h3>Intro to JavaScript</h3>
-    <p>Learn basics of JavaScript in AI</p>
-    <a href="lesson1by1.html">Explore Lesson 1</a>
-  </div>
-  <div class="card">
-    <h3>Variables & Data Types</h3>
-    <p>Understand types and how to use them</p>
-    <a href="lesson1by2.html">Explore Lesson 2</a>
-  </div>
-  <div class="card">
-    <h3>Operators & Expressions</h3>
-    <p>Explore JavaScript's operators</p>
-    <a href="lesson1by3.html">Explore Lesson 3</a>
-  </div>
-  <div class="card">
-    <h3>Control Flow</h3>
-    <p>if, else, switch and logic</p>
-    <a href="lesson1by4.html">Explore Lesson 4</a>
-  </div>
-  <div class="card">
-    <h3>Loops</h3>
-    <p>while, for, and loop control in AI code</p>
-    <a href="lesson1by5.html">Explore Lesson 5</a>
-  </div>
-  <div class="card">
-    <h3>Functions</h3>
-    <p>Define and call functions like a pro</p>
-    <a href="lesson1by6.html">Explore Lesson 6</a>
-  </div>
-  <div class="card">
-    <h3>Objects & Arrays</h3>
-    <p>Master data structures for AI logic</p>
-    <a href="lesson1by7.html">Explore Lesson 7</a>
-  </div>
-  <div class="card">
-    <h3>Events & Interaction</h3>
-    <p>Make your AI code interactive</p>
-    <a href="lesson1by8.html">Explore Lesson 8</a>
-  </div>
-</div>
-  <script src="levelone.js"></script>
+  <main>
+    <section class="product-cards">
+      <h2>Explore Our Lessons</h2>
+
+      <div class="card-container">
+        <div class="card">
+          <a href="lesson1by1.html">
+            <img src="lesson1-image.jpg" alt="Lesson 1" />
+            <h3>Lesson 1: Getting Started</h3>
+            <p>Learn the basics of JavaScript in AI. Set up your environment and start coding your first program!</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson2by1.html">
+            <img src="lesson2-image.jpg" alt="Lesson 2" />
+            <h3>Lesson 2: Variables & Data Types</h3>
+            <p>Understand how AI handles JavaScript variables and data. Learn how to manage different types of data.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson3by1.html">
+            <img src="lesson3-image.jpg" alt="Lesson 3" />
+            <h3>Lesson 3: Operators & Expressions</h3>
+            <p>Master JavaScript logic to control AI behavior with operators and expressions.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson4by1.html">
+            <img src="lesson4-image.jpg" alt="Lesson 4" />
+            <h3>Lesson 4: Conditional Statements</h3>
+            <p>Teach AI to make decisions using if, else, and switch statements. Control the flow of your program.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson5by1.html">
+            <img src="lesson5-image.jpg" alt="Lesson 5" />
+            <h3>Lesson 5: Loops in AI Logic</h3>
+            <p>Train your AI to repeat tasks efficiently with loops. Control repetition in your program.</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card">
+          <a href="lesson6by1.html">
+            <img src="lesson6-image.jpg" alt="Lesson 6" />
+            <h3>Lesson 6: Functions & Modularity</h3>
+            <p>Create reusable blocks of logic for smart AI. Learn the power of functions and modularity.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson7by1.html">
+            <img src="lesson7-image.jpg" alt="Lesson 7" />
+            <h3>Lesson 7: Arrays & Iteration</h3>
+            <p>Organize AI memory using JavaScript arrays. Learn how to iterate over them with loops.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson8by1.html">
+            <img src="lesson8-image.jpg" alt="Lesson 8" />
+            <h3>Lesson 8: Objects & Properties</h3>
+            <p>Structure AI knowledge using objects and properties. Learn how to store and manipulate complex data.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson9by1.html">
+            <img src="lesson9-image.jpg" alt="Lesson 9" />
+            <h3>Lesson 9: DOM Manipulation</h3>
+            <p>Control HTML elements with JavaScript to build interactive AI-powered web pages.</p>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="lesson10by1.html">
+            <img src="lesson10-image.jpg" alt="Lesson 10" />
+            <h3>Lesson 10: Events & Interaction</h3>
+            <p>Make your AI react to user interactions like clicks, key presses, and mouse movements.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </footer>
+
 </body>
 </html>
