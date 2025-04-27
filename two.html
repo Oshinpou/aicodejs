@@ -1,175 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Level 2: Variables & Data Types</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fb;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      color: #333;
-    }
-    header {
-      background-color: #1e2a47;
-      padding: 40px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8em;
-      font-weight: 600;
-    }
-    header h2 {
-      font-size: 1.2em;
-      margin-top: 10px;
-      font-weight: 400;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-      overflow-y: auto;
-      flex-grow: 1;
-      box-sizing: border-box;
-    }
-    .card {
-      background-color: white;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
-      overflow: hidden;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    }
-    .card h3 {
-      margin-top: 0;
-      color: #34495e;
-      font-size: 1.8em;
-      font-weight: 500;
-    }
-    .card p {
-      color: #777;
-      font-size: 1rem;
-      margin-bottom: 20px;
-      line-height: 1.4;
-    }
-    .card a {
-      display: inline-block;
-      padding: 12px 20px;
-      background-color: #2980b9;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background-color 0.3s ease;
-    }
-    .card a:hover {
-      background-color: #1f618d;
-    }
-    footer {
-      background-color: #1e2a47;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-      font-size: 0.9em;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 2: Variables & Data Types - AIcodeJS</title>
+  <link rel="stylesheet" href="style.css">
+<style>
+
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card h2 {
+  font-size: 1.5rem;
+}
+
+.product-card p {
+  font-size: 1rem;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
 </head>
 <body>
 
   <header>
     <h1>Level 2: Variables & Data Types</h1>
-    <h2>Understand how AI handles JavaScript variables and data.</h2>
+    <p>Understand how AI handles JavaScript variables and data.</p>
   </header>
 
-  <div class="grid">
-    <!-- Lesson Cards -->
-    <div class="card">
-      <h3>Lesson 2.1</h3>
-      <p>Introduction to Variables in AI</p>
-      <a href="lesson2by1.html">Explore</a>
+  <div class="grid" id="lessonGrid">
+    <div class="product-card">
+      <a href="lesson2by1.html">
+        <h2>Intro to JavaScript</h2>
+        <p>Learn basics of JavaScript in AI</p>
+      </a>
     </div>
-
-    <div class="card">
-      <h3>Lesson 2.2</h3>
-      <p>Data Types in AI Variables</p>
-      <a href="lesson2by2.html">Explore</a>
+    <div class="product-card">
+      <a href="lesson2by2.html">
+        <h2>Variables & Data Types</h2>
+        <p>Understand types and how to use them</p>
+      </a>
     </div>
-
-    <div class="card">
-      <h3>Lesson 2.3</h3>
-      <p>Working with Strings in AI Data</p>
-      <a href="lesson2by3.html">Explore</a>
+    <div class="product-card">
+      <a href="lesson2by3.html">
+        <h2>Operators & Expressions</h2>
+        <p>Explore JavaScript's operators</p>
+      </a>
     </div>
-
-    <div class="card">
-      <h3>Lesson 2.4</h3>
-      <p>Numbers and Math Operations in AI</p>
-      <a href="lesson2by4.html">Explore</a>
+    <div class="product-card">
+      <a href="lesson2by4.html">
+        <h2>Control Flow</h2>
+        <p>if, else, switch and logic</p>
+      </a>
     </div>
-
-    <div class="card">
-      <h3>Lesson 2.5</h3>
-      <p>Booleans and Logical Operators in AI</p>
-      <a href="lesson2by5.html">Explore</a>
+    <div class="product-card">
+      <a href="lesson2by5.html">
+        <h2>Loops</h2>
+        <p>while, for, and loop control in AI code</p>
+      </a>
     </div>
-
-    <div class="card">
-      <h3>Lesson 2.6</h3>
-      <p>Arrays for Storing AI Data</p>
-      <a href="lesson2by6.html">Explore</a>
+    <div class="product-card">
+      <a href="lesson2by6.html">
+        <h2>Functions</h2>
+        <p>Define and call functions like a pro</p>
+      </a>
     </div>
-
-    <div class="card">
-      <h3>Lesson 2.7</h3>
-      <p>Null and Undefined in AI Data Handling</p>
-      <a href="lesson2by7.html">Explore</a>
+    <div class="product-card">
+      <a href="lesson2by7.html">
+        <h2>Objects & Arrays</h2>
+        <p>Master data structures for AI logic</p>
+      </a>
     </div>
-
-    <div class="card">
-      <h3>Lesson 2.8</h3>
-      <p>Working with Constants in AI Applications</p>
-      <a href="lesson2by8.html">Explore</a>
-    </div>
-
-    <div class="card">
-      <h3>Lesson 2.9</h3>
-      <p>Template Literals for AI Data Formatting</p>
-      <a href="lesson2by9.html">Explore</a>
-    </div>
-
-    <div class="card">
-      <h3>Lesson 2.10</h3>
-      <p>The for Loop for Iterating Over AI Data</p>
-      <a href="lesson2by10.html">Explore</a>
+    <div class="product-card">
+      <a href="lesson2by8.html">
+        <h2>Events & Interaction</h2>
+        <p>Make your AI code interactive</p>
+      </a>
     </div>
   </div>
-
-  <footer>
-    <p>&copy; 2025 AIcodejs - All Rights Reserved</p>
-  </footer>
 
 </body>
 </html>
