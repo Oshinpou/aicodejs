@@ -153,7 +153,113 @@
   <p>"Every great developer you know started with learning a simple 'Hello World'!"</p>
 </section>
 
-<section id="practice">
+<section id="coding-examples" style="padding: 20px;">
+    <h2 style="text-align: center;">Learn Coding with Easy Examples</h2>
+
+    <div style="margin-top: 20px;">
+        <h3>1. Hello World (HTML)</h3>
+        <pre><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code></pre>
+        <p>This example displays a simple heading in HTML.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>2. Print Text (JavaScript)</h3>
+        <pre><code>console.log("Hello, World!");</code></pre>
+        <p>This logs a message to the browser console.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>3. Change Text (HTML + JavaScript)</h3>
+        <pre><code>
+&lt;p id="demo"&gt;Original Text&lt;/p&gt;
+&lt;button onclick="document.getElementById('demo').innerHTML = 'Text Changed!'"&gt;Change Text&lt;/button&gt;
+        </code></pre>
+        <p>This changes the paragraph text when you click the button.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>4. Simple Function (JavaScript)</h3>
+        <pre><code>
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+console.log(greet("Alex"));
+        </code></pre>
+        <p>This function greets the person by name.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>5. Basic If Statement (JavaScript)</h3>
+        <pre><code>
+let age = 18;
+if (age &gt;= 18) {
+    console.log("You are an adult.");
+}
+        </code></pre>
+        <p>This checks if someone is an adult based on age.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>6. Create a List (HTML)</h3>
+        <pre><code>
+&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+  &lt;li&gt;Cherry&lt;/li&gt;
+&lt;/ul&gt;
+        </code></pre>
+        <p>This creates a simple unordered list.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>7. Simple Loop (JavaScript)</h3>
+        <pre><code>
+for (let i = 1; i &lt;= 5; i++) {
+    console.log(i);
+}
+        </code></pre>
+        <p>This prints numbers 1 to 5 using a loop.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>8. Create a Simple Table (HTML)</h3>
+        <pre><code>
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;John&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+        </code></pre>
+        <p>This creates a simple table with name and age.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>9. Simple Alert Box (JavaScript)</h3>
+        <pre><code>alert("Welcome to the site!");</code></pre>
+        <p>This shows a popup alert message.</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>10. Basic CSS Styling</h3>
+        <pre><code>
+&lt;style&gt;
+p {
+    color: blue;
+    font-size: 20px;
+}
+&lt;/style&gt;
+&lt;p&gt;Styled Text&lt;/p&gt;
+        </code></pre>
+        <p>This styles the paragraph text to be blue and larger.</p>
+    </div>
+</section>
+  
+  <section id="practice">
   <h2>Code Editor</h2>
   <div class="editor">
     <textarea id="code" placeholder="// Write your JS code here..."></textarea>
