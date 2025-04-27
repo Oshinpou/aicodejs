@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 20: Storage & Persistence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            width: 280px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+        .card-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .card-content p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .card-footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff5c8e;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .card-footer:hover {
+            background-color: #e54e7d;
+        }
+        .header {
+            text-align: center;
+            margin: 50px 0 30px 0;
+            font-size: 28px;
+            color: #333;
+        }
+        .sticky-footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Level 20: Storage & Persistence</h1>
+        <p>Give your AI memory with localStorage and sessionStorage.</p>
+    </div>
+
+    <div class="container">
+        <!-- Product Card 1 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.1">
+            <div class="card-content">
+                <h3>Lesson 20.1: Introduction to Web Storage</h3>
+                <p>Learn the basics of web storage and the differences between localStorage and sessionStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by1.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.2">
+            <div class="card-content">
+                <h3>Lesson 20.2: Using localStorage</h3>
+                <p>Learn how to store, retrieve, and delete data in localStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by2.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.3">
+            <div class="card-content">
+                <h3>Lesson 20.3: Using sessionStorage</h3>
+                <p>Understand how to store temporary data with sessionStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by3.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.4">
+            <div class="card-content">
+                <h3>Lesson 20.4: Working with JSON in Storage</h3>
+                <p>Learn how to store and retrieve objects using JSON in localStorage and sessionStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by4.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 5 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.5">
+            <div class="card-content">
+                <h3>Lesson 20.5: Persistence Across Page Reloads</h3>
+                <p>Make your data persist across page reloads using localStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by5.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 6 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.6">
+            <div class="card-content">
+                <h3>Lesson 20.6: Data Expiration with Web Storage</h3>
+                <p>Learn how to manage data expiration or auto-clear data in localStorage and sessionStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by6.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 7 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.7">
+            <div class="card-content">
+                <h3>Lesson 20.7: Error Handling in Storage</h3>
+                <p>Handle errors that may occur when working with localStorage and sessionStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by7.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 8 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.8">
+            <div class="card-content">
+                <h3>Lesson 20.8: Storing Data Securely</h3>
+                <p>Learn how to store data securely using localStorage and sessionStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by8.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 9 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.9">
+            <div class="card-content">
+                <h3>Lesson 20.9: Cross-tab Communication with Storage</h3>
+                <p>Communicate across browser tabs using localStorage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by9.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+        <!-- Product Card 10 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/280x160" alt="Lesson 20.10">
+            <div class="card-content">
+                <h3>Lesson 20.10: Real-World Project: User Preferences with Web Storage</h3>
+                <p>Build a feature to save user preferences and settings using web storage.</p>
+            </div>
+            <div class="card-footer">
+                <a href="lesson20by10.html" style="color: white; text-decoration: none;">Start Lesson</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="sticky-footer">
+        <p>&copy; 2025 AI JavaScript Learning. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
