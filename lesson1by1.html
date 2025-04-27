@@ -1,111 +1,154 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lesson 1.1 - Intro to JavaScript</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #202020;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    main {
-      padding: 30px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h1, h2 {
-      color: #202020;
-    }
-    .code-block {
-      background: #272822;
-      color: #f8f8f2;
-      padding: 15px;
-      border-radius: 5px;
-      font-family: 'Courier New', monospace;
-      white-space: pre-wrap;
-      margin: 20px 0;
-    }
-    .task, .quiz {
-      background: #ffffff;
-      border-left: 4px solid #4CAF50;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-    }
-    .quiz input[type="text"] {
-      padding: 8px;
-      width: 80%;
-      margin-top: 10px;
-      display: block;
-    }
-    .quiz button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      background: #4CAF50;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    footer {
-      background: #f1f1f1;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: Getting Started - AIcodeJS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body><header>
-  <h1>AIcodeJS - Lesson 1.1</h1>
-  <p>Intro to JavaScript: Learn the basics of JavaScript in AI</p>
-</header><main>
-  <section>
-    <h2>What is JavaScript?</h2>
-    <p>JavaScript is a programming language that allows you to implement complex features on web pages — displaying content updates, interactive maps, animated graphics, and more.</p>
-  </section>  <section>
-    <h2>Why Learn JavaScript for AI?</h2>
-    <p>JavaScript helps you create logic, control data, and interact with users. In AI development for web-based systems, it's essential for connecting user input to intelligent models.</p>
-  </section>  <section>
-    <h2>Example: Your First JavaScript Code</h2>
-    <div class="code-block">
-// Display a message on the page
-document.write("Hello, AI World!");// Show an alert alert("Welcome to AIcodeJS!"); </div>
+<body>
 
-  </section>  <section class="task">
-    <h2>Task for You</h2>
-    <p>Create a webpage that shows a welcome message using <code>document.write</code> and a greeting using <code>alert</code>.</p>
-  </section>  <section class="quiz">
-    <h2>Quick Quiz</h2>
-    <p>What does <code>alert()</code> do in JavaScript?</p>
-    <input type="text" id="quizAnswer" placeholder="Type your answer here..." />
-    <button onclick="checkAnswer()">Submit</button>
-    <p id="quizResult"></p>
-  </section>  <section>
-    <h2>Summary</h2>
-    <p>In this lesson, you learned what JavaScript is, why it’s useful for AI, and how to write basic output using <code>document.write</code> and <code>alert</code>.</p>
-  </section>
-</main><footer>
-  &copy; 2025 AIcodeJS. All rights reserved.
-</footer><script>
-  function checkAnswer() {
-    const input = document.getElementById("quizAnswer").value.toLowerCase();
-    const result = document.getElementById("quizResult");
+  <header>
+    <div id="logo">
+      <img src="ai-logo.png" alt="AIcodeJS Logo" />
+      <h1>Lesson 1: Getting Started</h1>
+      <p>Learn the basics of JavaScript in AI. Set up your environment and start coding your first program!</p>
+    </div>
+  </header>
 
-    if (input.includes("popup") || input.includes("alert") || input.includes("message")) {
-      result.innerText = "Correct! alert() shows a popup message.";
-      result.style.color = "green";
-    } else {
-      result.innerText = "Try again. Hint: It shows a popup.";
-      result.style.color = "red";
-    }
-  }
-</script></body>
-</html>
+  <main>
+    <section class="lesson-content">
+      <h2>Lesson Overview</h2>
+      <p>In this lesson, you will set up your JavaScript development environment and write your first JavaScript program. By the end of this lesson, you'll understand how JavaScript interacts with AI systems, and you'll have written a simple AI program!</p>
+
+      <h2>Getting Started with Your First JavaScript Program</h2>
+      <p>To begin with, you'll need to open a browser console or use an online code editor like <a href="https://codepen.io/" target="_blank">CodePen</a> or <a href="https://jsfiddle.net/" target="_blank">JSFiddle</a>. JavaScript code is executed in the browser, which makes it easy to test and see results immediately.</p>
+
+      <h3>1. Example Task: Print "Hello World" to the Console</h3>
+      <p>In JavaScript, the simplest way to interact with the user is by printing text to the console. Let's write the first piece of code:</p>
+      
+      <pre><code>console.log("Hello World");</code></pre>
+      
+      <p>Output: When you run this code, you should see:</p>
+      <pre><code>Hello World</code></pre>
+
+      <h3>2. Example Task: Create a Variable</h3>
+      <p>In JavaScript, variables are used to store data. You can create variables using the <code>let</code> or <code>const</code> keyword. Try the following example:</p>
+
+      <pre><code>let greeting = "Hello, AI!";</code></pre>
+      
+      <p>Now print the variable:</p>
+      
+      <pre><code>console.log(greeting);</code></pre>
+      
+      <p>Output: The console will display:</p>
+      <pre><code>Hello, AI!</code></pre>
+
+      <h3>3. Example Task: Basic Math with Variables</h3>
+      <p>In JavaScript, you can also perform mathematical operations with variables:</p>
+
+      <pre><code>let num1 = 5;
+let num2 = 10;
+let sum = num1 + num2;
+console.log(sum);</code></pre>
+      
+      <p>Output: This will print:</p>
+      <pre><code>15</code></pre>
+
+      <h3>4. Example Task: Using Functions</h3>
+      <p>In JavaScript, functions allow you to organize your code into reusable blocks. Here's how to define and call a function:</p>
+
+      <pre><code>function sayHello(name) {
+  console.log("Hello, " + name + "!");
+}
+sayHello("AI");</code></pre>
+      
+      <p>Output: The console will display:</p>
+      <pre><code>Hello, AI!</code></pre>
+
+      <h3>5. Quiz: JavaScript Basics</h3>
+      <p>Answer the following questions:</p>
+      <form>
+        <label for="question1">1. Which of these is the correct syntax to print a message to the console?</label><br>
+        <input type="radio" id="q1a1" name="question1" value="incorrect">
+        <label for="q1a1">console.print("Hello")</label><br>
+        <input type="radio" id="q1a2" name="question1" value="correct">
+        <label for="q1a2">console.log("Hello")</label><br>
+        <input type="radio" id="q1a3" name="question1" value="incorrect">
+        <label for="q1a3">print.console("Hello")</label><br>
+      </form>
+
+      <p>Correct Answer: <strong>console.log("Hello")</strong></p>
+
+      <h3>6. Example Task: Strings & Concatenation</h3>
+      <p>Learn how to join strings together using concatenation:</p>
+
+      <pre><code>let firstName = "John";
+let lastName = "Doe";
+let fullName = firstName + " " + lastName;
+console.log(fullName);</code></pre>
+      
+      <p>Output: This will display:</p>
+      <pre><code>John Doe</code></pre>
+
+      <h3>7. Example Task: Boolean Logic</h3>
+      <p>Let's explore Boolean logic. A Boolean is either true or false. Here's an example:</p>
+
+      <pre><code>let isAI = true;
+if (isAI) {
+  console.log("AI is cool!");
+} else {
+  console.log("AI is not cool.");
+}</code></pre>
+      
+      <p>Output: If the condition is true, the console will display:</p>
+      <pre><code>AI is cool!</code></pre>
+
+      <h3>8. Example Task: Working with Arrays</h3>
+      <p>Arrays store multiple values. You can create and use them like this:</p>
+
+      <pre><code>let fruits = ["Apple", "Banana", "Cherry"];
+console.log(fruits[0]); // Apple</code></pre>
+      
+      <p>Output: This will display:</p>
+      <pre><code>Apple</code></pre>
+
+      <h3>9. Example Task: Loops in JavaScript</h3>
+      <p>Loops help you repeat tasks. Let's use a <code>for</code> loop to print all items in an array:</p>
+
+      <pre><code>for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}</code></pre>
+      
+      <p>Output: This will display:</p>
+      <pre><code>Apple
+Banana
+Cherry</code></pre>
+
+      <h3>10. Summary and Next Steps</h3>
+      <p>In this lesson, you've learned the following:</p>
+      <ul>
+        <li>How to write and run JavaScript code in a browser.</li>
+        <li>Basic concepts like variables, functions, strings, arrays, and loops.</li>
+        <li>How JavaScript can be used in AI to manipulate data, make decisions, and interact with the user.</li>
+      </ul>
+      <p>For the next lesson, you'll dive deeper into variables and data types. Practice these basics and get ready to enhance your AI program with more advanced functionality!</p>
+
+      <h3>Further Reading</h3>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction" target="_blank">JavaScript Guide - MDN</a></li>
+        <li><a href="https://www.javascript.com/learn" target="_blank">JavaScript Learning - JavaScript.com</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </footer>
+
+</body>
+      </html>
