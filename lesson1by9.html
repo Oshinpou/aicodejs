@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9: DOM Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h2 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .feature {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        code {
+            display: block;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        pre {
+            background-color: #282c34;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .example-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .example-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lesson 9: DOM Manipulation</h1>
+    <p>Control HTML elements with JavaScript to build interactive AI-powered web pages</p>
+</header>
+
+<div class="container">
+    <h2>Features & Coding Examples</h2>
+
+    <!-- Feature 1 -->
+    <div class="feature">
+        <h3>1. Selecting Elements by ID</h3>
+        <p>Learn how to select an element with a specific ID using JavaScript.</p>
+        <pre><code>document.getElementById("elementID");</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p id="example1">Click the button to change this text</p>
+            <button class="example-btn" onclick="document.getElementById('example1').innerText = 'Text changed!'">Change Text</button>
+        </div>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="feature">
+        <h3>2. Selecting Elements by Class Name</h3>
+        <p>Select elements with a specific class name and manipulate them.</p>
+        <pre><code>document.getElementsByClassName("className");</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p class="example-text">Click the button to change the text of all elements with class "example-text".</p>
+            <p class="example-text">This is another example.</p>
+            <button class="example-btn" onclick="let items = document.getElementsByClassName('example-text'); for (let i = 0; i < items.length; i++) { items[i].innerText = 'Text updated!'; }">Update All Texts</button>
+        </div>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="feature">
+        <h3>3. Modifying HTML Content</h3>
+        <p>Change the content of an element dynamically using JavaScript.</p>
+        <pre><code>element.innerHTML = "New Content";</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p id="content-example">Original content</p>
+            <button class="example-btn" onclick="document.getElementById('content-example').innerHTML = 'Updated content!'">Change Content</button>
+        </div>
+    </div>
+
+    <!-- Feature 4 -->
+    <div class="feature">
+        <h3>4. Modifying Element Styles</h3>
+        <p>Use JavaScript to change the style properties of HTML elements.</p>
+        <pre><code>element.style.property = "value";</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p id="style-example">Click the button to change my color!</p>
+            <button class="example-btn" onclick="document.getElementById('style-example').style.color = 'red';">Change Color</button>
+        </div>
+    </div>
+
+    <!-- Feature 5 -->
+    <div class="feature">
+        <h3>5. Adding and Removing Classes</h3>
+        <p>Add or remove CSS classes from elements to change their appearance.</p>
+        <pre><code>element.classList.add("new-class");</code></pre>
+        <pre><code>element.classList.remove("old-class");</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p id="class-example">This is a class test.</p>
+            <button class="example-btn" onclick="document.getElementById('class-example').classList.add('new-class')">Add Class</button>
+        </div>
+    </div>
+
+    <!-- Feature 6 -->
+    <div class="feature">
+        <h3>6. Event Listeners</h3>
+        <p>Attach event listeners to elements to respond to user actions.</p>
+        <pre><code>element.addEventListener("event", function);</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p>Click the button to trigger an event.</p>
+            <button class="example-btn" id="event-btn">Click Me</button>
+            <p id="event-output">No click detected.</p>
+        </div>
+        <script>
+            document.getElementById('event-btn').addEventListener('click', function() {
+                document.getElementById('event-output').innerText = 'Button clicked!';
+            });
+        </script>
+    </div>
+
+    <!-- Feature 7 -->
+    <div class="feature">
+        <h3>7. Creating Dynamic Elements</h3>
+        <p>Use JavaScript to create new HTML elements on the fly.</p>
+        <pre><code>let newElement = document.createElement('div');</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <button class="example-btn" onclick="createElement()">Add Element</button>
+            <div id="new-elements"></div>
+        </div>
+        <script>
+            function createElement() {
+                let newDiv = document.createElement('div');
+                newDiv.innerHTML = 'This is a new dynamically created element.';
+                document.getElementById('new-elements').appendChild(newDiv);
+            }
+        </script>
+    </div>
+
+    <!-- Feature 8 -->
+    <div class="feature">
+        <h3>8. Removing Elements</h3>
+        <p>Remove elements from the DOM.</p>
+        <pre><code>element.remove();</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <div id="remove-example">This element will be removed.</div>
+            <button class="example-btn" onclick="document.getElementById('remove-example').remove()">Remove Element</button>
+        </div>
+    </div>
+
+    <!-- Feature 9 -->
+    <div class="feature">
+        <h3>9. Toggle Visibility</h3>
+        <p>Toggle visibility of elements using JavaScript.</p>
+        <pre><code>element.style.display = 'none';</code></pre>
+        <pre><code>element.style.display = 'block';</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p id="toggle-example">Click the button to toggle visibility.</p>
+            <button class="example-btn" onclick="toggleVisibility()">Toggle Visibility</button>
+        </div>
+        <script>
+            function toggleVisibility() {
+                let element = document.getElementById('toggle-example');
+                if (element.style.display === 'none') {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            }
+        </script>
+    </div>
+
+    <!-- Feature 10 -->
+    <div class="feature">
+        <h3>10. Changing Element Content Dynamically</h3>
+        <p>Change the content of elements dynamically in response to user input.</p>
+        <pre><code>element.innerHTML = "New Content";</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <input type="text" id="user-input" placeholder="Enter some text here" />
+            <button class="example-btn" onclick="updateContent()">Update Content</button>
+            <p id="dynamic-content">This content will be updated with your input.</p>
+        </div>
+        <script>
+            function updateContent() {
+                let inputValue = document.getElementById('user-input').value;
+                document.getElementById('dynamic-content').innerHTML = inputValue;
+            }
+        </script>
+    </div>
+
+    <!-- Feature 11 -->
+    <div class="feature">
+        <h3>11. Adding Multiple Event Listeners</h3>
+        <p>Learn to add multiple event listeners to an element.</p>
+        <pre><code>element.addEventListener("event1", function1);</code></pre>
+        <pre><code>element.addEventListener("event2", function2);</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <button class="example-btn" id="multi-event-btn">Click Me</button>
+            <p id="multi-event-output">No events triggered.</p>
+        </div>
+        <script>
+            document.getElementById('multi-event-btn').addEventListener('click', function() {
+                document.getElementById('multi-event-output').innerText = 'Button was clicked!';
+            });
+            document.getElementById('multi-event-btn').addEventListener('mouseover', function() {
+                document.getElementById('multi-event-output').innerText = 'Mouse is over the button!';
+            });
+        </script>
+    </div>
+
+    <!-- Feature 12 -->
+    <div class="feature">
+        <h3>12. Changing Element Attributes</h3>
+        <p>Use JavaScript to modify HTML element attributes like class, id, href, etc.</p>
+        <pre><code>element.setAttribute("attribute", "value");</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <a href="#" id="link" onclick="changeAttribute()">Click me to change my href</a>
+        </div>
+        <script>
+            function changeAttribute() {
+                document.getElementById('link').setAttribute('href', 'https://www.example.com');
+            }
+        </script>
+    </div>
+
+    <!-- Feature 13 -->
+    <div class="feature">
+        <h3>13. Append Child</h3>
+        <p>Learn how to append a new child element to a parent element.</p>
+        <pre><code>parentElement.appendChild(newElement);</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <button class="example-btn" onclick="appendChildElement()">Add a new list item</button>
+            <ul id="list-example">
+                <li>List item 1</li>
+            </ul>
+        </div>
+        <script>
+            function appendChildElement() {
+                let newItem = document.createElement('li');
+                newItem.innerText = 'New list item';
+                document.getElementById('list-example').appendChild(newItem);
+            }
+        </script>
+    </div>
+
+    <!-- Feature 14 -->
+    <div class="feature">
+        <h3>14. Removing Child Elements</h3>
+        <p>Learn how to remove a child element from a parent element.</p>
+        <pre><code>parentElement.removeChild(childElement);</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <button class="example-btn" onclick="removeChildElement()">Remove the first list item</button>
+            <ul id="remove-list">
+                <li>Item to be removed</li>
+                <li>Another item</li>
+            </ul>
+        </div>
+        <script>
+            function removeChildElement() {
+                let parent = document.getElementById('remove-list');
+                let child = parent.getElementsByTagName('li')[0];
+                parent.removeChild(child);
+            }
+        </script>
+    </div>
+
+    <!-- Feature 15 -->
+    <div class="feature">
+        <h3>15. Setting Element Visibility with JavaScript</h3>
+        <p>Learn to toggle the visibility of HTML elements using JavaScript.</p>
+        <pre><code>element.style.visibility = "hidden";</code></pre>
+        <pre><code>element.style.visibility = "visible";</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p id="visibility-example">This element can be hidden or shown!</p>
+            <button class="example-btn" onclick="toggleVisibilityStatus()">Toggle Visibility</button>
+        </div>
+        <script>
+            function toggleVisibilityStatus() {
+                let element = document.getElementById('visibility-example');
+                if (element.style.visibility === 'hidden') {
+                    element.style.visibility = 'visible';
+                } else {
+                    element.style.visibility = 'hidden';
+                }
+            }
+        </script>
+    </div>
+
+    <!-- Feature 16 -->
+    <div class="feature">
+        <h3>16. Changing CSS Properties Dynamically</h3>
+        <p>Modify the CSS properties of elements dynamically with JavaScript.</p>
+        <pre><code>element.style.backgroundColor = "red";</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <div id="css-example" style="width: 100px; height: 100px; background-color: blue;">
+                This is a colored box.
+            </div>
+            <button class="example-btn" onclick="changeCSS()">Change Color</button>
+        </div>
+        <script>
+            function changeCSS() {
+                document.getElementById('css-example').style.backgroundColor = 'red';
+            }
+        </script>
+    </div>
+
+    <!-- Feature 17 -->
+    <div class="feature">
+        <h3>17. Handling Multiple Events</h3>
+        <p>Learn to handle multiple events for a single element.</p>
+        <pre><code>element.addEventListener('event', function1);</code></pre>
+        <pre><code>element.addEventListener('event', function2);</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <button class="example-btn" id="event-handler-btn">Click me</button>
+            <p id="event-result">No event triggered yet.</p>
+        </div>
+        <script>
+            const btn = document.getElementById('event-handler-btn');
+            btn.addEventListener('click', function() {
+                document.getElementById('event-result').innerText = 'Button clicked!';
+            });
+            btn.addEventListener('mouseover', function() {
+                document.getElementById('event-result').innerText = 'Mouse over the button!';
+            });
+        </script>
+    </div>
+
+    <!-- Feature 18 -->
+    <div class="feature">
+        <h3>18. Detecting Window Resize</h3>
+        <p>Listen for changes in the window size and take action accordingly.</p>
+        <pre><code>window.addEventListener('resize', function() { /* action */ });</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <p>Resize the window and check the console for size detection.</p>
+        </div>
+        <script>
+            window.addEventListener('resize', function() {
+                console.log(`New window width: ${window.innerWidth}, New height: ${window.innerHeight}`);
+            });
+        </script>
+    </div>
+
+    <!-- Feature 19 -->
+    <div class="feature">
+        <h3>19. DOM Traversing with Parent, Children, and Siblings</h3>
+        <p>Navigate through the DOM by accessing parent, child, and sibling elements.</p>
+        <pre><code>element.parentElement;</code></pre>
+        <pre><code>element.children;</code></pre>
+        <pre><code>element.nextElementSibling;</code></pre>
+        <p><strong>Example:</strong></p>
+        <div class="example-container">
+            <ul>
+                <li>Item 1
+                    <ul>
+                        <li>Sub-item 1</li>
+                        <li>Sub-item 2</li>
+                    </ul>
+                </li>
+                <li>Item 2</li>
+            </ul>
+            <button class="example-btn" onclick="traverseDOM()">Get Parent & Sibling</button>
+        </div>
+        <script>
+            function traverseDOM() {
+                let item = document.querySelector('li');
+                alert('Parent: ' + item.parentElement.nodeName + '\nNext Sibling: ' + item.nextElementSibling.innerText);
+            }
+        </script>
+    </div>
+
+</div>
+
+</body>
+</html>
