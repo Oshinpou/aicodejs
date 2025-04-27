@@ -2,111 +2,254 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lesson 1.2 - Variables & Data Types</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: Variables & Data Types</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: #f9f9f9;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
       color: #222;
     }
-    h1 {
-      color: #007acc;
+    section {
+      margin-bottom: 40px;
     }
-    pre {
-      background: #eee;
-      padding: 15px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-    .task, .quiz, .summary {
-      margin-top: 30px;
-    }
-    .quiz input {
-      margin-right: 10px;
-    }
-    .btn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #007acc;
-      color: #fff;
+    button {
+      background: #4CAF50;
+      color: white;
       border: none;
+      padding: 10px 15px;
+      margin: 5px 0;
+      cursor: pointer;
       border-radius: 5px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    textarea, pre, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 14px;
+      resize: vertical;
+    }
+    .output {
+      background: #eee;
+      padding: 10px;
+      min-height: 50px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    details {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    details summary {
+      font-weight: bold;
       cursor: pointer;
     }
-    .btn:hover {
-      background: #005f99;
+    .quiz {
+      margin-top: 15px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+    .task, .example {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Lesson 1.2: Variables & Data Types</h1>
-  <p>In JavaScript, variables are containers for storing data values. You can use <code>let</code>, <code>const</code>, or the older <code>var</code> keyword to declare them.</p>
+  <h1>Lesson 2: Variables & Data Types</h1>
+  <p>Understand how AI handles JavaScript variables and data. Learn how to manage different types of data effectively.</p>
 
-  <h2>JavaScript Data Types</h2>
-  <ul>
-    <li><strong>String</strong> — Text (e.g., "Hello")</li>
-    <li><strong>Number</strong> — Integers and decimals (e.g., 42, 3.14)</li>
-    <li><strong>Boolean</strong> — true or false</li>
-    <li><strong>Undefined</strong> — a declared variable without a value</li>
-    <li><strong>Null</strong> — an empty or non-existent value</li>
-    <li><strong>Object</strong> — collections of key/value pairs</li>
-    <li><strong>Array</strong> — ordered lists of values</li>
-  </ul>
+  <section>
+    <h2>Code Editor</h2>
+    <textarea id="code" rows="8" placeholder="Write your JavaScript code here..."></textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div class="output" id="output"></div>
+  </section>
 
-  <h2>Example Code</h2>
-  <pre><code>// Declaring variables
-let name = "Alice";
-const age = 30;
-var isStudent = true;
+  <section>
+    <h2>Examples and Explanations</h2>
 
-// Output to console
-console.log("Name:", name);
-console.log("Age:", age);
-console.log("Student?", isStudent);</code></pre>
+    <details>
+      <summary>Example 1: Declaring a Variable</summary>
+      <div class="example">
+        <pre>let name = "AIcodeJS";</pre>
+        <p><strong>Explanation:</strong> We are creating a variable named <code>name</code> and assigning a string value to it.</p>
+      </div>
+    </details>
 
-  <div class="task">
-    <h2>Task</h2>
-    <p>Create 3 variables: one for your name (string), your age (number), and a boolean if you're learning AIcodejs.</p>
-    <pre><code>// Your code here:
-let myName = "Your Name";
-let myAge = 25;
-let learningAIcodejs = true;
+    <details>
+      <summary>Example 2: Working with Numbers</summary>
+      <div class="example">
+        <pre>let number = 100 + 50;</pre>
+        <p><strong>Explanation:</strong> Performing addition and storing the result.</p>
+      </div>
+    </details>
 
-console.log(myName, myAge, learningAIcodejs);</code></pre>
-  </div>
+    <details>
+      <summary>Example 3: Boolean Value</summary>
+      <div class="example">
+        <pre>let isAIReady = true;</pre>
+        <p><strong>Explanation:</strong> Storing a true/false value in a variable.</p>
+      </div>
+    </details>
 
-  <div class="quiz">
-    <h2>Quiz</h2>
-    <p>Which of these is a correct variable declaration in JavaScript?</p>
-    <label><input type="radio" name="q1"> let 123name = "John";</label><br>
-    <label><input type="radio" name="q1"> const = age 21;</label><br>
-    <label><input type="radio" name="q1" id="correct"> let city = "Paris";</label><br>
-    <button class="btn" onclick="checkAnswer()">Check Answer</button>
-    <p id="quiz-result"></p>
-  </div>
+    <details>
+      <summary>Example 4: Using Template Literals</summary>
+      <div class="example">
+        <pre>let greeting = `Hello, ${name}`;</pre>
+        <p><strong>Explanation:</strong> Embedding variables inside a string using backticks.</p>
+      </div>
+    </details>
 
-  <div class="summary">
+    <details>
+      <summary>Example 5: Type Checking</summary>
+      <div class="example">
+        <pre>console.log(typeof name);</pre>
+        <p><strong>Explanation:</strong> Checking the data type of a variable.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Example 6: Array of Items</summary>
+      <div class="example">
+        <pre>let fruits = ["apple", "banana", "cherry"];</pre>
+        <p><strong>Explanation:</strong> Storing multiple values in one variable.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Example 7: Object Example</summary>
+      <div class="example">
+        <pre>let car = { brand: "Tesla", model: "S", year: 2022 };</pre>
+        <p><strong>Explanation:</strong> Grouping related data together in an object.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Example 8: Null and Undefined</summary>
+      <div class="example">
+        <pre>let empty = null; let notAssigned;</pre>
+        <p><strong>Explanation:</strong> `null` is intentionally empty; `undefined` means no value assigned yet.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Example 9: Constant Variables</summary>
+      <div class="example">
+        <pre>const PI = 3.14159;</pre>
+        <p><strong>Explanation:</strong> Constant variables cannot be reassigned once declared.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Example 10: Boolean Logic</summary>
+      <div class="example">
+        <pre>let isAdult = age >= 18;</pre>
+        <p><strong>Explanation:</strong> Using comparison operators to create boolean values.</p>
+      </div>
+    </details>
+
+  </section>
+
+  <section>
+    <h2>Tasks</h2>
+
+    <div class="task">
+      <p>Task 1: Create a variable `city` and store your city name.</p>
+    </div>
+    <div class="task">
+      <p>Task 2: Create two number variables and print their sum.</p>
+    </div>
+    <div class="task">
+      <p>Task 3: Create a boolean variable `isLearning` and set it to true.</p>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Quizzes</h2>
+
+    <div class="quiz">
+      <p>Q1: What is the correct way to declare a constant?</p>
+      <input type="text" id="q1">
+      <button onclick="checkAnswer('q1','const')">Submit</button>
+      <div id="resultq1"></div>
+    </div>
+
+    <div class="quiz">
+      <p>Q2: Which keyword allows reassignment?</p>
+      <input type="text" id="q2">
+      <button onclick="checkAnswer('q2','let')">Submit</button>
+      <div id="resultq2"></div>
+    </div>
+
+    <div class="quiz">
+      <p>Q3: What is the output of <code>typeof null</code>?</p>
+      <input type="text" id="q3">
+      <button onclick="checkAnswer('q3','object')">Submit</button>
+      <div id="resultq3"></div>
+    </div>
+
+  </section>
+
+  <section>
     <h2>Summary</h2>
-    <p>Variables store data and can be declared using <code>let</code>, <code>const</code>, or <code>var</code>. JavaScript supports many data types that help structure information effectively in AI programming.</p>
-  </div>
+    <p>In this lesson, you learned how to declare variables using <code>var</code>, <code>let</code>, and <code>const</code>, understand different data types like string, number, boolean, object, and array, and how JavaScript manages these in memory. Congratulations on building your foundation!</p>
+  </section>
 
-  <script>
-    function checkAnswer() {
-      const result = document.getElementById("quiz-result");
-      const correct = document.getElementById("correct");
-      if (correct.checked) {
-        result.textContent = "Correct! Great job.";
-        result.style.color = "green";
-      } else {
-        result.textContent = "Oops! Try again.";
-        result.style.color = "red";
-      }
-    }
-  </script>
+<script>
+function runCode() {
+  const code = document.getElementById('code').value;
+  try {
+    const output = eval(code);
+    document.getElementById('output').innerText = output === undefined ? "Code executed!" : output;
+  } catch (error) {
+    document.getElementById('output').innerText = error;
+  }
+}
+
+function clearOutput() {
+  document.getElementById('output').innerText = '';
+}
+
+function checkAnswer(inputId, correctAnswer) {
+  const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+  const resultElement = document.getElementById('result' + inputId);
+  if (userAnswer === correctAnswer.toLowerCase()) {
+    resultElement.innerHTML = "<span class='correct'>Correct!</span>";
+  } else {
+    resultElement.innerHTML = "<span class='wrong'>Try Again!</span>";
+  }
+}
+</script>
 
 </body>
 </html>
