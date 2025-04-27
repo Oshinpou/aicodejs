@@ -2,110 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lesson 1.7 – Objects & Arrays</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 7: Arrays & Iteration</title>
   <style>
     body {
-      font-family: sans-serif;
-      margin: 20px;
-      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1 {
-      color: #222;
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      text-align: center;
     }
-    .card {
-      background: white;
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .lesson-title {
+      text-align: center;
+      color: #34495e;
+    }
+
+    .example {
+      background-color: #ecf0f1;
       padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      margin: 10px 0;
     }
-    pre {
-      background: #eee;
+
+    .example-code {
+      background-color: #2d3e50;
+      color: white;
       padding: 10px;
       border-radius: 5px;
+      font-family: monospace;
       overflow-x: auto;
     }
-    button {
+
+    .example-output {
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
       margin-top: 10px;
-      padding: 10px 15px;
-      background: #007BFF;
+    }
+
+    .task-section, .coding-example, .quiz-section {
+      margin: 20px 0;
+    }
+
+    .task {
+      background-color: #f1c40f;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    .quiz {
+      background-color: #e74c3c;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 10px 0;
+      color: white;
+    }
+
+    .code-btn {
+      padding: 10px 20px;
+      background-color: #3498db;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-    #output {
-      background: #222;
-      color: lime;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
+
+    .code-btn:hover {
+      background-color: #2980b9;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Lesson 7: Arrays & Iteration</h1>
+    <p>Organize AI memory using JavaScript arrays. Learn how to iterate over them with loops.</p>
+  </header>
 
-  <h1>Lesson 1.7 – Objects & Arrays</h1>
-  <p>Objects and arrays are essential structures in JavaScript to store and manipulate data efficiently, especially in AI applications.</p>
+  <div class="container">
+    <h2 class="lesson-title">Understanding Arrays & Iteration</h2>
+    <p>In JavaScript, arrays allow you to store multiple values in a single variable. Iteration is the process of looping through the array and accessing its elements. Understanding these concepts is crucial for creating efficient AI programs.</p>
 
-  <div class="card">
-    <h2>What is an Array?</h2>
-    <p>An array holds a list of values.</p>
-    <pre><code>const fruits = ["apple", "banana", "mango"];
-console.log(fruits[1]); // Output: banana</code></pre>
-  </div>
+    <div class="task-section">
+      <h3>Task 1: Array Basics</h3>
+      <div class="task">
+        <p>Declare an array of integers from 1 to 5 and print them using a loop. This will help you understand how to create and iterate through arrays.</p>
+        <button class="code-btn" onclick="runTask1()">Run Task</button>
+        <div class="example-output" id="task1-output"></div>
+      </div>
 
-  <div class="card">
-    <h2>What is an Object?</h2>
-    <p>An object stores data as key-value pairs.</p>
-    <pre><code>const student = {
-  name: "John",
-  age: 22,
-  course: "AI & JS"
-};
+      <h3>Task 2: Array with Strings</h3>
+      <div class="task">
+        <p>Create an array of fruits and print each fruit's name using a loop. This exercise demonstrates how arrays can hold different types of data.</p>
+        <button class="code-btn" onclick="runTask2()">Run Task</button>
+        <div class="example-output" id="task2-output"></div>
+      </div>
+    </div>
 
-console.log(student.name); // Output: John</code></pre>
-  </div>
+    <div class="coding-example">
+      <h3>Coding Example 1: Iterating Through an Array</h3>
+      <div class="example">
+        <p><strong>Code:</strong></p>
+        <pre class="example-code">
+const numbers = [1, 2, 3, 4, 5];
+for (let i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
+}
+        </pre>
+        <p><strong>Explanation:</strong></p>
+        <p>This code declares an array of numbers and uses a for loop to iterate through each element in the array. It then prints each number to the console.</p>
+      </div>
+    </div>
 
-  <div class="card">
-    <h2>Combining Arrays & Objects</h2>
-    <pre><code>const users = [
-  { name: "Alice", score: 85 },
-  { name: "Bob", score: 90 }
-];
+    <div class="coding-example">
+      <h3>Coding Example 2: Iterating Through an Array with forEach</h3>
+      <div class="example">
+        <p><strong>Code:</strong></p>
+        <pre class="example-code">
+const fruits = ["Apple", "Banana", "Cherry", "Date"];
+fruits.forEach(fruit => {
+    console.log(fruit);
+});
+        </pre>
+        <p><strong>Explanation:</strong></p>
+        <p>The <code>forEach</code> method is another way to iterate through an array. It takes a function that gets called for each element in the array.</p>
+      </div>
+    </div>
 
-console.log(users[1].score); // Output: 90</code></pre>
-  </div>
+    <div class="coding-example">
+      <h3>Coding Example 3: Using map() for Array Transformation</h3>
+      <div class="example">
+        <p><strong>Code:</strong></p>
+        <pre class="example-code">
+const numbers = [1, 2, 3, 4];
+const squaredNumbers = numbers.map(num => num * num);
+console.log(squaredNumbers);
+        </pre>
+        <p><strong>Explanation:</strong></p>
+        <p>The <code>map()</code> method creates a new array by applying a function to each element. In this example, we square each number in the array.</p>
+      </div>
+    </div>
 
-  <div class="card">
-    <h2>Try It Yourself</h2>
-    <textarea id="code" rows="10" style="width: 100%;">
-// Try your own object/array code here
-const pets = ["cat", "dog", "parrot"];
-console.log(pets.length);
-    </textarea>
-    <br>
-    <button onclick="runCode()">Run Code</button>
-    <button onclick="clearOutput()">Clear Output</button>
-    <div id="output"></div>
+    <div class="quiz-section">
+      <h3>Quiz 1: What is an Array?</h3>
+      <div class="quiz">
+        <p>What does an array store in JavaScript?</p>
+        <ul>
+          <li>A collection of functions</li>
+          <li>A collection of data values</li>
+          <li>A single data type</li>
+        </ul>
+      </div>
+
+      <h3>Quiz 2: Looping through an Array</h3>
+      <div class="quiz">
+        <p>Which loop is used to iterate over an array?</p>
+        <ul>
+          <li>for loop</li>
+          <li>while loop</li>
+          <li>do-while loop</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <script>
-    function runCode() {
-      const code = document.getElementById("code").value;
-      try {
-        const result = eval(code);
-        document.getElementById("output").innerText = result ?? "Code executed.";
-      } catch (e) {
-        document.getElementById("output").innerText = "Error: " + e.message;
+    // Task 1 - Array of numbers
+    function runTask1() {
+      const numbers = [1, 2, 3, 4, 5];
+      let output = '';
+      for (let i = 0; i < numbers.length; i++) {
+        output += numbers[i] + ' ';
       }
+      document.getElementById('task1-output').innerText = output;
     }
 
-    function clearOutput() {
-      document.getElementById("output").innerText = "";
+    // Task 2 - Array of fruits
+    function runTask2() {
+      const fruits = ["Apple", "Banana", "Cherry", "Date"];
+      let output = '';
+      for (let i = 0; i < fruits.length; i++) {
+        output += fruits[i] + '\n';
+      }
+      document.getElementById('task2-output').innerText = output;
     }
   </script>
-
 </body>
 </html>
