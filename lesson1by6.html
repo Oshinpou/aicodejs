@@ -44,6 +44,17 @@
         ul li {
             margin: 5px 0;
         }
+        .task {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        .task input, .task button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
         footer {
             background-color: #333;
             color: #fff;
@@ -52,6 +63,15 @@
             position: absolute;
             width: 100%;
             bottom: 0;
+        }
+        .code-container {
+            background-color: #282c34;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
         }
     </style>
 </head>
@@ -64,19 +84,33 @@
     <div class="container">
         <section>
             <h2>Introduction to Functions</h2>
-            <p>In JavaScript, a function is a block of code designed to perform a particular task. You can define functions to make your code more organized, reusable, and manageable.</p>
+            <p>In JavaScript, a function is a block of code designed to perform a particular task. Functions can take inputs (called parameters), and can return outputs (called return values). They help in organizing your code, making it reusable and easier to maintain.</p>
             <ul>
-                <li>What are functions in JavaScript?</li>
-                <li>Understanding function syntax in JavaScript.</li>
-                <li>Defining a basic function with the <code>function</code> keyword.</li>
-                <li>How to call a function in JavaScript.</li>
-                <li>Functions with parameters and arguments.</li>
+                <li><strong>What are functions in JavaScript?</strong></li>
+                <li><strong>Understanding function syntax in JavaScript.</strong></li>
+                <li><strong>Defining a basic function with the <code>function</code> keyword.</strong></li>
+                <li><strong>How to call a function in JavaScript.</strong></li>
+                <li><strong>Functions with parameters and arguments.</strong></li>
             </ul>
         </section>
 
         <section>
+            <h2>Coding Example: Simple Function</h2>
+            <p>Here is a basic example of a JavaScript function:</p>
+            <div class="code-container">
+                <code>
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greet("Alice");  // Output: Hello, Alice!
+                </code>
+            </div>
+            <p><strong>Explanation:</strong> The function <code>greet</code> takes a parameter <code>name</code> and prints a greeting message. When we call <code>greet("Alice")</code>, the output is <code>Hello, Alice!</code>.</p>
+        </section>
+
+        <section>
             <h2>Types of Functions</h2>
-            <p>Functions can come in many forms, from traditional function expressions to arrow functions. Each has its unique use cases and syntax.</p>
             <ul>
                 <li>Regular functions vs arrow functions.</li>
                 <li>Function expressions and how they work.</li>
@@ -87,62 +121,117 @@
         </section>
 
         <section>
+            <h2>Coding Example: Arrow Function</h2>
+            <p>In ES6, arrow functions provide a shorter syntax to write functions.</p>
+            <div class="code-container">
+                <code>
+const greet = (name) => {
+    return "Hello, " + name + "!";
+};
+
+console.log(greet("Bob"));  // Output: Hello, Bob!
+                </code>
+            </div>
+            <p><strong>Explanation:</strong> The <code>greet</code> function is written using an arrow function. It's more concise compared to the regular function declaration.</p>
+        </section>
+
+        <section>
             <h2>Modularity in JavaScript</h2>
-            <p>Modular code allows for better organization and maintainability of your programs. Functions play a key role in achieving modularity.</p>
+            <p>Modularizing your code into smaller, reusable functions improves the maintainability and readability of your program. Functions help break down complex problems into manageable pieces.</p>
             <ul>
-                <li>What is modularity in programming?</li>
-                <li>How to modularize JavaScript code for reusability.</li>
-                <li>Understanding the <code>export</code> and <code>import</code> keywords in ES6.</li>
-                <li>How to structure a modular JavaScript project.</li>
-                <li>Benefits of using modular code in AI projects.</li>
+                <li>How to structure modular code for reusability.</li>
+                <li>Using <code>export</code> and <code>import</code> in ES6 modules.</li>
+                <li>Benefits of modularity in AI projects.</li>
+                <li>How functions enable you to build scalable programs.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Function Parameters & Arguments</h2>
-            <p>Learn how to use parameters and arguments to make your functions more flexible and reusable.</p>
-            <ul>
-                <li>Default function parameters in JavaScript.</li>
-                <li>Using rest parameters (<code>...args</code>) to handle variable numbers of arguments.</li>
-                <li>Destructuring function parameters.</li>
-                <li>Passing functions as arguments to other functions.</li>
-                <li>Understanding call-by-value vs call-by-reference.</li>
-            </ul>
+            <h2>Task 1: Write a Function to Sum Two Numbers</h2>
+            <div class="task">
+                <p><strong>Objective:</strong> Create a function that takes two numbers as arguments and returns their sum.</p>
+                <input type="text" id="task1-input" placeholder="Enter numbers (e.g., 5, 7)">
+                <button onclick="task1()">Submit</button>
+                <p id="task1-result"></p>
+            </div>
+            <script>
+                function task1() {
+                    const input = document.getElementById("task1-input").value;
+                    const numbers = input.split(',').map(num => parseInt(num.trim()));
+                    const sum = numbers[0] + numbers[1];
+                    document.getElementById("task1-result").innerText = `Sum: ${sum}`;
+                }
+            </script>
         </section>
 
         <section>
-            <h2>Function Return Values</h2>
-            <p>Functions can return values that can be used elsewhere in your program. Understanding how to return data is essential to writing useful functions.</p>
-            <ul>
-                <li>Returning a value from a function.</li>
-                <li>How to return multiple values using arrays or objects.</li>
-                <li>Returning functions from other functions (higher-order functions).</li>
-                <li>Returning a promise from a function.</li>
-                <li>Understanding undefined as a default return value.</li>
-            </ul>
+            <h2>Coding Example: Function with Multiple Parameters</h2>
+            <p>Functions can accept multiple parameters. Here's an example where we add three numbers:</p>
+            <div class="code-container">
+                <code>
+function addThreeNumbers(a, b, c) {
+    return a + b + c;
+}
+
+console.log(addThreeNumbers(2, 3, 4));  // Output: 9
+                </code>
+            </div>
+            <p><strong>Explanation:</strong> The function <code>addThreeNumbers</code> accepts three parameters and returns their sum. Calling it with <code>addThreeNumbers(2, 3, 4)</code> results in <code>9</code>.</p>
+        </section>
+
+        <section>
+            <h2>Task 2: Write a Function to Multiply Two Numbers</h2>
+            <div class="task">
+                <p><strong>Objective:</strong> Create a function that takes two numbers as arguments and returns their product.</p>
+                <input type="text" id="task2-input" placeholder="Enter numbers (e.g., 5, 7)">
+                <button onclick="task2()">Submit</button>
+                <p id="task2-result"></p>
+            </div>
+            <script>
+                function task2() {
+                    const input = document.getElementById("task2-input").value;
+                    const numbers = input.split(',').map(num => parseInt(num.trim()));
+                    const product = numbers[0] * numbers[1];
+                    document.getElementById("task2-result").innerText = `Product: ${product}`;
+                }
+            </script>
         </section>
 
         <section>
             <h2>Advanced Function Topics</h2>
-            <p>Explore advanced function topics that will take your JavaScript skills to the next level.</p>
+            <p>Explore advanced concepts such as memoization, currying, and partial application.</p>
             <ul>
-                <li>Using functions with side effects.</li>
-                <li>Pure functions and their importance in functional programming.</li>
                 <li>Memoization: Caching function results.</li>
-                <li>Currying: Transforming functions to accept arguments one at a time.</li>
-                <li>Partial application: Pre-filling some function arguments.</li>
+                <li>Currying: Breaking down functions into multiple functions that accept a single argument.</li>
+                <li>Partial application: Pre-filling some arguments of a function.</li>
             </ul>
         </section>
 
         <section>
+            <h2>Task 3: Function to Find Maximum of Three Numbers</h2>
+            <div class="task">
+                <p><strong>Objective:</strong> Create a function that returns the largest of three numbers.</p>
+                <input type="text" id="task3-input" placeholder="Enter three numbers (e.g., 2, 5, 3)">
+                <button onclick="task3()">Submit</button>
+                <p id="task3-result"></p>
+            </div>
+            <script>
+                function task3() {
+                    const input = document.getElementById("task3-input").value;
+                    const numbers = input.split(',').map(num => parseInt(num.trim()));
+                    const max = Math.max(...numbers);
+                    document.getElementById("task3-result").innerText = `Max: ${max}`;
+                }
+            </script>
+        </section>
+
+        <section>
             <h2>Function Scope & Closures</h2>
-            <p>Closures are one of JavaScript's most powerful features. Learn how they work and how to use them effectively.</p>
+            <p>Learn about function scope and closures in JavaScript, two important concepts for understanding variable lifetime and privacy.</p>
             <ul>
-                <li>Understanding lexical scoping in JavaScript.</li>
-                <li>Creating closures in JavaScript.</li>
-                <li>How closures help in preserving function state.</li>
-                <li>Practical examples of closures in real-world projects.</li>
-                <li>Closure-based caching mechanisms.</li>
+                <li>Understanding local and global scope.</li>
+                <li>How closures preserve the function’s scope even after it finishes executing.</li>
+                <li>Using closures for data encapsulation and privacy.</li>
             </ul>
         </section>
 
@@ -151,40 +240,73 @@
             <p>Learn the best practices for debugging functions and understanding errors in JavaScript functions.</p>
             <ul>
                 <li>Using <code>console.log</code> for function debugging.</li>
-                <li>Inspecting function parameters and returns.</li>
-                <li>How to use breakpoints in your IDE for function debugging.</li>
-                <li>Using <code>debugger</code> to pause function execution.</li>
-                <li>Managing function errors with <code>try...catch</code>.</li>
+                <li>Inspecting function parameters and ensuring they are valid and of the expected type.</li>
+
+                   <li>Using breakpoints and debugging tools in your browser's developer tools.</li>
+                <li>Identifying common errors such as undefined functions or incorrect parameter values.</li>
+                <li>Handling edge cases and input validation in your functions.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Best Practices in Functions</h2>
-            <p>Writing clean, efficient, and readable functions is a crucial skill in JavaScript. Here are some best practices to follow:</p>
+            <h2>Best Practices for Functions & Modularity</h2>
+            <p>To write clean and maintainable code, it's important to follow certain best practices for functions and modularity:</p>
             <ul>
-                <li>Writing pure functions for better performance.</li>
-                <li>Using small functions to enhance readability.</li>
-                <li>Avoiding side effects in functions.</li>
-                <li>Using function names that describe their purpose.</li>
-                <li>Avoiding deep nesting of functions.</li>
+                <li>Always keep functions focused on a single task.</li>
+                <li>Write functions with descriptive names that make your code more readable.</li>
+                <li>Avoid side effects: Functions should not change any external state unless necessary.</li>
+                <li>Ensure that functions are as independent as possible to increase reusability.</li>
+                <li>Document your functions with comments, especially for complex logic.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Functions in AI</h2>
-            <p>Functions are key components when building intelligent systems. Here’s how functions play a vital role in AI development:</p>
-            <ul>
-                <li>Functions in machine learning and AI algorithms.</li>
-                <li>Writing utility functions for AI data processing.</li>
-                <li>Functions for handling AI model training processes.</li>
-                <li>Using functions to implement modular AI pipelines.</li>
-                <li>Functions for visualizing AI model performance.</li>
-            </ul>
+            <h2>Advanced Task: Build a Modular Calculator</h2>
+            <div class="task">
+                <p><strong>Objective:</strong> Write modular code that creates a simple calculator. The calculator should support operations such as addition, subtraction, multiplication, and division using separate functions for each operation.</p>
+                <input type="text" id="task4-input" placeholder="Enter numbers and operation (e.g., 3, 5, add)">
+                <button onclick="task4()">Submit</button>
+                <p id="task4-result"></p>
+            </div>
+            <script>
+                function task4() {
+                    const input = document.getElementById("task4-input").value;
+                    const [num1, num2, operation] = input.split(',').map(item => item.trim());
+                    const n1 = parseInt(num1);
+                    const n2 = parseInt(num2);
+                    let result;
+
+                    switch (operation.toLowerCase()) {
+                        case 'add':
+                            result = add(n1, n2);
+                            break;
+                        case 'subtract':
+                            result = subtract(n1, n2);
+                            break;
+                        case 'multiply':
+                            result = multiply(n1, n2);
+                            break;
+                        case 'divide':
+                            result = divide(n1, n2);
+                            break;
+                        default:
+                            result = 'Invalid operation';
+                            break;
+                    }
+
+                    document.getElementById("task4-result").innerText = `Result: ${result}`;
+                }
+
+                function add(a, b) { return a + b; }
+                function subtract(a, b) { return a - b; }
+                function multiply(a, b) { return a * b; }
+                function divide(a, b) { return a / b; }
+            </script>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 AIcodeJS - Learn AI with JavaScript</p>
+        <p>&copy; 2025 Learn AI JavaScript | All Rights Reserved</p>
     </footer>
 </body>
-</html>
+</html> 
