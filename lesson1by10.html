@@ -112,6 +112,14 @@
         <p>Click the button below to change its text:</p>
         <button id="click-btn">Click me!</button>
         <div id="click-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+document.getElementById('click-btn').addEventListener('click', function() {
+    this.textContent = "You clicked me!";
+    document.getElementById('click-output').innerHTML = 'Button clicked!';
+});
+            </pre>
+        </div>
     </div>
 
     <!-- Task 2: Key Press Event Example -->
@@ -120,6 +128,13 @@
         <p>Press any key to see its key code:</p>
         <input type="text" id="keypress-input" placeholder="Press any key" />
         <div id="keypress-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+document.getElementById('keypress-input').addEventListener('keydown', function(event) {
+    document.getElementById('keypress-output').innerHTML = 'Key pressed: ' + event.key;
+});
+            </pre>
+        </div>
     </div>
 
     <!-- Task 3: Mouse Over Event Example -->
@@ -128,6 +143,18 @@
         <p>Hover over the box below to see a change:</p>
         <div id="hover-box" class="box">Hover over me!</div>
         <div id="hover-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+document.getElementById('hover-box').addEventListener('mouseover', function() {
+    document.getElementById('hover-output').innerHTML = 'Mouse is over the box!';
+    this.style.backgroundColor = '#ffcccb';
+});
+document.getElementById('hover-box').addEventListener('mouseout', function() {
+    document.getElementById('hover-output').innerHTML = 'Mouse is out of the box.';
+    this.style.backgroundColor = '#fff';
+});
+            </pre>
+        </div>
     </div>
 
     <!-- Task 4: Mouse Movement Event Example -->
@@ -135,6 +162,13 @@
         <h2>Task 4: Mouse Movement Event</h2>
         <p>Move your mouse around the screen:</p>
         <div id="mousemove-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+document.addEventListener('mousemove', function(event) {
+    document.getElementById('mousemove-output').innerHTML = `Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`;
+});
+            </pre>
+        </div>
     </div>
 
     <!-- Task 5: Custom Event Creation -->
@@ -143,6 +177,22 @@
         <p>Click the button to dispatch a custom event:</p>
         <button id="dispatch-btn">Dispatch Custom Event</button>
         <div id="custom-event-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+document.getElementById('dispatch-btn').addEventListener('click', function() {
+    const customEvent = new CustomEvent('myCustomEvent', {
+        detail: 'This is a custom event!'
+    });
+    document.getElementById('custom-event-output').innerHTML = 'Custom event triggered!';
+    document.dispatchEvent(customEvent);
+});
+
+document.addEventListener('myCustomEvent', function(event) {
+    console.log(event.detail);
+    document.getElementById('custom-event-output').innerHTML += ` <br> Custom Event Detail: ${event.detail}`;
+});
+            </pre>
+        </div>
     </div>
 
     <!-- Task 6: Resize Event Example -->
@@ -150,6 +200,13 @@
         <h2>Task 6: Resize Event</h2>
         <p>Resize the browser window to see the effect:</p>
         <div id="resize-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+window.addEventListener('resize', function() {
+    document.getElementById('resize-output').innerHTML = `Window resized to: ${window.innerWidth}x${window.innerHeight}`;
+});
+            </pre>
+        </div>
     </div>
 
     <!-- Task 7: Focus and Blur Events Example -->
@@ -158,6 +215,17 @@
         <p>Focus and blur the input field below:</p>
         <input type="text" id="focus-blur-input" placeholder="Focus and blur me" />
         <div id="focus-blur-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+document.getElementById('focus-blur-input').addEventListener('focus', function() {
+    document.getElementById('focus-blur-output').innerHTML = 'Input field is focused.';
+});
+
+document.getElementById('focus-blur-input').addEventListener('blur', function() {
+    document.getElementById('focus-blur-output').innerHTML = 'Input field lost focus.';
+});
+            </pre>
+        </div>
     </div>
 
     <!-- Task 8: Double Click Event Example -->
@@ -166,68 +234,14 @@
         <p>Double-click the button below:</p>
         <button id="double-click-btn">Double-click me!</button>
         <div id="double-click-output" class="output"></div>
+        <div class="code-container">
+            <pre>
+document.getElementById('double-click-btn').addEventListener('dblclick', function() {
+    document.getElementById('double-click-output').innerHTML = 'Button double-clicked!';
+});
+            </pre>
+        </div>
     </div>
 
-    <!-- JavaScript Code -->
-    <script>
-        // Task 1: Click Event
-        document.getElementById('click-btn').addEventListener('click', function() {
-            this.textContent = "You clicked me!";
-            document.getElementById('click-output').innerHTML = 'Button clicked!';
-        });
-
-        // Task 2: Key Press Event
-        document.getElementById('keypress-input').addEventListener('keydown', function(event) {
-            document.getElementById('keypress-output').innerHTML = 'Key pressed: ' + event.key;
-        });
-
-        // Task 3: Mouse Over Event
-        document.getElementById('hover-box').addEventListener('mouseover', function() {
-            document.getElementById('hover-output').innerHTML = 'Mouse is over the box!';
-            this.style.backgroundColor = '#ffcccb';
-        });
-        document.getElementById('hover-box').addEventListener('mouseout', function() {
-            document.getElementById('hover-output').innerHTML = 'Mouse is out of the box.';
-            this.style.backgroundColor = '#fff';
-        });
-
-        // Task 4: Mouse Movement Event
-        document.addEventListener('mousemove', function(event) {
-            document.getElementById('mousemove-output').innerHTML = `Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`;
-        });
-
-        // Task 5: Custom Event
-        document.getElementById('dispatch-btn').addEventListener('click', function() {
-            const customEvent = new CustomEvent('myCustomEvent', {
-                detail: 'This is a custom event!'
-            });
-            document.getElementById('custom-event-output').innerHTML = 'Custom event triggered!';
-            document.dispatchEvent(customEvent);
-        });
-
-        document.addEventListener('myCustomEvent', function(event) {
-            console.log(event.detail);
-            document.getElementById('custom-event-output').innerHTML += ` <br> Custom Event Detail: ${event.detail}`;
-        });
-
-        // Task 6: Resize Event
-        window.addEventListener('resize', function() {
-            document.getElementById('resize-output').innerHTML = `Window resized to: ${window.innerWidth}x${window.innerHeight}`;
-        });
-
-        // Task 7: Focus and Blur Events
-        document.getElementById('focus-blur-input').addEventListener('focus', function() {
-            document.getElementById('focus-blur-output').innerHTML = 'Input field is focused.';
-        });
-
-        document.getElementById('focus-blur-input').addEventListener('blur', function() {
-            document.getElementById('focus-blur-output').innerHTML = 'Input field lost focus.';
-        });
-
-        // Task 8: Double Click Event
-        document.getElementById('double-click-btn').addEventListener('dblclick', function() {
-            document.getElementById('double-click-output').innerHTML = 'Button double-clicked!';
-        });
-    </script>
 </body>
 </html>
