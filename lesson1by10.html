@@ -145,6 +145,29 @@
         <div id="custom-event-output" class="output"></div>
     </div>
 
+    <!-- Task 6: Resize Event Example -->
+    <div class="task">
+        <h2>Task 6: Resize Event</h2>
+        <p>Resize the browser window to see the effect:</p>
+        <div id="resize-output" class="output"></div>
+    </div>
+
+    <!-- Task 7: Focus and Blur Events Example -->
+    <div class="task">
+        <h2>Task 7: Focus and Blur Events</h2>
+        <p>Focus and blur the input field below:</p>
+        <input type="text" id="focus-blur-input" placeholder="Focus and blur me" />
+        <div id="focus-blur-output" class="output"></div>
+    </div>
+
+    <!-- Task 8: Double Click Event Example -->
+    <div class="task">
+        <h2>Task 8: Double Click Event</h2>
+        <p>Double-click the button below:</p>
+        <button id="double-click-btn">Double-click me!</button>
+        <div id="double-click-output" class="output"></div>
+    </div>
+
     <!-- JavaScript Code -->
     <script>
         // Task 1: Click Event
@@ -185,6 +208,25 @@
         document.addEventListener('myCustomEvent', function(event) {
             console.log(event.detail);
             document.getElementById('custom-event-output').innerHTML += ` <br> Custom Event Detail: ${event.detail}`;
+        });
+
+        // Task 6: Resize Event
+        window.addEventListener('resize', function() {
+            document.getElementById('resize-output').innerHTML = `Window resized to: ${window.innerWidth}x${window.innerHeight}`;
+        });
+
+        // Task 7: Focus and Blur Events
+        document.getElementById('focus-blur-input').addEventListener('focus', function() {
+            document.getElementById('focus-blur-output').innerHTML = 'Input field is focused.';
+        });
+
+        document.getElementById('focus-blur-input').addEventListener('blur', function() {
+            document.getElementById('focus-blur-output').innerHTML = 'Input field lost focus.';
+        });
+
+        // Task 8: Double Click Event
+        document.getElementById('double-click-btn').addEventListener('dblclick', function() {
+            document.getElementById('double-click-output').innerHTML = 'Button double-clicked!';
         });
     </script>
 </body>
