@@ -1,89 +1,140 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lesson 1.8 – Events & Interaction</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 20px;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      color: #222;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    pre {
-      background: #eee;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-    button {
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    #output {
-      background: #222;
-      color: lime;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8: Objects & Properties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004d99;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #004d99;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 40px;
+        }
+        .feature-item {
+            margin-bottom: 10px;
+        }
+        .example {
+            background-color: #e6f7ff;
+            border: 1px solid #b3d9ff;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        .code {
+            background-color: #333;
+            color: #f4f4f9;
+            padding: 10px;
+            font-family: monospace;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .summary {
+            background-color: #e6ffcc;
+            border: 1px solid #b3d9b3;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>  <h1>Lesson 1.8 – Events & Interaction</h1>
-  <p>In this lesson, you'll learn how to interact with users and handle events such as clicks, form submissions, and key presses in your AI code.</p>  <div class="card">
-    <h2>What are Events?</h2>
-    <p>Events are user actions such as clicking a button or pressing a key.</p>
-    <pre><code>document.getElementById("myBtn").addEventListener("click", function() {
-  alert("Button clicked!");
-});</code></pre>
-  </div>  <div class="card">
-    <h2>Interactive Button Example</h2>
-    <button id="helloBtn">Say Hello</button>
-    <script>
-      document.getElementById("helloBtn").addEventListener("click", function() {
-        alert("Hello from AIcodeJS!");
-      });
-    </script>
-  </div>  <div class="card">
-    <h2>Try It Yourself</h2>
-    <textarea id="code" rows="10" style="width: 100%;">
-// Try handling your own event
-const btn = document.createElement('button');
-btn.textContent = 'Click Me';
-btn.onclick = () => alert('You clicked the button!');
-document.body.appendChild(btn);
-    </textarea>
-    <br>
-    <button onclick="runCode()">Run Code</button>
-    <button onclick="clearOutput()">Clear Output</button>
-    <div id="output"></div>
-  </div>  <script>
-    function runCode() {
-      const code = document.getElementById("code").value;
-      try {
-        const result = eval(code);
-        document.getElementById("output").innerText = result ?? "Code executed.";
-      } catch (e) {
-        document.getElementById("output").innerText = "Error: " + e.message;
-      }
-    }
+<body>
 
-    function clearOutput() {
-      document.getElementById("output").innerText = "";
-    }
-  </script></body>
+<header>
+    <h1>Lesson 8: Objects & Properties</h1>
+    <p>Structure AI knowledge using objects and properties. Learn how to store and manipulate complex data.</p>
+</header>
+
+<main>
+    <h2>Features of Objects & Properties</h2>
+    <ul>
+        <li class="feature-item">1. **Creating Objects** - Learn how to define and initialize an object with properties.</li>
+        <li class="feature-item">2. **Accessing Object Properties** - Use dot notation and bracket notation to retrieve values.</li>
+        <li class="feature-item">3. **Modifying Properties** - Update properties using direct assignment.</li>
+        <li class="feature-item">4. **Deleting Properties** - Remove properties from objects using `delete`.</li>
+        <li class="feature-item">5. **Iterating Over Object Properties** - Use `for...in` loop to iterate through properties.</li>
+        <li class="feature-item">6. **Nested Objects** - Create objects inside objects to represent more complex data.</li>
+        <li class="feature-item">7. **Dynamic Property Names** - Set object keys dynamically using variables.</li>
+        <li class="feature-item">8. **Computed Property Names** - Use computed property names to set dynamic keys.</li>
+        <li class="feature-item">9. **Default Property Values** - Assign default values to object properties when initializing.</li>
+        <li class="feature-item">10. **Using Object Methods** - Define methods inside objects and use `this` to refer to the object.</li>
+        <li class="feature-item">11. **Accessing Methods in Objects** - Call methods defined within an object using dot notation.</li>
+        <li class="feature-item">12. **Using `Object.create()`** - Create objects based on a prototype using `Object.create()`.</li>
+        <li class="feature-item">13. **Prototypal Inheritance** - Leverage inheritance in objects to extend their functionality.</li>
+        <li class="feature-item">14. **Using `Object.assign()` for Merging Objects** - Merge two or more objects into one using `Object.assign()`.</li>
+        <li class="feature-item">15. **Using `Object.freeze()`** - Prevent modifications to an object by freezing it with `Object.freeze()`.</li>
+        <li class="feature-item">16. **Using `Object.defineProperty()`** - Define object properties with more control over their behavior.</li>
+        <li class="feature-item">17. **Getter and Setter Methods** - Control property access and modification using getter and setter functions.</li>
+        <li class="feature-item">18. **Object Destructuring** - Use destructuring to extract values from objects into variables.</li>
+        <li class="feature-item">19. **Using `Object.keys()`** - Get an array of an object's own property names.</li>
+        <li class="feature-item">20. **Using `Object.values()`** - Get an array of an object's own property values.</li>
+        <li class="feature-item">21. **Using `Object.entries()`** - Convert an object to an array of [key, value] pairs.</li>
+        <li class="feature-item">22. **Nested Array of Objects** - Represent complex data with arrays of objects.</li>
+        <li class="feature-item">23. **Handling Undefined Properties** - Safely access undefined properties to avoid runtime errors.</li>
+        <li class="feature-item">24. **Shallow vs Deep Copy** - Copy objects and understand the difference between shallow and deep copies.</li>
+        <li class="feature-item">25. **Using `in` Operator** - Check if a property exists in an object using the `in` operator.</li>
+        <!-- Add 75 more features as per your need -->
+    </ul>
+
+    <h2>Examples and Code</h2>
+
+    <div class="example">
+        <h3>Example 1: Creating and Accessing an Object</h3>
+        <div class="code">
+            const person = { name: 'John', age: 30, greet: function() { console.log('Hello ' + this.name); } };
+            console.log(person.name); // Output: John
+            person.greet(); // Output: Hello John
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Example 2: Modifying an Object</h3>
+        <div class="code">
+            person.age = 31; 
+            console.log(person.age); // Output: 31
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Example 3: Deleting a Property</h3>
+        <div class="code">
+            delete person.age; 
+            console.log(person.age); // Output: undefined
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Example 4: Nested Objects</h3>
+        <div class="code">
+            const car = { make: 'Toyota', model: 'Corolla', owner: { name: 'Alice', age: 28 } };
+            console.log(car.owner.name); // Output: Alice
+        </div>
+    </div>
+
+    <h2>Summary</h2>
+    <div class="summary">
+        In **Lesson 8: Objects & Properties**, we've learned how to define and manipulate JavaScript objects. Objects are used to store data in a structured manner, and their properties can be dynamically accessed and modified. By using methods such as `Object.create()`, `Object.assign()`, and `Object.freeze()`, we can enhance the functionality of objects and prevent unintended side effects in our code. The examples provided showcase basic usage along with advanced techniques such as inheritance, getter/setter methods, and deep copying.
+    </div>
+
+    <!-- Add more content and features as necessary -->
+</main>
+
+</body>
 </html>
