@@ -47,6 +47,7 @@ button {
 button:hover {
   background-color: #3b7fd3;
 }
+  
 </style>
 </head>
 <body>
@@ -55,30 +56,13 @@ button:hover {
   <button onclick="redirectToCourse()">Access Course</button>
 
   <script>
-    // Generate random username
     const generatedUser = "user_" + Math.floor(100000 + Math.random() * 900000);
     localStorage.setItem("user_logged_in", "true");
     localStorage.setItem("username", generatedUser);
     document.getElementById("username-msg").textContent = "Your Username: " + generatedUser;
 
     function redirectToCourse() {
-      // Smart Redirect Handling for WebView and Browser
-
-      var isInWebView = (function () {
-        var standalone = window.navigator.standalone,
-            userAgent = window.navigator.userAgent.toLowerCase(),
-            safari = /safari/.test(userAgent),
-            ios = /iphone|ipod|ipad/.test(userAgent);
-        return (ios && !standalone && !safari) || (userAgent.includes('wv') || userAgent.includes('android'));
-      })();
-
-      if (isInWebView) {
-        // Inside WebView: Use full URL
-        window.location.href = "https://yourwebsite.com/index.html"; 
-      } else {
-        // Normal Browser: Use relative URL
-        window.location.href = "index.html"; 
-      }
+      window.location.href = "index.html";
     }
   </script>
 </body>
