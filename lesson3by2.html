@@ -1,58 +1,202 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 3.2 - Working with Forms</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operators for AI Calculations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h3 {
+            color: #4CAF50;
+        }
+        code {
+            display: block;
+            background-color: #eee;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 1.1em;
+            white-space: pre-wrap;
+        }
+        .feature {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .example {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .example pre {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 3.2: Working with Forms</h1>
-    <p>Learn to use forms in AI-driven JavaScript projects.</p>
-  </header>  <main>
-    <section>
-      <h2>Overview</h2>
-      <p>In this lesson, you'll discover how to work with HTML forms and use JavaScript to capture, validate, and use form data in your AI applications.</p>
-    </section><section>
-  <h2>Key Concepts</h2>
-  <ul>
-    <li>HTML form elements</li>
-    <li>Accessing form data with JavaScript</li>
-    <li>Form validation techniques</li>
-    <li>Sending data to backend or AI models</li>
-  </ul>
-</section>
 
-<section>
-  <h2>Code Example</h2>
-  <form id="aiForm">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required />
-    <br />
-    <label for="query">Your AI Query:</label>
-    <textarea id="query" name="query" required></textarea>
-    <br />
-    <button type="submit">Submit</button>
-  </form>
-  <div id="output"></div>
+<header>
+    <h1>Arithmetic Operators for AI Calculations</h1>
+    <p>Learn how arithmetic operators are used in AI models and algorithms for various tasks.</p>
+</header>
 
-  <script>
-    document.getElementById("aiForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const query = document.getElementById("query").value;
-      document.getElementById("output").innerText = `Hello ${name}, your query "${query}" has been sent to the AI engine.`;
-    });
-  </script>
-</section>
+<main>
+    <h2>Overview</h2>
+    <p>Arithmetic operators such as addition, subtraction, multiplication, and division are fundamental for performing calculations in AI. These operators are frequently used in mathematical models, machine learning algorithms, and neural network computations.</p>
 
-<section>
-  <h2>Task</h2>
-  <p>Create a form that collects a user's favorite AI feature and displays it dynamically on the page.</p>
-</section>
+    <h3>Features of Arithmetic Operators in AI</h3>
+    <ul>
+        <li>Basic arithmetic operations like addition, subtraction, multiplication, and division</li>
+        <li>Calculating weighted sums in neural networks</li>
+        <li>Dot product calculation for vector and matrix operations</li>
+        <li>Computing Mean Squared Error (MSE) for model evaluation</li>
+        <li>Applying activation functions such as ReLU and Sigmoid</li>
+        <li>Softmax function for multi-class classification</li>
+        <li>Batch normalization for deep learning</li>
+        <li>Hyperparameter tuning using arithmetic operators</li>
+        <li>Gradient calculations during backpropagation</li>
+        <li>Reward calculation in reinforcement learning</li>
+    </ul>
 
-  </main>  <footer>
-    <p>&copy; 2025 AIcodeJS Course</p>
-  </footer>
+    <h3>Coding Examples</h3>
+
+    <div class="example">
+        <h4>1. Basic Addition</h4>
+        <p>Example of simple addition:</p>
+        <pre><code>let a = 10;
+let b = 5;
+let result = a + b; // Basic addition
+console.log(result); // Output: 15</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>2. Multiplying Weights in Neural Networks</h4>
+        <p>This example shows how multiplication is used in neural networks to compute weighted sums:</p>
+        <pre><code>let input = [0.5, 0.8, 0.2]; // Example input features
+let weights = [0.3, 0.6, 0.9]; // Example weights
+let weightedSum = 0;
+
+for (let i = 0; i < input.length; i++) {
+  weightedSum += input[i] * weights[i]; // Multiply each input feature by its weight
+}
+
+console.log(weightedSum); // Output: 0.99</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>3. Dot Product Calculation</h4>
+        <p>The dot product is used frequently in AI for vector operations:</p>
+        <pre><code>function dotProduct(a, b) {
+  let result = 0;
+  for (let i = 0; i < a.length; i++) {
+    result += a[i] * b[i]; // Multiply corresponding elements and sum them
+  }
+  return result;
+}
+
+let vector1 = [1, 2, 3];
+let vector2 = [4, 5, 6];
+
+console.log(dotProduct(vector1, vector2)); // Output: 32</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>4. Mean Squared Error (MSE)</h4>
+        <p>In machine learning, we often calculate the error between predictions and actual values:</p>
+        <pre><code>function meanSquaredError(predictions, actuals) {
+  let errorSum = 0;
+  for (let i = 0; i < predictions.length; i++) {
+    let error = predictions[i] - actuals[i];
+    errorSum += error * error; // Square the error
+  }
+  return errorSum / predictions.length; // Average error
+}
+
+let predicted = [3, 5, 7];
+let actual = [3, 4, 6];
+
+console.log(meanSquaredError(predicted, actual)); // Output: 0.6666666666666666</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>5. Softmax Function</h4>
+        <p>Softmax function is used to normalize output values into probabilities:</p>
+        <pre><code>function softmax(values) {
+  let expValues = values.map(value => Math.exp(value)); // Exponentiate each value
+  let sum = expValues.reduce((a, b) => a + b, 0); // Sum of all exponentiated values
+  return expValues.map(value => value / sum); // Normalize by the sum of exponentiated values
+}
+
+let scores = [2.0, 1.0, 0.1];
+console.log(softmax(scores)); // Output: [0.6590011375645653, 0.2424329680452494, 0.09856589439018525]</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>6. Batch Normalization</h4>
+        <p>Batch normalization is used to scale and shift the input data:</p>
+        <pre><code>function batchNormalize(batch) {
+  let mean = batch.reduce((a, b) => a + b, 0) / batch.length; // Calculate the mean
+  let variance = batch.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / batch.length; // Calculate the variance
+  let stdDev = Math.sqrt(variance); // Standard deviation
+  
+  return batch.map(value => (value - mean) / stdDev); // Normalize each value
+}
+
+let batchData = [1.0, 2.0, 3.0, 4.0, 5.0];
+console.log(batchNormalize(batchData)); // Normalized batch data</code></pre>
+    </div>
+
+    <div class="example">
+        <h4>7. ReLU Activation Function</h4>
+        <p>The ReLU (Rectified Linear Unit) function is a commonly used activation function in AI:</p>
+        <pre><code>function relu(x) {
+  return Math.max(0, x); // Apply ReLU: output is max(0, x)
+}
+
+console.log(relu(-5)); // Output: 0
+console.log(relu(10)); // Output: 10</code></pre>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>Arithmetic operators play a crucial role in AI algorithms, especially in neural networks, machine learning models, and data processing. Understanding how to implement and optimize these operations is essential for developing effective AI solutions.</p>
+
+    <footer>
+        <p>&copy; 2023 AI Tutorials. All rights reserved.</p>
+    </footer>
+</main>
+
 </body>
 </html>
