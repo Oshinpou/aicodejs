@@ -1,53 +1,169 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 3.3 - Scope & Hoisting</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Operators and AI Logic - Learning JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-x: auto;
+            font-family: monospace;
+            margin-bottom: 15px;
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+        }
+        .features-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features-list li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Lesson 3.3: Scope & Hoisting</h1>
-    <p class="subtitle">Understand local/global scope and how hoisting affects code execution</p><section>
-  <h2>What is Scope?</h2>
-  <p>
-    Scope refers to the accessibility of variables in different parts of your code. There are two main types:
-    <ul>
-      <li><strong>Global Scope:</strong> Variables declared outside any function/block.</li>
-      <li><strong>Local Scope:</strong> Variables declared inside functions or blocks.</li>
-    </ul>
-  </p>
-</section>
 
-<section>
-  <h2>What is Hoisting?</h2>
-  <p>
-    Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope before code is executed.
-    Function and variable declarations are hoisted, but variable initializations are not.
-  </p>
-</section>
+<header>
+    <h1>Comparison Operators and AI Logic</h1>
+    <p>Learn how to apply comparison operators in JavaScript to create decision-making logic for AI systems.</p>
+</header>
 
-<section>
-  <h2>Example</h2>
-  <pre><code>// Global vs Local Scope
+<main>
+    <div class="section">
+        <h2>What are Comparison Operators?</h2>
+        <p>Comparison operators are used to compare two values in JavaScript. The result of this comparison is a boolean value (true or false). In AI programming, comparison operators help make decisions based on conditions.</p>
+    </div>
 
-let globalVar = "I am global";
+    <div class="section">
+        <h2>List of Comparison Operators</h2>
+        <ul class="features-list">
+            <li><strong>==</strong> : Equal to (checks if two values are equal)</li>
+            <li><strong>===</strong> : Strict equal to (checks if two values are equal and have the same type)</li>
+            <li><strong>!=</strong> : Not equal to (checks if two values are not equal)</li>
+            <li><strong>!==</strong> : Strict not equal to (checks if two values are not equal and not of the same type)</li>
+            <li><strong>></strong> : Greater than (checks if a value is greater than another)</li>
+            <li><strong><</strong> : Less than (checks if a value is less than another)</li>
+            <li><strong>>=</strong> : Greater than or equal to (checks if a value is greater than or equal to another)</li>
+            <li><strong><=</strong> : Less than or equal to (checks if a value is less than or equal to another)</li>
+        </ul>
+    </div>
 
-function testScope() { let localVar = "I am local"; console.log(globalVar); console.log(localVar); }
+    <div class="section">
+        <h2>Examples of Comparison Operators</h2>
+        <p>Let’s take a look at some coding examples demonstrating how comparison operators work in JavaScript:</p>
+        
+        <div class="code-block">
+            <pre>
+// Example 1: Equal to (==)
+let x = 5;
+let y = 5;
+console.log(x == y); // true
 
-testScope(); // console.log(localVar); // ReferenceError
+// Example 2: Not equal to (!=)
+let a = 10;
+let b = 5;
+console.log(a != b); // true
 
-// Hoisting console.log(a); // undefined var a = 10;
+// Example 3: Strict equal to (===)
+let name1 = "AI";
+let name2 = "AI";
+console.log(name1 === name2); // true
 
-// let/const are not hoisted like var // console.log(b); // ReferenceError let b = 20;</code></pre> </section>
+// Example 4: Greater than (>)
+let age = 21;
+console.log(age > 18); // true
 
-<section>
-  <h2>Task</h2>
-  <p>Create a function that defines a local variable and try to access it outside the function. Observe the error in the console.</p>
-</section>
+// Example 5: Less than or equal to (<=)
+let num1 = 8;
+let num2 = 10;
+console.log(num1 <= num2); // true
+            </pre>
+        </div>
+    </div>
 
-<a href="lesson3by4.html" class="next-button">Next Lesson: Conditionals in AI</a>
+    <div class="section">
+        <h2>How AI Logic Uses Comparison Operators</h2>
+        <p>In AI programming, comparison operators are key in creating decision-making structures. You can use them to make your AI respond to different inputs based on comparisons:</p>
+        
+        <div class="code-block">
+            <pre>
+// Example of AI logic with comparison operators
 
-  </div>
+let userAge = 25;
+let userGender = "female";
+
+if (userAge >= 18 && userGender === "female") {
+    console.log("The user is an adult female.");
+} else {
+    console.log("The user does not meet the criteria.");
+}
+            </pre>
+        </div>
+        <p>In this example, the AI checks if the user’s age is greater than or equal to 18 and if the user is a female. Based on this, the program will decide which message to display.</p>
+    </div>
+
+    <div class="section">
+        <h2>Practical Application of Comparison Operators in AI</h2>
+        <p>Here are some common use cases for comparison operators in AI systems:</p>
+        <ul class="features-list">
+            <li><strong>Decision trees</strong> - Use comparisons to decide which path to take based on input conditions.</li>
+            <li><strong>AI decision-making</strong> - AI uses comparison operators to decide between multiple options based on conditions like age, experience, etc.</li>
+            <li><strong>Behavioral responses</strong> - Based on user input or external factors, AI systems compare values to choose the right response.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Common Pitfalls and How to Avoid Them</h2>
+        <p>When using comparison operators in JavaScript, be mindful of the following common issues:</p>
+        <ul class="features-list">
+            <li><strong>Loose vs. strict equality:</strong> Always use <code>===</code> instead of <code>==</code> to avoid unexpected behavior, especially when comparing different data types.</li>
+            <li><strong>Not using brackets properly:</strong> Ensure you use brackets to correctly group conditions in complex if-statements.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 AI Learning Platform. All rights reserved.</p>
+    </footer>
+</main>
+
 </body>
-</html>
+          </html>
