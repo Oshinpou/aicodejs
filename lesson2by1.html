@@ -1,39 +1,230 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 2.1 - DOM Basics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 2 - JavaScript Variables for AI</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
-    h1 { color: #333; }
-    .example, .task, .code-output { background: #fff; border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; }
-    pre { background: #eee; padding: 10px; overflow-x: auto; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0 20px;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 30px 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #007acc;
+    }
+    section {
+      margin-bottom: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #005b99;
+    }
+    h3 {
+      margin-top: 20px;
+    }
+    pre {
+      background: #eef3f7;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .collapsible {
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+    .active, .collapsible:hover {
+      background-color: #005f9e;
+    }
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9fbfd;
+      margin-bottom: 15px;
+      border-radius: 0 0 8px 8px;
+    }
+    code {
+      background: #e0e6ed;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
-  <h1>Lesson 2.1: DOM Basics</h1>
-  <p>This lesson introduces you to the Document Object Model (DOM) and how JavaScript can be used to interact with it.</p>  <div class="example">
-    <h2>Example: Changing Text with DOM</h2>
-    <p id="text">Original Text</p>
-    <button onclick="document.getElementById('text').textContent='Updated Text via DOM!'">Change Text</button>
-  </div>  <div class="task">
-    <h2>Task:</h2>
-    <p>Create a paragraph with an id and a button. When clicked, the button should change the paragraph content to your name.</p>
-  </div>  <div class="code-output">
-    <h2>Test Your Code:</h2>
-    <textarea id="userCode" rows="6" cols="50" placeholder="Write your JS DOM code here..."></textarea><br>
-    <button onclick="runUserCode()">Run Code</button>
-    <h3>Output:</h3>
-    <div id="outputBox"></div>
-  </div>  <script>
-    function runUserCode() {
-      const code = document.getElementById("userCode").value;
-      try {
-        const outputDiv = document.getElementById("outputBox");
-        outputDiv.innerHTML = "<script>" + code + "<\/script>";
-      } catch (e) {
-        document.getElementById("outputBox").innerText = "Error: " + e.message;
+
+<header>
+  <h1>Level 2: Variables & Intro to JavaScript for AI</h1>
+  <p>Learn the foundation of JavaScript to build smart AI logic</p>
+</header>
+
+<section>
+  <h2>What are Variables?</h2>
+  <p>Variables are containers for storing data values. They help AI remember, calculate, and make decisions.</p>
+
+  <pre><code>let aiName = "Imacx AI";
+const maxScore = 100;
+var isTrained = true;</code></pre>
+</section>
+
+<section>
+  <h2>Types of Variables</h2>
+  <ul>
+    <li><code>var</code> — Function-scoped, older style.</li>
+    <li><code>let</code> — Block-scoped, modern and flexible.</li>
+    <li><code>const</code> — Block-scoped, constant values only.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Explore Topics (100 Features)</h2>
+
+  <!-- Collapsible sections -->
+  
+  <button class="collapsible">I. Variable Creation</button>
+  <div class="content">
+    <ul>
+      <li>1. Create a variable using <code>let</code></li>
+      <li>2. Create a constant using <code>const</code></li>
+      <li>3. Declare variable without value</li>
+      <li>4. Reassign variable value</li>
+      <li>5. Naming rules (camelCase)</li>
+      <li>6. Underscore variables (_private)</li>
+      <li>7. Case-sensitive names</li>
+      <li>8. Hoisting with <code>var</code></li>
+      <li>9. No hoisting with <code>let/const</code></li>
+      <li>10. Default <code>undefined</code></li>
+    </ul>
+  </div>
+
+  <button class="collapsible">II. Data Types</button>
+  <div class="content">
+    <ul>
+      <li>11. String type</li>
+      <li>12. Number type (int, float)</li>
+      <li>13. Boolean type</li>
+      <li>14. Null type</li>
+      <li>15. Undefined type</li>
+      <li>16. Object type</li>
+      <li>17. Array type</li>
+      <li>18. Function type</li>
+      <li>19. Symbol type</li>
+      <li>20. BigInt type</li>
+    </ul>
+  </div>
+
+  <button class="collapsible">III. Working with Strings</button>
+  <div class="content">
+    <ul>
+      <li>21-30. String concatenation, methods, templates, etc.</li>
+      <pre><code>let name = "AI";
+console.log("Hello, " + name + "!");</code></pre>
+  </div>
+
+  <button class="collapsible">IV. Numbers and Math</button>
+  <div class="content">
+    <ul>
+      <li>31-40. Basic math, rounding, random numbers</li>
+      <pre><code>let score = Math.floor(Math.random() * 100);
+console.log(score);</code></pre>
+    </ul>
+  </div>
+
+  <button class="collapsible">V. Boolean Logic</button>
+  <div class="content">
+    <ul>
+      <li>41-50. Truthy/falsy, comparisons, ternary operator</li>
+      <pre><code>let success = score > 50 ? "Pass" : "Fail";</code></pre>
+    </ul>
+  </div>
+
+  <button class="collapsible">VI. Arrays</button>
+  <div class="content">
+    <ul>
+      <li>51-60. Push, Pop, Shift, Unshift, Includes</li>
+      <pre><code>let results = ["Pass", "Fail"];
+results.push("Pending");</code></pre>
+    </ul>
+  </div>
+
+  <button class="collapsible">VII. Objects</button>
+  <div class="content">
+    <ul>
+      <li>61-70. Create, access, update properties</li>
+      <pre><code>let user = {name: "Alex", age: 25};
+console.log(user.name);</code></pre>
+    </ul>
+  </div>
+
+  <button class="collapsible">VIII. Functions</button>
+  <div class="content">
+    <ul>
+      <li>71-80. Create, call, return, arrow functions</li>
+      <pre><code>function greet(name) {
+  return "Hi " + name;
+}</code></pre>
+    </ul>
+  </div>
+
+  <button class="collapsible">IX. Control Flow</button>
+  <div class="content">
+    <ul>
+      <li>81-90. If-else, switch, loops</li>
+      <pre><code>if(score > 50) {
+  console.log("Passed");
+} else {
+  console.log("Try again");
+}</code></pre>
+    </ul>
+  </div>
+
+  <button class="collapsible">X. Working for AI Basics</button>
+  <div class="content">
+    <ul>
+      <li>91-100. Random outputs, dynamic variables, simple datasets</li>
+      <pre><code>let output = ["Good", "Average", "Poor"];
+console.log(output[Math.floor(Math.random() * output.length)]);</code></pre>
+    </ul>
+  </div>
+
+</section>
+
+<script>
+  const coll = document.querySelectorAll(".collapsible");
+  coll.forEach(btn => {
+    btn.addEventListener("click", function() {
+      this.classList.toggle("active");
+      let content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
       }
-    }
-  </script></body>
-</html>
+    });
+  });
+</script>
+
+</body>
+                                               </html>
