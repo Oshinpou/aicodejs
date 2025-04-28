@@ -1,74 +1,222 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lesson 2.3 - Event Handling</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson: Operators & Expressions</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
       padding: 20px;
-      background-color: #f2f2f2;
+      background: #f2f5f7;
+      color: #333;
     }
-    .card {
-      background-color: white;
+    h1, h2, h3 {
+      text-align: center;
+    }
+    .section {
+      background: #fff;
       border-radius: 10px;
+      margin: 20px auto;
       padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
+      max-width: 1000px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    textarea {
-      width: 100%;
-      height: 150px;
-      font-family: monospace;
-      font-size: 16px;
+    details {
+      margin-bottom: 15px;
+      background: #f9f9f9;
       padding: 10px;
-      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    #output {
-      background: #000;
-      color: #0f0;
+    summary {
+      font-weight: bold;
+      font-size: 18px;
+      color: #2c3e50;
+    }
+    code {
+      display: block;
+      background: #eef;
       padding: 10px;
-      margin-top: 10px;
-      min-height: 40px;
+      margin: 10px 0;
+      border-left: 5px solid #3498db;
       white-space: pre-wrap;
     }
-    button {
-      padding: 10px 20px;
-      margin: 10px 5px 0 0;
-      cursor: pointer;
+    ul {
+      line-height: 1.7;
+    }
+    .example {
+      background: #e0f7fa;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 5px solid #00acc1;
+      border-radius: 5px;
+    }
+    .challenge, .quiz {
+      background: #ffecb3;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 5px solid #ffc107;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Lesson 2.3: Event Handling</h1>
-    <p>Learn how to handle user events like clicks and keypresses in JavaScript for interactive AI logic.</p>
-  </div>  <div class="card">
-    <h2>Task</h2>
-    <p>Create a button that, when clicked, displays a custom message in the output area.</p>
-  </div>  <div class="card">
-    <h2>Try it Yourself</h2>
-    <textarea id="code">document.getElementById("myButton").addEventListener("click", function() {
-  document.getElementById("output").textContent = "You clicked the button!";
-});</textarea><br>
-    <button onclick="runCode()">Run</button>
-    <button onclick="clearOutput()">Clear Output</button>
-  </div>  <div class="card">
-    <h2>Output</h2>
-    <button id="myButton">Click Me!</button>
-    <div id="output"></div>
-  </div>  <script>
-    function runCode() {
-      try {
-        const code = document.getElementById("code").value;
-        eval(code);
-      } catch (e) {
-        document.getElementById("output").textContent = "Error: " + e.message;
-      }
-    }
 
-    function clearOutput() {
-      document.getElementById("output").textContent = "";
+<h1>Lesson: Operators & Expressions</h1>
+
+<div class="section">
+  <h2>Explore JavaScript's operators and learn how to build smart expressions!</h2>
+  
+  <details open>
+    <summary>100 Features Covered</summary>
+    <ul>
+      <li>Basic Arithmetic: +, -, *, /, %, **</li>
+      <li>Assignment Operators: =, +=, -=, *=, /=, %=, **=</li>
+      <li>Comparison Operators: ==, ===, !=, !==, >, <, >=, <=</li>
+      <li>Logical Operators: &&, ||, !</li>
+      <li>Bitwise Operators: &, |, ^, ~, <<, >>, >>></li>
+      <li>String Operators: +, +=</li>
+      <li>Type Operators: typeof, instanceof</li>
+      <li>Unary Operators: +, -, !, ++, --, typeof, delete, void</li>
+      <li>Ternary Operator: ? :</li>
+      <li>Comma Operator: ,</li>
+      <li>Destructuring: Arrays and Objects</li>
+      <li>Spread Operator: [...arr], {...obj}</li>
+      <li>Rest Operator: ...rest</li>
+      <li>Optional Chaining: ?. ?.()</li>
+      <li>Nullish Coalescing: ??</li>
+      <li>In Operator: "key" in object</li>
+      <li>Delete Operator</li>
+      <li>New Operator</li>
+      <li>This Operator</li>
+      <li>Instanceof Operator</li>
+      <li>Void Operator</li>
+      <li>Grouped Expressions with ()</li>
+      <li>Short-circuit Evaluation: && and ||</li>
+      <li>Operator Precedence</li>
+      <li>Operator Associativity</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Coding Examples</summary>
+    
+    <div class="example">
+      <h3>1. Arithmetic Operators</h3>
+      <code>
+let sum = 5 + 3; // 8
+let product = 4 * 2; // 8
+      </code>
+    </div>
+    
+    <div class="example">
+      <h3>2. Assignment Operators</h3>
+      <code>
+let x = 10;
+x += 5; // x is now 15
+      </code>
+    </div>
+
+    <div class="example">
+      <h3>3. Comparison Operators</h3>
+      <code>
+5 == "5"; // true
+5 === "5"; // false
+      </code>
+    </div>
+
+    <div class="example">
+      <h3>4. Logical Operators</h3>
+      <code>
+true && false; // false
+true || false; // true
+!true; // false
+      </code>
+    </div>
+
+    <div class="example">
+      <h3>5. String Operators</h3>
+      <code>
+let greeting = "Hello" + " World!";
+      </code>
+    </div>
+
+    <div class="example">
+      <h3>6. Ternary Operator</h3>
+      <code>
+let age = 18;
+let canVote = (age >= 18) ? "Yes" : "No";
+      </code>
+    </div>
+
+    <div class="example">
+      <h3>7. Spread and Rest</h3>
+      <code>
+let numbers = [1, 2, 3];
+let moreNumbers = [...numbers, 4, 5];
+      </code>
+    </div>
+
+    <div class="example">
+      <h3>8. Nullish Coalescing Operator</h3>
+      <code>
+let username = null;
+let displayName = username ?? "Guest"; // Guest
+      </code>
+    </div>
+
+    <div class="example">
+      <h3>9. Optional Chaining</h3>
+      <code>
+let user = { profile: { name: "Alex" } };
+console.log(user?.profile?.name); // Alex
+      </code>
+    </div>
+
+  </details>
+
+  <details>
+    <summary>Mini Challenges</summary>
+    <div class="challenge">
+      <ul>
+        <li>Write an expression using +, *, and % operators together.</li>
+        <li>Use a ternary operator to return "Even" or "Odd" for a number.</li>
+        <li>Create a complex condition using && and || together.</li>
+        <li>Write a destructuring assignment from an array.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Quiz</summary>
+    <div class="quiz">
+      <ol>
+        <li>What’s the difference between == and === in JavaScript?</li>
+        <li>What will (false && true) evaluate to?</li>
+        <li>Which operator combines two arrays?</li>
+        <li>What is the purpose of the spread operator?</li>
+        <li>Write a small example using a ternary operator.</li>
+      </ol>
+    </div>
+  </details>
+
+</div>
+
+<script>
+// Smooth opening of details sections
+document.querySelectorAll("details").forEach((d) => {
+  d.addEventListener("toggle", (e) => {
+    if (d.open) {
+      document.querySelectorAll("details").forEach((other) => {
+        if (other !== d) {
+          other.removeAttribute("open");
+        }
+      });
     }
-  </script></body>
-</html>
+  });
+});
+</script>
+
+</body>
+      </html>
