@@ -1,247 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 10: Events & Interaction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .task {
-            background-color: #fff;
-            margin: 20px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 800px;
-            border-radius: 8px;
-        }
-        .task h2 {
-            color: #007bff;
-        }
-        .task p {
-            font-size: 16px;
-            color: #555;
-        }
-        .example-box {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .box {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            margin: 10px;
-            padding: 15px;
-            width: 45%;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .box:hover {
-            background-color: #f0f8ff;
-            cursor: pointer;
-        }
-        .code-container {
-            background-color: #282c34;
-            color: #f5f5f5;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: "Courier New", monospace;
-            margin-bottom: 20px;
-        }
-        .code-container pre {
-            margin: 0;
-            padding: 0;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            width: 300px;
-        }
-        .output {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e9ecef;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #333;
-        }
-        .output pre {
-            margin: 0;
-            padding: 0;
-            font-family: "Courier New", monospace;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 10: Events & Interaction</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 40px;
+    }
+    .task {
+      background: white;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .task h2 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    .task p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .example-area {
+      margin-bottom: 20px;
+    }
+    .output {
+      background: #eef2f7;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #333;
+      min-height: 40px;
+      margin-top: 10px;
+    }
+    button, input[type="text"] {
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      background: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+      width: 300px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .code-block {
+      background-color: #2d2d2d;
+      color: #ccc;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      overflow-x: auto;
+    }
+    .code-block code {
+      white-space: pre-wrap;
+    }
+  </style>
 </head>
 <body>
-    <h1>Lesson 10: Events & Interaction</h1>
 
-    <!-- Task 1: Click Event Example -->
-    <div class="task">
-        <h2>Task 1: Click Event</h2>
-        <p>Click the button below to change its text:</p>
-        <button id="click-btn">Click me!</button>
-        <div id="click-output" class="output"></div>
-        <div class="code-container">
-            <pre>
+  <h1>Lesson 10: Events & Interaction</h1>
+
+  <!-- Task 1 -->
+  <div class="task">
+    <h2>Task 1: Click Event</h2>
+    <p>Click the button to change its text and show a message.</p>
+
+    <div class="example-area">
+      <button id="click-btn">Click me!</button>
+      <div id="click-output" class="output"></div>
+    </div>
+
+    <div class="code-block">
+      <code>
 document.getElementById('click-btn').addEventListener('click', function() {
-    this.textContent = "You clicked me!";
-    document.getElementById('click-output').innerHTML = 'Button clicked!';
+  this.textContent = "You clicked me!";
+  document.getElementById('click-output').textContent = "Button clicked!";
 });
-            </pre>
-        </div>
+      </code>
+    </div>
+  </div>
+
+  <!-- Task 2 -->
+  <div class="task">
+    <h2>Task 2: Key Press Event</h2>
+    <p>Type in the input field and see which key you pressed.</p>
+
+    <div class="example-area">
+      <input type="text" id="keypress-input" placeholder="Press a key">
+      <div id="keypress-output" class="output"></div>
     </div>
 
-    <!-- Task 2: Key Press Event Example -->
-    <div class="task">
-        <h2>Task 2: Key Press Event</h2>
-        <p>Press any key to see its key code:</p>
-        <input type="text" id="keypress-input" placeholder="Press any key" />
-        <div id="keypress-output" class="output"></div>
-        <div class="code-container">
-            <pre>
+    <div class="code-block">
+      <code>
 document.getElementById('keypress-input').addEventListener('keydown', function(event) {
-    document.getElementById('keypress-output').innerHTML = 'Key pressed: ' + event.key;
+  document.getElementById('keypress-output').textContent = "Key pressed: " + event.key;
 });
-            </pre>
-        </div>
+      </code>
+    </div>
+  </div>
+
+  <!-- Task 3 -->
+  <div class="task">
+    <h2>Task 3: Mouse Over Event</h2>
+    <p>Hover your mouse over the box to change its color.</p>
+
+    <div class="example-area">
+      <div id="hover-box" style="width:200px;height:100px;background:#eee;text-align:center;line-height:100px;border-radius:6px;">Hover over me!</div>
+      <div id="hover-output" class="output"></div>
     </div>
 
-    <!-- Task 3: Mouse Over Event Example -->
-    <div class="task">
-        <h2>Task 3: Mouse Over Event</h2>
-        <p>Hover over the box below to see a change:</p>
-        <div id="hover-box" class="box">Hover over me!</div>
-        <div id="hover-output" class="output"></div>
-        <div class="code-container">
-            <pre>
-document.getElementById('hover-box').addEventListener('mouseover', function() {
-    document.getElementById('hover-output').innerHTML = 'Mouse is over the box!';
-    this.style.backgroundColor = '#ffcccb';
+    <div class="code-block">
+      <code>
+const hoverBox = document.getElementById('hover-box');
+hoverBox.addEventListener('mouseover', () => {
+  hoverBox.style.background = '#ffebcd';
+  document.getElementById('hover-output').textContent = "Mouse is over the box!";
 });
-document.getElementById('hover-box').addEventListener('mouseout', function() {
-    document.getElementById('hover-output').innerHTML = 'Mouse is out of the box.';
-    this.style.backgroundColor = '#fff';
+hoverBox.addEventListener('mouseout', () => {
+  hoverBox.style.background = '#eee';
+  document.getElementById('hover-output').textContent = "Mouse left the box.";
 });
-            </pre>
-        </div>
+      </code>
+    </div>
+  </div>
+
+  <!-- Task 4 -->
+  <div class="task">
+    <h2>Task 4: Mouse Movement</h2>
+    <p>Move your mouse and track its X and Y positions.</p>
+
+    <div class="example-area">
+      <div id="mousemove-output" class="output"></div>
     </div>
 
-    <!-- Task 4: Mouse Movement Event Example -->
-    <div class="task">
-        <h2>Task 4: Mouse Movement Event</h2>
-        <p>Move your mouse around the screen:</p>
-        <div id="mousemove-output" class="output"></div>
-        <div class="code-container">
-            <pre>
+    <div class="code-block">
+      <code>
 document.addEventListener('mousemove', function(event) {
-    document.getElementById('mousemove-output').innerHTML = `Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`;
+  document.getElementById('mousemove-output').textContent =
+    "X: " + event.clientX + ", Y: " + event.clientY;
 });
-            </pre>
-        </div>
+      </code>
+    </div>
+  </div>
+
+  <!-- Task 5 -->
+  <div class="task">
+    <h2>Task 5: Custom Event</h2>
+    <p>Click the button to trigger a custom event with extra data.</p>
+
+    <div class="example-area">
+      <button id="dispatch-btn">Trigger Custom Event</button>
+      <div id="custom-event-output" class="output"></div>
     </div>
 
-    <!-- Task 5: Custom Event Creation -->
-    <div class="task">
-        <h2>Task 5: Custom Event</h2>
-        <p>Click the button to dispatch a custom event:</p>
-        <button id="dispatch-btn">Dispatch Custom Event</button>
-        <div id="custom-event-output" class="output"></div>
-        <div class="code-container">
-            <pre>
+    <div class="code-block">
+      <code>
 document.getElementById('dispatch-btn').addEventListener('click', function() {
-    const customEvent = new CustomEvent('myCustomEvent', {
-        detail: 'This is a custom event!'
-    });
-    document.getElementById('custom-event-output').innerHTML = 'Custom event triggered!';
-    document.dispatchEvent(customEvent);
+  const myEvent = new CustomEvent('helloWorld', {
+    detail: 'Custom event triggered successfully!'
+  });
+  document.dispatchEvent(myEvent);
 });
 
-document.addEventListener('myCustomEvent', function(event) {
-    console.log(event.detail);
-    document.getElementById('custom-event-output').innerHTML += ` <br> Custom Event Detail: ${event.detail}`;
+document.addEventListener('helloWorld', function(e) {
+  document.getElementById('custom-event-output').textContent = e.detail;
 });
-            </pre>
-        </div>
+      </code>
+    </div>
+  </div>
+
+  <!-- Task 6 -->
+  <div class="task">
+    <h2>Task 6: Window Resize Event</h2>
+    <p>Resize the browser window to see its new size.</p>
+
+    <div class="example-area">
+      <div id="resize-output" class="output"></div>
     </div>
 
-    <!-- Task 6: Resize Event Example -->
-    <div class="task">
-        <h2>Task 6: Resize Event</h2>
-        <p>Resize the browser window to see the effect:</p>
-        <div id="resize-output" class="output"></div>
-        <div class="code-container">
-            <pre>
+    <div class="code-block">
+      <code>
 window.addEventListener('resize', function() {
-    document.getElementById('resize-output').innerHTML = `Window resized to: ${window.innerWidth}x${window.innerHeight}`;
+  document.getElementById('resize-output').textContent =
+    "Window size: " + window.innerWidth + " x " + window.innerHeight;
 });
-            </pre>
-        </div>
+      </code>
+    </div>
+  </div>
+
+  <!-- Task 7 -->
+  <div class="task">
+    <h2>Task 7: Focus and Blur Events</h2>
+    <p>Focus and blur the input field to trigger events.</p>
+
+    <div class="example-area">
+      <input type="text" id="focus-blur-input" placeholder="Click inside/outside">
+      <div id="focus-blur-output" class="output"></div>
     </div>
 
-    <!-- Task 7: Focus and Blur Events Example -->
-    <div class="task">
-        <h2>Task 7: Focus and Blur Events</h2>
-        <p>Focus and blur the input field below:</p>
-        <input type="text" id="focus-blur-input" placeholder="Focus and blur me" />
-        <div id="focus-blur-output" class="output"></div>
-        <div class="code-container">
-            <pre>
-document.getElementById('focus-blur-input').addEventListener('focus', function() {
-    document.getElementById('focus-blur-output').innerHTML = 'Input field is focused.';
+    <div class="code-block">
+      <code>
+const focusInput = document.getElementById('focus-blur-input');
+
+focusInput.addEventListener('focus', function() {
+  document.getElementById('focus-blur-output').textContent = "Input field focused!";
 });
 
-document.getElementById('focus-blur-input').addEventListener('blur', function() {
-    document.getElementById('focus-blur-output').innerHTML = 'Input field lost focus.';
+focusInput.addEventListener('blur', function() {
+  document.getElementById('focus-blur-output').textContent = "Input field blurred!";
 });
-            </pre>
-        </div>
+      </code>
+    </div>
+  </div>
+
+  <!-- Task 8 -->
+  <div class="task">
+    <h2>Task 8: Double Click Event</h2>
+    <p>Double-click the button to show a message.</p>
+
+    <div class="example-area">
+      <button id="dblclick-btn">Double-click me</button>
+      <div id="dblclick-output" class="output"></div>
     </div>
 
-    <!-- Task 8: Double Click Event Example -->
-    <div class="task">
-        <h2>Task 8: Double Click Event</h2>
-        <p>Double-click the button below:</p>
-        <button id="double-click-btn">Double-click me!</button>
-        <div id="double-click-output" class="output"></div>
-        <div class="code-container">
-            <pre>
-document.getElementById('double-click-btn').addEventListener('dblclick', function() {
-    document.getElementById('double-click-output').innerHTML = 'Button double-clicked!';
+    <div class="code-block">
+      <code>
+document.getElementById('dblclick-btn').addEventListener('dblclick', function() {
+  document.getElementById('dblclick-output').textContent = "Button double-clicked!";
 });
-            </pre>
-        </div>
+      </code>
     </div>
+  </div>
+
+  <script>
+    // JavaScript for Tasks
+    document.getElementById('click-btn').addEventListener('click', function() {
+      this.textContent = "You clicked me!";
+      document.getElementById('click-output').textContent = "Button clicked!";
+    });
+
+    document.getElementById('keypress-input').addEventListener('keydown', function(event) {
+      document.getElementById('keypress-output').textContent = "Key pressed: " + event.key;
+    });
+
+    const hoverBox = document.getElementById('hover-box');
+    hoverBox.addEventListener('mouseover', () => {
+      hoverBox.style.background = '#ffebcd';
+      document.getElementById('hover-output').textContent = "Mouse is over the box!";
+    });
+    hoverBox.addEventListener('mouseout', () => {
+      hoverBox.style.background = '#eee';
+      document.getElementById('hover-output').textContent = "Mouse left the box.";
+    });
+
+    document.addEventListener('mousemove', function(event) {
+      document.getElementById('mousemove-output').textContent =
+        "X: " + event.clientX + ", Y: " + event.clientY;
+    });
+
+    document.getElementById('dispatch-btn').addEventListener('click', function() {
+      const myEvent = new CustomEvent('helloWorld', {
+        detail: 'Custom event triggered successfully!'
+      });
+      document.dispatchEvent(myEvent);
+    });
+
+    document.addEventListener('helloWorld', function(e) {
+      document.getElementById('custom-event-output').textContent = e.detail;
+    });
+
+    window.addEventListener('resize', function() {
+      document.getElementById('resize-output').textContent =
+        "Window size: " + window.innerWidth + " x " + window.innerHeight;
+    });
+
+    const focusInput = document.getElementById('focus-blur-input');
+    focusInput.addEventListener('focus', function() {
+      document.getElementById('focus-blur-output').textContent = "Input field focused!";
+    });
+    focusInput.addEventListener('blur', function() {
+      document.getElementById('focus-blur-output').textContent = "Input field blurred!";
+    });
+
+    document.getElementById('dblclick-btn').addEventListener('dblclick', function() {
+      document.getElementById('dblclick-output').textContent = "Button double-clicked!";
+    });
+  </script>
 
 </body>
 </html>
