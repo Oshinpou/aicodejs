@@ -1,82 +1,185 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 3.1 - DOM Manipulation for AI Interfaces</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      line-height: 1.6;
-      background: #f4f4f4;
-      padding: 20px;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #333;
-    }
-    pre {
-      background: #272822;
-      color: #f8f8f2;
-      padding: 15px;
-      overflow-x: auto;
-      border-radius: 5px;
-    }
-    code {
-      font-family: monospace;
-    }
-    .task {
-      background: #eef;
-      padding: 15px;
-      border-left: 5px solid #66f;
-      margin: 20px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Operators in AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #4CAF50;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "Courier New", monospace;
+        }
+        .feature-list ul {
+            padding-left: 20px;
+        }
+        .feature-list ul li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Lesson 3.1: DOM Manipulation for AI Interfaces</h1><p>Welcome to Level 3! In this lesson, you'll dive into DOM manipulation techniques to make your web pages interactive and responsive — a key part of building smart AI interfaces.</p>
 
-<h2>What is the DOM?</h2>
-<p>The Document Object Model (DOM) represents the structure of an HTML document as a tree of objects. You can use JavaScript to select and modify these objects in real-time.</p>
+<header>
+    <h1>Introduction to Operators in AI</h1>
+</header>
 
-<h2>Selectors</h2>
-<p>You can select elements using methods like <code>getElementById</code>, <code>querySelector</code>, and <code>getElementsByClassName</code>.</p>
+<div class="content">
+    <div class="section">
+        <h2>Key Concepts</h2>
+        <p>In this lesson, we will explore the different types of operators used in AI programming with JavaScript. Operators allow us to perform various operations such as arithmetic, comparison, and logical operations that help control the flow and logic of AI models.</p>
+    </div>
 
-<pre><code>// Select an element
+    <div class="section">
+        <h2>Types of Operators</h2>
+        <h3>1. Basic Operators</h3>
+        <p>Basic arithmetic and comparison operators are used to perform fundamental tasks like calculations and comparisons.</p>
+        <pre><code>
+let num1 = 10;
+let num2 = 20;
 
-const title = document.getElementById('main-title'); title.textContent = "Welcome to AI!";</code></pre>
+// Addition
+let sum = num1 + num2;
+console.log("Sum:", sum); // 30
 
-<h2>Modifying Content</h2>
-<p>You can change content and style dynamically using JavaScript:</p>
-<pre><code>document.querySelector(".subtitle").style.color = "blue";
+// Comparison: Equality check
+let isEqual = num1 == num2;
+console.log("Is Equal:", isEqual); // false
+        </code></pre>
 
-document.querySelector(".subtitle").textContent = "AI is Learning You.";</code></pre>
+        <h3>2. Logical Operators</h3>
+        <p>Logical operators help create complex conditions and control flow, useful for decision-making in AI.</p>
+        <pre><code>
+let x = true;
+let y = false;
 
-<h2>Creating Elements</h2>
-<pre><code>const newDiv = document.createElement("div");
+console.log(x && y);  // false (AND)
+console.log(x || y);  // true (OR)
+console.log(!x);      // false (NOT)
+        </code></pre>
 
-newDiv.textContent = "I'm a new AI-generated element!"; document.body.appendChild(newDiv);</code></pre>
+        <h3>3. Ternary Operator</h3>
+        <p>The ternary operator is a shorthand for an if-else statement.</p>
+        <pre><code>
+let age = 18;
+let canVote = (age >= 18) ? "Yes" : "No";
+console.log(canVote); // Yes
+        </code></pre>
 
-<div class="task">
-  <strong>Task:</strong> Create a button that, when clicked, adds a new paragraph with the text "Hello AI World!" to a container div.
+        <h3>4. Nullish Coalescing Operator</h3>
+        <p>The nullish coalescing operator allows you to handle null or undefined values effectively.</p>
+        <pre><code>
+let userInput = null;
+let defaultValue = "No Input";
+
+let result = userInput ?? defaultValue;
+console.log(result);  // No Input
+        </code></pre>
+
+        <h3>5. Bitwise Operators</h3>
+        <p>Bitwise operators perform operations on bits, typically for optimization and low-level operations in AI systems.</p>
+        <pre><code>
+let x = 5;  // 0101 in binary
+let y = 3;  // 0011 in binary
+let result = x & y;  // 0001 in binary, which is 1
+console.log(result);  // 1
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Practical Examples</h2>
+        <h3>String Concatenation:</h3>
+        <pre><code>
+let firstName = "John";
+let lastName = "Doe";
+
+let fullName = firstName + " " + lastName;
+console.log(fullName);  // John Doe
+        </code></pre>
+
+        <h3>Array Filtering with Logical Operators:</h3>
+        <pre><code>
+let numbers = [1, 2, 3, 4, 5, 6];
+let evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers);  // [2, 4, 6]
+        </code></pre>
+
+        <h3>Using `instanceof` for Type Checking:</h3>
+        <pre><code>
+class AIModel {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+let ai = new AIModel("DeepNet");
+
+console.log(ai instanceof AIModel);  // true
+        </code></pre>
+
+        <h3>String Matching with Regular Expressions:</h3>
+        <pre><code>
+let str = "AI is awesome!";
+let pattern = /AI/;
+
+console.log(pattern.test(str));  // true
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Advanced AI Applications with Operators</h2>
+        <ul class="feature-list">
+            <li>Using operators to adjust weights and biases during neural network training.</li>
+            <li>Applying comparison and arithmetic operators to clean and preprocess data before training AI models.</li>
+            <li>Optimizing decision trees by using operators to manage decision splits and pruning.</li>
+            <li>Using bitwise operators for optimization tasks when handling large data sets.</li>
+            <li>Improving time complexity by applying modular arithmetic to handle AI algorithm execution efficiently.</li>
+            <li>Data classification using comparison operators to categorize inputs in machine learning models.</li>
+        </ul>
+    </div>
 </div>
 
-<h2>Example:</h2>
-<pre><code>// HTML
+<footer>
+    <p>&copy; 2025 AI Learning Hub</p>
+</footer>
 
-<div id="outputContainer"></div> <button onclick="addText()">Add Text</button>
-
-// JavaScript function addText() { const p = document.createElement('p'); p.textContent = "Hello AI World!"; document.getElementById("outputContainer").appendChild(p); }</code></pre>
-
-<p>That's it for Lesson 3.1. Practice adding, removing, and modifying DOM elements using JavaScript to simulate AI responses and actions!</p>
-
-  </div>
 </body>
 </html>
