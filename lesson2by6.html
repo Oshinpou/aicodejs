@@ -1,73 +1,253 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 2.6 - Timers and Delays</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f2f2f2; }
-    .container { background: white; padding: 20px; border-radius: 8px; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h1, h2 { color: #333; }
-    code { background: #eee; padding: 2px 4px; border-radius: 4px; }
-    .output { background: #111; color: #0f0; padding: 10px; font-family: monospace; margin-top: 10px; border-radius: 4px; }
-    button { margin-top: 10px; padding: 8px 12px; background: #007acc; color: white; border: none; border-radius: 4px; cursor: pointer; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson: Functions in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .features, .coding-examples {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #333;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .coding-examples ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .coding-examples li {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            background-color: #e8f0fe;
+            padding: 5px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Lesson 2.6 - Timers and Delays</h1>
-    <h2>Overview</h2>
-    <p>Timers and delays allow you to run JavaScript code after a specific amount of time. You can use <code>setTimeout()</code> to delay code execution and <code>setInterval()</code> to repeat code execution at intervals.</p><h2>Example 1: Using <code>setTimeout</code></h2>
-<pre><code>setTimeout(function() {
 
-console.log("Executed after 2 seconds"); }, 2000);</code></pre>
+<header>
+    <h1>Functions in JavaScript</h1>
+    <p>Define and call functions like a pro</p>
+</header>
 
-<button onclick="runTimeout()">Run Timeout Example</button>
-<div id="timeoutOutput" class="output"></div>
+<div class="content">
+    <section class="features">
+        <h2>100 Features of Functions in JavaScript</h2>
+        <p>In this section, we explore the powerful world of JavaScript functions, their definitions, usage, and how you can leverage them for clean, modular, and reusable code. Let's dive into the key features!</p>
+        <ul>
+            <li>Function Declaration and Expression</li>
+            <li>Returning Values from Functions</li>
+            <li>Arrow Functions and Anonymous Functions</li>
+            <li>Default Parameters</li>
+            <li>Function Expressions</li>
+            <li>Recursive Functions</li>
+            <li>Functions with Multiple Parameters</li>
+            <li>Higher-Order Functions</li>
+            <li>Immediately Invoked Function Expressions (IIFE)</li>
+            <li>Callback Functions</li>
+            <li>Closures</li>
+            <li>Function Hoisting</li>
+            <li>Function Arguments</li>
+            <li>Function Parameters with Rest Syntax</li>
+            <li>Using Functions to Handle Asynchronous Code</li>
+            <li>Using Functions for Event Handling</li>
+            <li>Function Parameter Destructuring</li>
+            <li>Using `this` in Functions</li>
+            <li>Function Binding with `call()`, `apply()`, and `bind()`</li>
+            <li>Memoization and Caching</li>
+            <li>Function for Debouncing</li>
+            <li>Handling Errors with `try/catch`</li>
+            <li>Functions for Data Transformation</li>
+            <li>Composing Functions Together</li>
+            <li>Creating Reusable Code</li>
+            <li>Using Functions for Dynamic Content Generation</li>
+            <li>Modularizing Code with Functions</li>
+            <li>Using Functions in Objects as Methods</li>
+            <li>Asynchronous Functions with `async`/`await`</li>
+            <li>Handling State with Functions</li>
+            <li>Flexible Functions Using Arguments and Return Values</li>
+            <li>Using Functions to Handle Complex Data Structures</li>
+            <li>Building Complex Features with Simple Functions</li>
+            <li>Implementing Data Validation with Functions</li>
+            <li>Encapsulation and Abstraction in Functions</li>
+            <li>Debugging Functions with `console.log()`</li>
+            <li>Using Functions for Performance Optimization</li>
+            <li>Creating Factory Functions</li>
+            <li>Using Functions with Promises</li>
+            <li>Function for Array Manipulation</li>
+            <li>Enhancing Functions with ES6 Features</li>
+            <li>Using `bind()` for Event Listeners</li>
+            <li>Writing Functions for Custom Behavior</li>
+            <li>Creating Functions for Web Applications</li>
+            <li>Working with Global vs Local Scope in Functions</li>
+            <li>Using Functions to Handle User Input</li>
+            <li>Defining Pure Functions</li>
+            <li>Using Functions for Object Destruction</li>
+            <li>Understanding Function Composition</li>
+            <li>Writing Functions for API Interaction</li>
+            <li>Unit Testing Functions</li>
+            <li>Creating Custom Functions for Data Formatting</li>
+            <li>Using Functions for Animation Control</li>
+            <li>Functions for Data Processing in AI</li>
+            <li>Function to Read and Write to Local Storage</li>
+            <li>Writing Functions for Data Validation in Forms</li>
+            <li>Functions to Handle Dynamic Elements</li>
+            <li>Building UI Components with Functions</li>
+            <li>Using Functions to Connect to Backend APIs</li>
+            <li>Handling Events Dynamically with Functions</li>
+            <li>Function for Error Reporting</li>
+            <li>Building Component-based Functions</li>
+            <li>Handling Multiple Return Values</li>
+            <li>Functions for Animating Page Elements</li>
+            <li>Creating Event-Driven Functions</li>
+            <li>Customizable Functions</li>
+            <li>Logging and Debugging Functions</li>
+            <li>Functions for Time-sensitive Calculations</li>
+            <li>Using `setInterval()` and `setTimeout()`</li>
+            <li>Creating Interactive Features with Functions</li>
+            <li>Writing Functions to Track Application State</li>
+            <li>Optimizing Functions for Large-Scale Apps</li>
+            <li>Reusing Functions Across Multiple Components</li>
+            <li>Creating Functions for Authentication and Validation</li>
+            <li>Using Functions for Handling Date and Time</li>
+            <li>Handling Async Data with Functions</li>
+            <li>Recursive Functions for Nested Data Structures</li>
+            <li>Implementing Sorting with Functions</li>
+            <li>Functions for Searching Data Efficiently</li>
+            <li>Dynamic Function Creation</li>
+            <li>Using Functions to Integrate with External Libraries</li>
+            <li>Creating Interactive Form Features</li>
+            <li>Developing Functions to Handle User Preferences</li>
+            <li>Advanced Function Techniques</li>
+            <li>Building Responsive Functions for UI Components</li>
+            <li>Functions for Handling Accessibility</li>
+            <li>Composing Functions for Larger Applications</li>
+            <li>Writing Functions to Optimize User Experience</li>
+            <li>Understanding JavaScript Function Behavior</li>
+            <li>Using Functions in Class-Based JavaScript</li>
+            <li>Improving User Interaction with Functions</li>
+            <li>Writing Functions to Process User Feedback</li>
+            <li>Functions for API Data Formatting</li>
+            <li>Managing Function Performance</li>
+            <li>Writing Functions to Integrate Multiple Data Sources</li>
+            <li>Using Functions for Event-driven Programming</li>
+            <li>Optimizing Code Using Modular Functions</li>
+        </ul>
+    </section>
 
-<h2>Example 2: Using <code>setInterval</code></h2>
-<pre><code>let counter = 0;
+    <section class="coding-examples">
+        <h2>Coding Examples for Functions</h2>
+        <ul>
+            <li>
+                <h3>1. Basic Function Declaration</h3>
+                <pre><code>function greet(name) {
+    console.log("Hello, " + name + "!");
+}
 
-const intervalId = setInterval(() => { counter++; console.log("Interval count: " + counter); if (counter === 5) clearInterval(intervalId); }, 1000);</code></pre>
+greet("John"); // Output: Hello, John!</code></pre>
+            </li>
 
-<button onclick="runInterval()">Run Interval Example</button>
-<div id="intervalOutput" class="output"></div>
+            <li>
+                <h3>2. Function with Return Value</h3>
+                <pre><code>function add(a, b) {
+    return a + b;
+}
 
-<h2>Task</h2>
-<p>Create a countdown from 5 to 0 using <code>setInterval</code>, then display "Liftoff!"</p>
+let result = add(5, 7);
+console.log(result); // Output: 12</code></pre>
+            </li>
 
-<button onclick="startCountdown()">Start Countdown</button>
-<div id="countdownOutput" class="output"></div>
+            <li>
+                <h3>3. Function with Default Parameters</h3>
+                <pre><code>function multiply(a, b = 2) {
+    return a * b;
+}
 
-  </div>  <script>
-    function runTimeout() {
-      document.getElementById('timeoutOutput').textContent = "Waiting 2 seconds...";
-      setTimeout(() => {
-        document.getElementById('timeoutOutput').textContent = "Executed after 2 seconds!";
-      }, 2000);
+console.log(multiply(3)); // Output: 6
+console.log(multiply(3, 4)); // Output: 12</code></pre>
+            </li>
+
+            <li>
+                <h3>4. Arrow Function</h3>
+                <pre><code>const square = (x) => x * x;
+
+console.log(square(4)); // Output: 16</code></pre>
+            </li>
+
+            <li>
+                <h3>5. Immediately Invoked Function Expression (IIFE)</h3>
+                <pre><code>(function() {
+    console.log("I am immediately invoked!");
+})();  // Output: I am immediately invoked!</code></pre>
+            </li>
+
+            <li>
+                <h3>6. Function with Multiple Parameters</h3>
+                <pre><code>function calculate(a, b, operator) {
+    if (operator === "add") {
+        return a + b;
+    } else if (operator === "subtract") {
+        return a - b;
     }
+}
 
-    function runInterval() {
-      let count = 0;
-      document.getElementById('intervalOutput').textContent = "";
-      const interval = setInterval(() => {
-        count++;
-        document.getElementById('intervalOutput').textContent += `Interval count: ${count}\n`;
-        if (count === 5) clearInterval(interval);
-      }, 1000);
-    }
+console.log(calculate(10, 5, "add")); // Output: 15
+console.log(calculate(10, 5, "subtract")); // Output: 5</code></pre>
+            </li>
 
-    function startCountdown() {
-      let countdown = 5;
-      const output = document.getElementById('countdownOutput');
-      output.textContent = "";
-      const timer = setInterval(() => {
-        output.textContent = `Countdown: ${countdown}`;
-        countdown--;
-        if (countdown < 0) {
-          clearInterval(timer);
-          output.textContent = "Liftoff!";
-        }
-      }, 1000);
-    }
-  </script></body>
-</html>
+            <li>
+                <h3>7. Callback Function</h3>
+                <pre><code>function fetchData(callback) {
