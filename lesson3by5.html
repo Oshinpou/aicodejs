@@ -2,59 +2,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 3.5 - Introduction to ES6</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Lesson 3.5 - Assignment Operators and AI Variable Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+    h1, h2 { color: #2c3e50; }
+    .feature-list { margin: 20px 0; }
+    .feature-list li { margin-bottom: 8px; }
+    .code-block { background: #2d2d2d; color: #f8f8f2; padding: 15px; margin: 10px 0; border-radius: 5px; overflow-x: auto; }
+    .example { background: #e8f5e9; padding: 10px; border-left: 5px solid #4caf50; margin-bottom: 15px; }
+    .section { margin-bottom: 40px; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 3.5: Introduction to ES6</h1>
-    <p>Explore modern JavaScript features and syntax.</p>
-  </header>  <main>
-    <section>
-      <h2>Overview</h2>
-      <p>ECMAScript 6 (ES6) introduced many new features that significantly improve JavaScript development. Let's go over some core features.</p>
-    </section><section>
-  <h2>Key ES6 Features</h2>
-  <ul>
-    <li><strong>Let & Const:</strong> Block-scoped variable declarations</li>
-    <li><strong>Arrow Functions:</strong> Compact syntax for function expressions</li>
-    <li><strong>Template Literals:</strong> Multi-line strings and embedded expressions</li>
-    <li><strong>Destructuring:</strong> Extract values from arrays or objects</li>
-    <li><strong>Default Parameters:</strong> Default values in function parameters</li>
-    <li><strong>Spread & Rest:</strong> Spread operator and rest parameters</li>
-    <li><strong>Classes:</strong> Cleaner way to create objects and inheritance</li>
-  </ul>
-</section>
+  <h1>Lesson 3.5: Assignment Operators and AI Variable Management</h1>
+  <p>This lesson teaches how JavaScript's assignment operators are used in AI to manage variables and control behavior.</p>  <div class="section">
+    <h2>Key Concepts</h2>
+    <ul class="feature-list">
+      <li>Understanding =, +=, -=, *=, /=, %=, **=</li>
+      <li>Using assignment to control AI states</li>
+      <li>Managing variables in memory-efficient ways</li>
+      <li>Chaining assignment statements</li>
+    </ul>
+  </div>  <div class="section">
+    <h2>Code Examples</h2><div class="example">
+  <strong>Basic Assignment:</strong>
+  <div class="code-block">
 
-<section>
-  <h2>Task</h2>
-  <p>Create a function using arrow syntax that accepts two parameters and returns their sum. Use <code>const</code> for declaration.</p>
-  <pre><code>// Your Code Here
+<pre><code>let score = 0;  // AI starts with 0 score
+score += 10;   // AI gains 10 points
+console.log(score); // Output: 10</code></pre></div>
+</div>
 
-const add = (a, b) => a + b; console.log(add(4, 5)); // Output: 9</code></pre> </section>
+<div class="example">
+  <strong>Decrement Example:</strong>
+  <div class="code-block">
 
-<section>
-  <h2>Try It Yourself</h2>
-  <textarea id="codeArea" rows="8" cols="50">const greet = name => `Hello, ${name}!`;
+<pre><code>let battery = 100;
+battery -= 15;  // Battery drains
+console.log("Battery: " + battery);</code></pre></div>
+</div>
 
-console.log(greet("World"));</textarea> <br /> <button onclick="runCode()">Run Code</button> <button onclick="clearOutput()">Clear Output</button> <pre id="output"></pre> </section>
+<div class="example">
+  <strong>Multiplication Assignment:</strong>
+  <div class="code-block">
 
-  </main>  <footer>
-    <p>AIcodejs Course - Lesson 3.5</p>
-  </footer>  <script>
-    function runCode() {
-      const code = document.getElementById("codeArea").value;
-      const output = document.getElementById("output");
-      try {
-        const result = eval(code);
-        output.textContent += `\n${result}`;
-      } catch (e) {
-        output.textContent += `\nError: ${e.message}`;
-      }
-    }
+<pre><code>let speed = 2;
+speed *= 3;  // Speed tripled
+console.log("Speed: " + speed);</code></pre></div>
+</div>
 
-    function clearOutput() {
-      document.getElementById("output").textContent = "";
-    }
-  </script></body>
+<div class="example">
+  <strong>AI Charge Simulation:</strong>
+  <div class="code-block">
+
+<pre><code>let charge = 5;
+charge **= 2;  // AI charge exponentially increases
+console.log("Charge level: " + charge);</code></pre></div>
+</div>
+
+  </div>  <div class="section">
+    <h2>Practice Tasks</h2>
+    <ul class="feature-list">
+      <li>Create a variable that simulates AI learning level and increase it with +=</li>
+      <li>Use -= to simulate an AI health drop</li>
+      <li>Track fuel consumption with /=</li>
+      <li>Simulate memory usage using *=</li>
+      <li>Write a custom function to reset all variables using =</li>
+    </ul>
+  </div>  <div class="section">
+    <h2>Tips for Best Use</h2>
+    <ul class="feature-list">
+      <li>Always initialize your variables properly</li>
+      <li>Use compound operators for cleaner, readable code</li>
+      <li>Track your variable changes with `console.log()` for debugging</li>
+      <li>Keep variables within appropriate scopes</li>
+      <li>Use functions to encapsulate logic involving assignments</li>
+    </ul>
+  </div>  <div class="section">
+    <h2>Challenge</h2>
+    <p>Write a script that manages an AI bot's battery, temperature, and learning score using all the assignment operators you've learned.</p>
+  </div></body>
 </html>
