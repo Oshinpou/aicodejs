@@ -1,104 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Debugging - Lesson 4.4 | JavaScript for AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Lesson 4.4 - switch Statement in JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7fb;
+      padding: 20px;
+      margin: 0;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2b2d42;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .codebox {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+    input, select, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    button {
+      background: #2b2d42;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #3a3e67;
+    }
+    .output {
+      margin-top: 15px;
+      background: #e1f5fe;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 4.4: Debugging</h1>
-    <p>Learn how to debug your JavaScript code using console, breakpoints, and debugging tools.</p>
-  </header>
 
-  <main class="lesson-content">
-    <section class="lesson-overview">
-      <h2>What You'll Learn:</h2>
-      <ul>
-        <li>How to use console.log to trace issues in your code</li>
-        <li>Using breakpoints in browsers to inspect code execution</li>
-        <li>Debugging techniques for effective problem solving</li>
-      </ul>
-      <p>Debugging is a crucial skill in development. In this lesson, we will explore techniques that help in identifying and fixing bugs in your JavaScript code.</p>
-    </section>
+  <h1>Lesson 4.4: Introduction to the <code>switch</code> Statement</h1>
 
-    <section class="lesson-details">
-      <h2>Using console.log for Debugging</h2>
-      <p>One of the simplest ways to debug JavaScript code is by using the console.log method to print variable values and track code execution:</p>
-      <pre><code>
-let x = 10;
-let y = 20;
-console.log("The value of x is:", x); // Output: The value of x is: 10
-console.log("The value of y is:", y); // Output: The value of y is: 20
-      </code></pre>
-      <p>Using console.log at various points in your code helps you understand how values change and can pinpoint where the issue arises.</p>
+  <section>
+    <h2>What is a <code>switch</code> Statement?</h2>
+    <p>The <code>switch</code> statement provides a cleaner way to test a single variable against multiple values. It’s often easier to read than a long chain of <code>else if</code> statements, especially in AI decision trees.</p>
+  </section>
 
-      <h2>Setting Breakpoints in Developer Tools</h2>
-      <p>In most browsers, you can set breakpoints in the Developer Tools to pause code execution and inspect variable states:</p>
-      <ol>
-        <li>Right-click on your code in the browser's developer tools and select "Add Breakpoint".</li>
-        <li>Once the breakpoint is hit, the code will pause, allowing you to inspect variable values and step through the code.</li>
-        <li>This lets you see exactly where things are going wrong.</li>
-      </ol>
+  <section>
+    <h2>Syntax</h2>
+    <div class="codebox">
+switch (expression) {<br>
+&nbsp;&nbsp;case value1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// code block<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;case value2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// code block<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// default code block<br>
+}
+    </div>
+  </section>
 
-      <h2>Common Debugging Techniques</h2>
-      <ul>
-        <li>Print variable values with <code>console.log()</code>.</li>
-        <li>Use breakpoints to pause and step through code.</li>
-        <li>Check for syntax errors or typos that could be causing issues.</li>
-        <li>Use <code>debugger;</code> statements in your code to invoke breakpoints programmatically.</li>
-      </ul>
-      <p>These techniques are incredibly useful for understanding how your code executes and resolving any errors you might encounter.</p>
-    </section>
+  <section>
+    <h2>Example: AI Command Handler</h2>
+    <div class="codebox">
+let command = "status";<br>
+switch (command) {<br>
+&nbsp;&nbsp;case "start":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log("AI: Starting system...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;case "stop":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log("AI: Stopping system...");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;case "status":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log("AI: System is operational.");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log("AI: Unknown command.");<br>
+}
+    </div>
+  </section>
 
-    <section class="interactive-quiz">
-      <h2>Interactive Quiz:</h2>
-      <p>Test your understanding of debugging in JavaScript with the following questions:</p>
-      <form id="quizForm">
-        <div>
-          <label for="q1">1. What is the purpose of console.log in debugging?</label>
-          <textarea id="q1" placeholder="Write your answer here..."></textarea>
-        </div>
-        <div>
-          <label for="q2">2. How can you set a breakpoint in the browser's developer tools?</label>
-          <textarea id="q2" placeholder="Write your answer here..."></textarea>
-        </div>
-        <div>
-          <label for="q3">3. What is the <code>debugger;</code> statement used for?</label>
-          <textarea id="q3" placeholder="Write your answer here..."></textarea>
-        </div>
-        <button type="submit">Submit Answers</button>
-      </form>
-      <div id="quizResults"></div>
-    </section>
+  <section>
+    <h2>Try It Yourself</h2>
+    <label for="commandInput">Choose AI Command:</label><br>
+    <select id="commandInput">
+      <option value="">Select command</option>
+      <option value="start">start</option>
+      <option value="stop">stop</option>
+      <option value="status">status</option>
+      <option value="reboot">reboot</option>
+    </select><br>
+    <button onclick="runCommand()">Run Command</button>
+    <div class="output" id="commandOutput"></div>
 
-    <section class="next-lesson">
-      <p>Ready to move to the next lesson?</p>
-      <a href="lesson4by5.html">Proceed to Lesson 4.5: Asynchronous Programming</a>
-    </section>
-  </main>
+    <script>
+      function runCommand() {
+        let cmd = document.getElementById("commandInput").value;
+        let out = document.getElementById("commandOutput");
+        switch (cmd) {
+          case "start":
+            out.innerText = "AI: Starting system...";
+            break;
+          case "stop":
+            out.innerText = "AI: Stopping system...";
+            break;
+          case "status":
+            out.innerText = "AI: System is operational.";
+            break;
+          default:
+            out.innerText = "AI: Unknown command.";
+        }
+      }
+    </script>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 AIcodeJS. All rights reserved.</p>
-  </footer>
+  <section>
+    <h2>Use Cases in AI</h2>
+    <ul>
+      <li>Handling voice or text-based commands</li>
+      <li>Menu selection systems</li>
+      <li>State machines and dialogue trees</li>
+    </ul>
+  </section>
 
-  <script>
-    // Handle quiz submission
-    document.getElementById('quizForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const q1 = document.getElementById('q1').value;
-      const q2 = document.getElementById('q2').value;
-      const q3 = document.getElementById('q3').value;
-      
-      const result = `
-        <h3>Your Answers:</h3>
-        <p><strong>Q1:</strong> ${q1}</p>
-        <p><strong>Q2:</strong> ${q2}</p>
-        <p><strong>Q3:</strong> ${q3}</p>
-      `;
-      document.getElementById('quizResults').innerHTML = result;
-    });
-  </script>
+  <section>
+    <h2>Quick Quiz</h2>
+    <p><strong>Q:</strong> What keyword ensures code doesn't fall into the next <code>case</code>?</p>
+    <select id="quiz">
+      <option value="">Choose answer</option>
+      <option value="continue">continue</option>
+      <option value="break">break</option>
+      <option value="stop">stop</option>
+    </select><br>
+    <button onclick="checkQuiz()">Submit</button>
+    <div class="output" id="quizOutput"></div>
+
+    <script>
+      function checkQuiz() {
+        const answer = document.getElementById("quiz").value;
+        const result = document.getElementById("quizOutput");
+        if (answer === "break") {
+          result.innerText = "Correct! break stops execution after each case.";
+        } else {
+          result.innerText = "Try again! Hint: It stops case execution.";
+        }
+      }
+    </script>
+  </section>
+
 </body>
 </html>
