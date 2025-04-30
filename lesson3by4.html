@@ -2,62 +2,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 3.4 - DOM Manipulation</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Lesson 3.4 - Logical Operators for AI Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #0a6ba3;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    code, pre {
+      background: #eee;
+      padding: 5px;
+      border-radius: 5px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .example {
+      background: #f0f8ff;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 5px solid #0a6ba3;
+    }
+    .output {
+      background: #dff0d8;
+      color: #3c763d;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 3.4: DOM Manipulation</h1>
-    <p>Interact with web pages using JavaScript</p>
-  </header>
-  <main>
-    <section>
-      <h2>What is the DOM?</h2>
-      <p>The Document Object Model (DOM) represents the page content as a tree of objects. JavaScript can use this to read and modify content, structure, and styling.</p>
-    </section><section>
-  <h2>Common Methods</h2>
-  <ul>
-    <li><code>getElementById()</code> - selects an element by ID</li>
-    <li><code>querySelector()</code> - selects the first matching element</li>
-    <li><code>createElement()</code> - creates a new HTML element</li>
-    <li><code>appendChild()</code> - adds an element to the DOM</li>
-    <li><code>innerHTML</code> - gets or sets HTML content</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Example</h2>
-  <pre><code>document.getElementById("demo").innerHTML = "Hello, DOM!";
-
-const newPara = document.createElement("p"); newPara.textContent = "This is a new paragraph."; document.body.appendChild(newPara);</code></pre> </section>
-
-<section>
-  <h2>Task</h2>
-  <p>Create a button that adds a new list item to a list each time it is clicked.</p>
-</section>
-
-<section>
-  <h2>Test Your Code</h2>
-  <p>Use this interactive area to try DOM examples.</p>
-  <textarea id="codeArea" rows="6" style="width:100%">document.body.style.backgroundColor = "lightyellow";</textarea>
-  <button onclick="runCode()">Run Code</button>
-  <button onclick="clearOutput()">Clear</button>
-  <pre id="output"></pre>
-</section>
-
-  </main>  <script>
-    function runCode() {
-      const code = document.getElementById("codeArea").value;
-      try {
-        const result = eval(code);
-        document.getElementById("output").textContent = result || "Executed Successfully!";
-      } catch (e) {
-        document.getElementById("output").textContent = e.message;
-      }
-    }
-
-    function clearOutput() {
-      document.getElementById("output").textContent = "";
-    }
-  </script></body>
+  <h1>Lesson 3.4: Logical Operators for AI Control</h1>  <div class="section">
+    <h2>Introduction</h2>
+    <p>Logical operators are essential in JavaScript to control the flow of logic, especially when programming AI behavior. These include <code>&&</code> (AND), <code>||</code> (OR), and <code>!</code> (NOT).</p>
+  </div>  <div class="section">
+    <h2>Logical Operators Overview</h2>
+    <ul>
+      <li><strong>&&</strong> - Returns true if both operands are true.</li>
+      <li><strong>||</strong> - Returns true if one or both operands are true.</li>
+      <li><strong>!</strong> - Reverses the boolean value of its operand.</li>
+    </ul>
+  </div>  <div class="section">
+    <h2>Example 1: Using AND (&&)</h2>
+    <div class="example">
+      <pre><code>let isSmart = true;
+let isFast = true;
+if (isSmart && isFast) {
+  console.log("AI is smart and fast!");
+}</code></pre>
+      <div class="output">Output: AI is smart and fast!</div>
+    </div>
+  </div>  <div class="section">
+    <h2>Example 2: Using OR (||)</h2>
+    <div class="example">
+      <pre><code>let hasBattery = false;
+let isPluggedIn = true;
+if (hasBattery || isPluggedIn) {
+  console.log("AI can operate!");
+}</code></pre>
+      <div class="output">Output: AI can operate!</div>
+    </div>
+  </div>  <div class="section">
+    <h2>Example 3: Using NOT (!)</h2>
+    <div class="example">
+      <pre><code>let isOffline = false;
+if (!isOffline) {
+  console.log("AI is online!");
+}</code></pre>
+      <div class="output">Output: AI is online!</div>
+    </div>
+  </div>  <div class="section">
+    <h2>Applications in AI</h2>
+    <ul>
+      <li>Conditional decision making</li>
+      <li>Controlling behavior trees</li>
+      <li>Validating inputs</li>
+      <li>Combining multiple checks</li>
+      <li>Triggering fallback logic</li>
+    </ul>
+  </div>  <div class="section">
+    <h2>Practice Task</h2>
+    <p>Create a program that checks if an AI can perform a task based on three conditions: has energy, has data access, and is not in maintenance mode.</p>
+    <pre><code>// Your Code Here</code></pre>
+  </div>  <div class="section">
+    <h2>Quiz</h2>
+    <ol>
+      <li>What does <code>&&</code> return when both operands are true?</li>
+      <li>How does <code>||</code> behave with a false and a true value?</li>
+      <li>What is the result of <code>!true</code>?</li>
+    </ol>
+  </div>  <div class="section">
+    <h2>Summary</h2>
+    <p>Logical operators are key to controlling program logic in AI. They allow you to build complex decision structures and enhance interactivity and reasoning.</p>
+  </div></body>
 </html>
