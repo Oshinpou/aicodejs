@@ -1,124 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advanced Functions - Lesson 4.1 | JavaScript for AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Lesson 4.1 - Conditional Statements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+      color: #222;
+    }
+    h1, h2 {
+      color: #1d3557;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    code {
+      background: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    .codebox {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+      overflow-x: auto;
+      font-family: monospace;
+    }
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      background: #1d3557;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #457b9d;
+    }
+    input, select {
+      padding: 8px;
+      margin: 5px 0;
+    }
+    .output {
+      margin-top: 10px;
+      background: #e8f0fe;
+      padding: 10px;
+      border-radius: 5px;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 4.1: Advanced Functions</h1>
-    <p>Learn closures, currying, and higher-order functions in JavaScript to enhance AI logic and efficiency.</p>
-  </header>
 
-  <main class="lesson-content">
-    <section class="lesson-overview">
-      <h2>What You'll Learn:</h2>
-      <ul>
-        <li>Closures in JavaScript</li>
-        <li>Function Currying</li>
-        <li>Higher-Order Functions</li>
-      </ul>
-      <p>This lesson covers advanced concepts of JavaScript functions that are crucial for writing efficient, reusable, and modular code in AI applications.</p>
-    </section>
+  <h1>Lesson 4.1: Introduction to Conditional Statements</h1>
 
-    <section class="lesson-details">
-      <h2>Closures</h2>
-      <p>A closure is a function that retains access to its lexical scope, even when the function is executed outside that scope. Let's look at an example:</p>
-      <pre><code>
-function outer() {
-  let counter = 0;
+  <section>
+    <h2>What Are Conditional Statements?</h2>
+    <p>Conditional statements let JavaScript make decisions based on logic — essential in AI to react to data and conditions.</p>
+    <p>Basic conditionals: <code>if</code>, <code>else if</code>, <code>else</code>, and <code>switch</code>.</p>
+  </section>
 
-  return function inner() {
-    counter++;
-    console.log(counter);
-  }
-}
+  <section>
+    <h2>Example 1: Basic AI Logic Using if-else</h2>
+    <div class="codebox">
+      let userInput = "happy";<br>
+      if (userInput === "happy") {<br>
+        &nbsp;&nbsp;console.log("AI says: Glad you're happy!");<br>
+      } else {<br>
+        &nbsp;&nbsp;console.log("AI says: Let's improve your mood.");<br>
+      }
+    </div>
+    <p><strong>Description:</strong> This AI checks the user's emotion and gives a response.</p>
+  </section>
 
-const increment = outer(); // 'increment' is the closure
-increment(); // Output: 1
-increment(); // Output: 2
-      </code></pre>
-      <p>In the above example, the inner function retains access to the variable 'counter' defined in the outer function, even after the outer function has executed.</p>
+  <section>
+    <h2>Try It Yourself</h2>
+    <label for="moodInput">How do you feel?</label><br>
+    <input type="text" id="moodInput" placeholder="Type happy or sad">
+    <button onclick="checkMood()">Check AI Response</button>
+    <div class="output" id="moodOutput"></div>
 
-      <h2>Function Currying</h2>
-      <p>Currying is the technique of transforming a function that takes multiple arguments into a sequence of functions, each taking a single argument. Here's an example:</p>
-      <pre><code>
-function multiply(a) {
-  return function(b) {
-    return a * b;
-  }
-}
+    <script>
+      function checkMood() {
+        let mood = document.getElementById("moodInput").value.toLowerCase();
+        let response = "";
+        if (mood === "happy") {
+          response = "AI: That's awesome! Keep smiling.";
+        } else if (mood === "sad") {
+          response = "AI: Sending you good vibes!";
+        } else {
+          response = "AI: I don't understand that mood.";
+        }
+        document.getElementById("moodOutput").innerText = response;
+      }
+    </script>
+  </section>
 
-const multiplyBy2 = multiply(2);
-console.log(multiplyBy2(5)); // Output: 10
-      </code></pre>
-      <p>In the above example, the multiply function is curried, and we create a new function 'multiplyBy2' that always multiplies any input by 2.</p>
+  <section>
+    <h2>Practice Task</h2>
+    <ul>
+      <li>Task 1: Write a conditional that checks if a number is even or odd.</li>
+      <li>Task 2: Create an AI logic that replies based on temperature: "hot", "cold", or "normal".</li>
+      <li>Task 3: Use <code>else if</code> to evaluate multiple weather conditions.</li>
+    </ul>
+  </section>
 
-      <h2>Higher-Order Functions</h2>
-      <p>A higher-order function is a function that either takes one or more functions as arguments, returns a function as a result, or both. For example:</p>
-      <pre><code>
-function processData(data, operation) {
-  return operation(data);
-}
+  <section>
+    <h2>Quiz</h2>
+    <p><strong>Q1:</strong> What is the keyword used for an alternate condition?</p>
+    <select id="quiz1">
+      <option value="">Select</option>
+      <option value="if">if</option>
+      <option value="else">else</option>
+      <option value="elseif">elseif</option>
+    </select>
+    <button onclick="checkQuiz()">Submit</button>
+    <div class="output" id="quizOutput"></div>
 
-function square(x) {
-  return x * x;
-}
+    <script>
+      function checkQuiz() {
+        const ans = document.getElementById("quiz1").value;
+        const output = document.getElementById("quizOutput");
+        if (ans === "else") {
+          output.innerText = "Correct!";
+        } else {
+          output.innerText = "Try again!";
+        }
+      }
+    </script>
+  </section>
 
-console.log(processData(5, square)); // Output: 25
-      </code></pre>
-      <p>Here, 'processData' is a higher-order function that accepts a function ('square') as an argument and applies it to the data.</p>
-    </section>
+  <section>
+    <h2>Summary</h2>
+    <p>Conditional statements are the backbone of decision-making in AI logic. With <code>if</code>, <code>else</code>, and <code>switch</code>, you can control how AI reacts to different situations.</p>
+  </section>
 
-    <section class="interactive-quiz">
-      <h2>Interactive Quiz:</h2>
-      <p>Test your knowledge of closures, currying, and higher-order functions with the following questions:</p>
-      <form id="quizForm">
-        <div>
-          <label for="q1">1. What is a closure in JavaScript?</label>
-          <textarea id="q1" placeholder="Write your answer here..."></textarea>
-        </div>
-        <div>
-          <label for="q2">2. How does currying benefit function calls?</label>
-          <textarea id="q2" placeholder="Write your answer here..."></textarea>
-        </div>
-        <div>
-          <label for="q3">3. What is a higher-order function? Provide an example.</label>
-          <textarea id="q3" placeholder="Write your answer here..."></textarea>
-        </div>
-        <button type="submit">Submit Answers</button>
-      </form>
-      <div id="quizResults"></div>
-    </section>
-
-    <section class="next-lesson">
-      <p>Ready to move to the next lesson?</p>
-      <a href="lesson4by2.html">Proceed to Lesson 4.2: Asynchronous Programming</a>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 AIcodeJS. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Handle quiz submission
-    document.getElementById('quizForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const q1 = document.getElementById('q1').value;
-      const q2 = document.getElementById('q2').value;
-      const q3 = document.getElementById('q3').value;
-      
-      const result = `
-        <h3>Your Answers:</h3>
-        <p><strong>Q1:</strong> ${q1}</p>
-        <p><strong>Q2:</strong> ${q2}</p>
-        <p><strong>Q3:</strong> ${q3}</p>
-      `;
-      document.getElementById('quizResults').innerHTML = result;
-    });
-  </script>
 </body>
 </html>
