@@ -1,62 +1,61 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lesson 3.6 - DOM Manipulation</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ternary Operator AI Examples</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; background-color: #f4f4f4; }
+    h1 { text-align: center; }
+    .example { background: #fff; margin-bottom: 20px; padding: 15px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    code { background: #eee; padding: 2px 6px; border-radius: 4px; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 3.6 - DOM Manipulation</h1>
-    <p>Interact with the webpage using JavaScript</p>
-  </header>  <main>
-    <section class="lesson-content">
-      <h2>What is the DOM?</h2>
-      <p>
-        The Document Object Model (DOM) is a programming interface for HTML and XML documents. It allows JavaScript to access and manipulate the content, structure, and style of a website dynamically.
-      </p><h3>Example</h3>
-  <pre><code>// Selecting an element
+  <h1>Ternary Operator for AI Decision Making</h1>
+  <div id="examples"></div>  <script>
+    const examples = [
+      { title: "1. Basic Decision", code: "let isAIActive = true;\nlet status = isAIActive ? 'Running' : 'Stopped';" },
+      { title: "2. User Greeting", code: "let user = 'John';\nlet greeting = user ? `Hello, ${user}` : 'Guest';" },
+      { title: "3. Theme Switch", code: "let theme = 'dark';\nlet background = theme === 'dark' ? '#000' : '#fff';" },
+      { title: "4. API Endpoint", code: "let userRole = 'admin';\nlet apiEndpoint = userRole === 'admin' ? '/admin/dashboard' : '/user/dashboard';" },
+      { title: "5. Model Configuration", code: "let trainingMode = true;\nlet modelConfig = trainingMode ? 'Train Mode' : 'Test Mode';" },
+      { title: "6. Timeout Message", code: "let timeoutEnabled = true;\nlet timeoutMessage = timeoutEnabled ? 'Timeout active' : 'Timeout inactive';" },
+      { title: "7. Access Control", code: "let isLoggedIn = true;\nlet accessMessage = isLoggedIn ? 'Access granted' : 'Please log in first';" },
+      { title: "8. Workflow Decision", code: "let input = 50;\nlet result = input > 40 ? 'Advanced Process' : 'Basic Process';" },
+      { title: "9. Data Transformation", code: "let data = [10, 20, 30];\nlet transformedData = data.map(v => v > 15 ? v * 2 : v);" },
+      { title: "10. Error Handling", code: "let isError = false;\nlet errorMessage = isError ? 'An error occurred' : 'Success';" },
+      { title: "11. UI Button", code: "let isAdmin = true;\nlet buttonText = isAdmin ? 'Manage Users' : 'View Profile';" },
+      { title: "12. AI Output Formatting", code: "let response = 'error';\nlet formattedResponse = response === 'error' ? 'Oops, something went wrong!' : 'Success!';" },
+      { title: "13. Algorithm Selection", code: "let complexity = 'high';\nlet algorithm = complexity === 'high' ? 'Advanced Algorithm' : 'Basic Algorithm';" },
+      { title: "14. Email Validation", code: "let email = 'example@example.com';\nlet emailStatus = email.includes('@') ? 'Valid' : 'Invalid';" },
+      { title: "15. Interactive Story", code: "let decision = 'help';\nlet storyLine = decision === 'help' ? 'You helped the stranger!' : 'You ignored the stranger.';" },
+      { title: "16. User Action", code: "let userAction = 'click';\nlet response = userAction === 'click' ? 'You clicked the button!' : 'You didn\'t click the button!';" },
+      { title: "17. Weather Advice", code: "let weather = 'rainy';\nlet recommendation = weather === 'rainy' ? 'Take an umbrella' : 'Enjoy the sunshine!';" },
+      { title: "18. Age-Based Recommendation", code: "let userAge = 25;\nlet recommendation = userAge < 30 ? 'Check out our young adult category!' : 'Explore our premium category!';" },
+      { title: "19. Personalized Greeting", code: "let userType = 'premium';\nlet greeting = userType === 'premium' ? 'Welcome back, valued member!' : 'Welcome back!';" },
+      { title: "20. Authentication", code: "let isAuthenticated = true;\nlet accessPage = isAuthenticated ? 'Dashboard' : 'Login Page';" },
+      { title: "21. Feature Enablement", code: "let featureEnabled = false;\nlet message = featureEnabled ? 'Feature active' : 'Feature not available';" },
+      { title: "22. Permissions", code: "let userRole = 'editor';\nlet permission = userRole === 'admin' ? 'Full Access' : 'Limited Access';" },
+      { title: "23. Data Formatting", code: "let dataValue = 95;\nlet displayColor = dataValue >= 90 ? 'green' : 'red';" },
+      { title: "24. Resource Allocation", code: "let taskPriority = 'high';\nlet resourceAllocation = taskPriority === 'high' ? 'Allocate more resources' : 'Standard resources';" },
+      { title: "25. Context-Based Response", code: "let context = 'formal';\nlet response = context === 'formal' ? 'Good afternoon, how may I assist you?' : 'Hey! How\'s it going?';" },
+      { title: "26. Input Behavior", code: "let userResponse = 'yes';\nlet feedback = userResponse === 'yes' ? 'Thank you for your feedback!' : 'We appreciate your input!';" },
+      { title: "27. Time-Based Greeting", code: "let timeOfDay = 'morning';\nlet greeting = timeOfDay === 'morning' ? 'Good morning!' : 'Good evening!';" },
+      { title: "28. Password Validation", code: "let password = 'password123';\nlet passwordStatus = password.length >= 8 ? 'Valid password' : 'Password too short';" },
+      { title: "29. Choice Feedback", code: "let userChoice = 'optionA';\nlet response = userChoice === 'optionA' ? 'You chose Option A!' : 'You chose Option B!';" },
+      { title: "30. Theme Toggle", code: "let theme = 'dark';\nlet buttonText = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';" },
+      { title: "31. Special Offer", code: "let userStatus = 'new';\nlet offer = userStatus === 'new' ? 'Welcome Offer' : 'Loyalty Discount';" },
+      { title: "32. Data Aggregation", code: "let data = [1,2,3];\nlet dataType = 'sum';\nlet result = dataType === 'sum' ? data.reduce((a,b) => a + b) : data.length;" },
+      { title: "33. Execution Flow", code: "let processStatus = 'complete';\nlet processMessage = processStatus === 'complete' ? 'Ready for next step' : 'Process in progress';" }
+    ];
 
-const heading = document.getElementById("myHeading");
+    const container = document.getElementById("examples");
+    examples.forEach(example => {
+      const div = document.createElement("div");
+      div.className = "example";
+      div.innerHTML = `<h3>${example.title}</h3><pre><code>${example.code}</code></pre>`;container.appendChild(div);
+});
 
-// Changing its text heading.textContent = "Hello from JavaScript!";
-
-// Adding a class heading.classList.add("highlight");</code></pre>
-
-<h3>Try It Out</h3>
-  <div id="interactive">
-    <h2 id="myHeading">Click the button to change me!</h2>
-    <button onclick="changeHeading()">Change Heading</button>
-  </div>
-
-  <script>
-    function changeHeading() {
-      const heading = document.getElementById("myHeading");
-      heading.textContent = "Changed with JavaScript!";
-      heading.classList.toggle("highlight");
-    }
   </script>
-
-  <h3>Task</h3>
-  <ul>
-    <li>Create an HTML page with a heading and button.</li>
-    <li>Use JavaScript to update the heading text when the button is clicked.</li>
-    <li>Toggle a class that changes the heading style.</li>
-  </ul>
-</section>
-
-  </main>  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f4f4f4;
-    }
-    .highlight {
-      color: red;
-      font-weight: bold;
-    }
-    #interactive {
-      margin-top: 20px;
-    }
-  </style></body>
+</body>
 </html>
