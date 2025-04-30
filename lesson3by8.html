@@ -1,92 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lesson 3.8 - Performance Optimization</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 3.8: Combining Operators in AI Applications</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .quiz, .task, .example {
+      margin-top: 10px;
+      padding: 12px;
+      background-color: #e6f7ff;
+      border-left: 5px solid #1890ff;
+    }
+    .output-box {
+      background: #fffbe6;
+      padding: 12px;
+      border-left: 5px solid #faad14;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 3.8: Performance Optimization</h1>
-    <p>Learn how to optimize your JavaScript code for better performance, especially in AI computations.</p>
-  </header>
-
-  <main class="lesson-content">
-    <section>
-      <h2>Why Optimize?</h2>
-      <p>Performance optimization ensures your application runs efficiently, uses fewer resources, and handles larger AI operations smoothly.</p>
-    </section>
-
-    <section>
-      <h2>Tips for Optimizing JavaScript</h2>
-      <ul>
-        <li><strong>Avoid unnecessary computations:</strong> Cache results if possible.</li>
-        <li><strong>Use efficient loops:</strong> Prefer <code>for</code> or <code>forEach</code> for clarity and speed.</li>
-        <li><strong>Minimize DOM access:</strong> Accessing the DOM is expensive; cache selectors.</li>
-        <li><strong>Limit global variables:</strong> Scope your variables properly.</li>
-        <li><strong>Debounce & throttle:</strong> Use these techniques for input-heavy events like scrolling or resizing.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Example: Optimized Loop</h2>
-      <pre><code>
-const numbers = Array.from({ length: 100000 }, (_, i) => i);
-let sum = 0;
-
-// Unoptimized
-for (let i = 0; i < numbers.length; i++) {
-  sum += numbers[i];
-}
-
-// Optimized
-let len = numbers.length;
-for (let i = 0; i < len; i++) {
-  sum += numbers[i];
-}
-      </code></pre>
-    </section>
-
-    <section>
-      <h2>Task</h2>
-      <p>Try optimizing this code:</p>
-      <pre><code>
-function slowFunction(data) {
-  let total = 0;
-  for (let i = 0; i < data.length; i++) {
-    total += data[i];
-  }
-  return total;
-}
-
-const result = slowFunction([1,2,3,4,5,6,7,8,9,10]);
-console.log(result);
-      </code></pre>
-      <p><strong>Hint:</strong> Can you reduce computations or memory usage?</p>
-    </section>
-
-    <section>
-      <h2>Try It Yourself</h2>
-      <textarea id="perfInput" rows="6" style="width:100%;">// Write your optimized code here</textarea><br/>
-      <button onclick="runPerf()">Run & Check</button>
-      <h3>Output:</h3>
-      <pre id="perfOutput"></pre>
-    </section>
-  </main>
-
-  <script>
-    function runPerf() {
-      const code = document.getElementById('perfInput').value;
-      const output = document.getElementById('perfOutput');
-      output.textContent = '';
-      try {
-        const result = new Function(code)();
-        if (result !== undefined) output.textContent += 'Result: ' + result + '\n';
-      } catch (err) {
-        output.textContent += 'Error: ' + err.message + '\n';
-      }
-    }
-  </script>
+  <h1>Lesson 3.8: Combining Operators in AI Applications</h1>  <div class="section">
+    <h2>Introduction</h2>
+    <p>Combining multiple operators enables AI programs to make powerful logical decisions, optimize conditions, and process data effectively. This lesson teaches you how to combine arithmetic, logical, and comparison operators.</p>
+  </div>  <div class="section">
+    <h2>Example 1: Arithmetic and Comparison</h2>
+    <pre><code>let age = 25;
+let minAge = 18;
+let maxAge = 30;
+let isEligible = (age >= minAge) && (age <= maxAge);
+console.log("Eligible:", isEligible);</code></pre>
+    <div class="output-box">Output: Eligible: true</div>
+  </div>  <div class="section">
+    <h2>Example 2: Logical and Ternary</h2>
+    <pre><code>let user = "admin";
+let loggedIn = true;
+let access = (user === "admin" && loggedIn) ? "Granted" : "Denied";
+console.log("Access:", access);</code></pre>
+    <div class="output-box">Output: Access: Granted</div>
+  </div>  <div class="section">
+    <h2>Task</h2>
+    <div class="task">
+      Create a program that checks if a user has a score between 70 and 100 and is not banned. Return "Pass" or "Fail" accordingly.
+    </div>
+  </div>  <div class="section">
+    <h2>Quiz</h2>
+    <div class="quiz">
+      What will this return?
+      <pre><code>let a = 5, b = 10, c = 15;
+console.log((a + b > c) || (b > c));</code></pre>
+    </div>
+    <div class="output-box">Answer: false</div>
+  </div>  <div class="section">
+    <h2>Advanced Practice</h2>
+    <div class="example">
+      Use combined operators to create a smart AI alert system:
+      <pre><code>let temperature = 35;
+let humidity = 70;
+let alert = (temperature > 30 && humidity > 60) ? "Trigger Cooling System" : "Normal Conditions";
+console.log(alert);</code></pre>
+    </div>
+    <div class="output-box">Output: Trigger Cooling System</div>
+  </div>  <div class="section">
+    <h2>Summary</h2>
+    <ul>
+      <li>Combining operators increases decision-making power.</li>
+      <li>Use parentheses to control precedence.</li>
+      <li>Mix arithmetic, logical, comparison, and ternary operators safely.</li>
+    </ul>
+  </div>
 </body>
 </html>
