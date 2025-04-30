@@ -1,123 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asynchronous Programming - Lesson 4.2 | JavaScript for AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Lesson 4.2 - Using if/else for Decisions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f5fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #1a237e;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+    .codebox {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      margin: 10px 0;
+    }
+    button {
+      background: #1a237e;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #3949ab;
+    }
+    input {
+      padding: 8px;
+      margin-top: 5px;
+    }
+    .output {
+      margin-top: 10px;
+      background: #e3f2fd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Lesson 4.2: Asynchronous Programming</h1>
-    <p>Learn how to handle asynchronous tasks in JavaScript using callbacks, promises, and async/await.</p>
-  </header>
 
-  <main class="lesson-content">
-    <section class="lesson-overview">
-      <h2>What You'll Learn:</h2>
-      <ul>
-        <li>Callbacks and their use cases</li>
-        <li>Working with promises</li>
-        <li>Async/Await for cleaner async code</li>
-      </ul>
-      <p>Asynchronous programming allows JavaScript to perform non-blocking operations, which is crucial for AI applications requiring real-time data processing.</p>
-    </section>
+  <h1>Lesson 4.2: Using <code>if</code>, <code>else</code> for Simple Decisions</h1>
 
-    <section class="lesson-details">
-      <h2>Callbacks</h2>
-      <p>A callback is a function passed into another function as an argument to be executed later. Here's an example:</p>
-      <pre><code>
-function fetchData(callback) {
-  setTimeout(() => {
-    const data = "AI Data Loaded";
-    callback(data);
-  }, 1000);
+  <section>
+    <h2>What is if-else?</h2>
+    <p>In AI logic, decisions are made based on conditions. The <code>if</code> statement tests a condition. If true, it runs code; otherwise, the <code>else</code> block runs.</p>
+  </section>
+
+  <section>
+    <h2>Syntax</h2>
+    <div class="codebox">
+if (condition) {<br>
+&nbsp;&nbsp;// code if condition is true<br>
+} else {<br>
+&nbsp;&nbsp;// code if condition is false<br>
 }
+    </div>
+  </section>
 
-fetchData(function(data) {
-  console.log(data); // Output: "AI Data Loaded"
-});
-      </code></pre>
-      <p>In this example, the function 'fetchData' uses a callback to return data asynchronously after a 1-second delay.</p>
-
-      <h2>Promises</h2>
-      <p>Promises represent the result of an asynchronous operation that may not be completed yet. A promise can be in one of three states: pending, resolved, or rejected. Example:</p>
-      <pre><code>
-const fetchDataPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    const data = "AI Data Loaded";
-    resolve(data); // The promise is resolved with data
-  }, 1000);
-});
-
-fetchDataPromise.then(data => {
-  console.log(data); // Output: "AI Data Loaded"
-}).catch(error => {
-  console.error("Error:", error);
-});
-      </code></pre>
-      <p>Here, we use a promise to handle the data asynchronously. If successful, the promise is resolved with the data, and the result is logged to the console.</p>
-
-      <h2>Async/Await</h2>
-      <p>Async/await provides a more readable way to handle asynchronous operations by writing asynchronous code in a synchronous-like manner. Here's an example:</p>
-      <pre><code>
-async function fetchDataAsync() {
-  const data = await fetchDataPromise;
-  console.log(data); // Output: "AI Data Loaded"
+  <section>
+    <h2>Example: AI Reaction Based on Score</h2>
+    <div class="codebox">
+let score = 75;<br>
+if (score &gt;= 60) {<br>
+&nbsp;&nbsp;console.log("AI: You passed!");<br>
+} else {<br>
+&nbsp;&nbsp;console.log("AI: You need more practice.");<br>
 }
+    </div>
+    <p>This script checks if a student passed a test based on score.</p>
+  </section>
 
-fetchDataAsync();
-      </code></pre>
-      <p>In this example, 'await' pauses the execution of the async function until the promise resolves, making it easier to read and write asynchronous code.</p>
-    </section>
+  <section>
+    <h2>Try it Yourself</h2>
+    <label for="scoreInput">Enter your score:</label><br>
+    <input type="number" id="scoreInput" placeholder="0 - 100">
+    <button onclick="checkScore()">Check Result</button>
+    <div class="output" id="scoreResult"></div>
 
-    <section class="interactive-quiz">
-      <h2>Interactive Quiz:</h2>
-      <p>Test your understanding of callbacks, promises, and async/await with the following questions:</p>
-      <form id="quizForm">
-        <div>
-          <label for="q1">1. What is a callback in JavaScript?</label>
-          <textarea id="q1" placeholder="Write your answer here..."></textarea>
-        </div>
-        <div>
-          <label for="q2">2. Explain the difference between a resolved and rejected promise.</label>
-          <textarea id="q2" placeholder="Write your answer here..."></textarea>
-        </div>
-        <div>
-          <label for="q3">3. How does async/await improve asynchronous programming?</label>
-          <textarea id="q3" placeholder="Write your answer here..."></textarea>
-        </div>
-        <button type="submit">Submit Answers</button>
-      </form>
-      <div id="quizResults"></div>
-    </section>
+    <script>
+      function checkScore() {
+        let score = parseInt(document.getElementById("scoreInput").value);
+        let output = document.getElementById("scoreResult");
+        if (score >= 60) {
+          output.innerText = "AI: Congratulations! You passed.";
+        } else {
+          output.innerText = "AI: Sorry, you need to improve.";
+        }
+      }
+    </script>
+  </section>
 
-    <section class="next-lesson">
-      <p>Ready to move to the next lesson?</p>
-      <a href="lesson4by3.html">Proceed to Lesson 4.3: Error Handling</a>
-    </section>
-  </main>
+  <section>
+    <h2>Practice Tasks</h2>
+    <ul>
+      <li>Write a script that checks if a number is greater than 100.</li>
+      <li>Create logic that checks if a person is old enough to vote (18+).</li>
+      <li>Use <code>if-else</code> to determine if a user's input is positive or negative.</li>
+    </ul>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 AIcodeJS. All rights reserved.</p>
-  </footer>
+  <section>
+    <h2>Mini Quiz</h2>
+    <p><strong>Q:</strong> What does <code>else</code> do?</p>
+    <select id="quizSelect">
+      <option value="">Choose answer</option>
+      <option value="1">Checks another condition</option>
+      <option value="2">Executes if <code>if</code> is false</option>
+      <option value="3">Ends the code</option>
+    </select>
+    <button onclick="checkQuiz()">Submit</button>
+    <div class="output" id="quizAnswer"></div>
 
-  <script>
-    // Handle quiz submission
-    document.getElementById('quizForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const q1 = document.getElementById('q1').value;
-      const q2 = document.getElementById('q2').value;
-      const q3 = document.getElementById('q3').value;
-      
-      const result = `
-        <h3>Your Answers:</h3>
-        <p><strong>Q1:</strong> ${q1}</p>
-        <p><strong>Q2:</strong> ${q2}</p>
-        <p><strong>Q3:</strong> ${q3}</p>
-      `;
-      document.getElementById('quizResults').innerHTML = result;
-    });
-  </script>
+    <script>
+      function checkQuiz() {
+        let answer = document.getElementById("quizSelect").value;
+        let response = document.getElementById("quizAnswer");
+        if (answer === "2") {
+          response.innerText = "Correct! else runs when the if is false.";
+        } else {
+          response.innerText = "Incorrect. Try again.";
+        }
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Summary</h2>
+    <p>The <code>if</code> and <code>else</code> statements are fundamental tools in AI to build logic based on conditions. Mastering them enables smart responses and behavior in your code.</p>
+  </section>
+
 </body>
 </html>
