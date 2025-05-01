@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 6.6 - Modularity and Code Organization</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f8fa;
+      padding: 30px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .section {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    pre, code {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 180px;
+      font-family: monospace;
+      font-size: 15px;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      background: #ecf0f1;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 6.6: Modularity and Code Organization</h1>
+
+  <div class="section">
+    <h2>Why Modularity Matters in AI</h2>
+    <p>Modular code makes AI systems easier to manage, extend, and debug. Each function or module focuses on a specific task, such as:</p>
+    <ul>
+      <li>Data preprocessing</li>
+      <li>Feature extraction</li>
+      <li>Model training</li>
+      <li>Prediction and output formatting</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Example: Modular AI Pipeline</h2>
+    <pre><code>
+// input.js
+export function normalize(input) {
+  return input.map(x => x / 100);
+}
+
+// model.js
+export function predict(data) {
+  return data.map(x => x > 0.5 ? 1 : 0);
+}
+
+// app.js
+import { normalize } from './input.js';
+import { predict } from './model.js';
+
+let raw = [42, 67, 15];
+let norm = normalize(raw);
+let output = predict(norm);
+
+console.log(output); // [0, 1, 0]
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Try It Yourself</h2>
+    <textarea id="codeInput">
+// Modularity simulation in one script
+function normalize(input) {
+  return input.map(x => x / 100);
+}
+
+function predict(data) {
+  return data.map(x => x > 0.5 ? 1 : 0);
+}
+
+let raw = [60, 30, 90];
+let norm = normalize(raw);
+let output = predict(norm);
+
+console.log("Normalized:", norm);
+console.log("Predicted:", output);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <h3>Output:</h3>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <div class="section">
+    <h2>Best Practices</h2>
+    <ul>
+      <li>Use separate files for data processing, model logic, and utilities.</li>
+      <li>Name functions clearly by their purpose (e.g., <code>extractFeatures()</code>).</li>
+      <li>Avoid large files; keep files under 200–300 lines if possible.</li>
+      <li>Group related functions into modules.</li>
+      <li>Comment code blocks clearly, especially decision logic or training loops.</li>
+    </ul>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      const code = document.getElementById('codeInput').value;
+      let result = '';
+      const originalLog = console.log;
+      console.log = function(...args) {
+        result += args.join(' ') + '<br>';
+      };
+      try {
+        eval(code);
+        output.innerHTML = result;
+      } catch (err) {
+        output.innerHTML = '<span style="color:red;">Error: ' + err.message + '</span>';
+      }
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
