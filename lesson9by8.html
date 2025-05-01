@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lesson 9.8 - DOM with Libraries</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 30px;
+    }
+    .lesson {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      color: #1e293b;
+    }
+    #aiResponse {
+      background: #e0f7fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: none;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lesson">
+    <h1>Lesson 9.8: Managing the DOM with Libraries</h1>
+    <p>DOM manipulation is essential in AI interfaces. Libraries like jQuery make it easier to interact with and update the DOM dynamically.</p>
+  </div>
+
+  <div class="lesson">
+    <h2>1. Why Use DOM Libraries?</h2>
+    <ul>
+      <li>Simplifies complex DOM operations.</li>
+      <li>Reduces boilerplate JavaScript code.</li>
+      <li>Works well with AI apps that update UI frequently (e.g., predictions, confidence levels).</li>
+    </ul>
+  </div>
+
+  <div class="lesson">
+    <h2>2. Example: Updating AI Response Using jQuery</h2>
+    <button id="getAIResponse">Get AI Response</button>
+    <div id="aiResponse">AI is thinking...</div>
+
+    <pre><code>
+// jQuery Example
+$('#getAIResponse').click(function() {
+  $('#aiResponse').fadeIn().text('AI: The result is 98.7% accurate.');
+});
+    </code></pre>
+  </div>
+
+  <div class="lesson">
+    <h2>3. When to Use jQuery in AI Projects</h2>
+    <p>Use jQuery when building fast prototypes, AI dashboards, or UIs where quick DOM updates are required. For large projects, consider modern frameworks (React, Vue).</p>
+  </div>
+
+</body>
+</html>
