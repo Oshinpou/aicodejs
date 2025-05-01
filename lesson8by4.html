@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 8.4 - Object Prototypes and Inheritance</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7fafc;
+      padding: 30px;
+      color: #1a202c;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      color: #2d3748;
+    }
+    pre {
+      background: #2d3748;
+      color: #f7fafc;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    button {
+      background: #3182ce;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output {
+      background: #edf2f7;
+      padding: 12px;
+      font-family: monospace;
+      border-radius: 6px;
+      margin-top: 12px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 8.4: Object Prototypes and Inheritance</h1>
+
+  <div class="section">
+    <h2>1. What Are Prototypes?</h2>
+    <p>Every JavaScript object has a prototype. Through prototypes, you can share methods and properties across instances without duplicating them. It’s a key concept for building efficient AI object models.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Example of Prototypal Inheritance</h2>
+    <pre><code>function AIModel(name) {
+  this.name = name;
+  this.trained = false;
+}
+
+AIModel.prototype.train = function() {
+  this.trained = true;
+  console.log(this.name + " has been trained.");
+};
+
+const modelA = new AIModel("Model-A");
+modelA.train();</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Creating Extended Objects with Inheritance</h2>
+    <pre><code>function VisionAI(name, dataset) {
+  AIModel.call(this, name); // Inherit properties
+  this.dataset = dataset;
+}
+
+VisionAI.prototype = Object.create(AIModel.prototype);
+VisionAI.prototype.constructor = VisionAI;
+
+const camBot = new VisionAI("CamBot", "ImageNet");
+camBot.train();</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>4. Try It Yourself</h2>
+    <textarea id="codeInput">
+// Base AI constructor
+function AIAgent(id) {
+  this.id = id;
+  this.active = false;
+}
+
+AIAgent.prototype.activate = function() {
+  this.active = true;
+  console.log(this.id + " is now active.");
+};
+
+// Inherited class for NLP agents
+function NLPAIAgent(id, language) {
+  AIAgent.call(this, id);
+  this.language = language;
+}
+
+NLPAIAgent.prototype = Object.create(AIAgent.prototype);
+NLPAIAgent.prototype.constructor = NLPAIAgent;
+
+NLPAIAgent.prototype.analyze = function(text) {
+  console.log(this.id + " analyzing '" + text + "' in " + this.language);
+};
+
+let bot = new NLPAIAgent("LinguaBot", "Spanish");
+bot.activate();
+bot.analyze("Hola mundo");
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      let result = '';
+      const originalLog = console.log;
+      console.log = (...args) => result += args.join(' ') + '<br>';
+
+      try {
+        eval(document.getElementById('codeInput').value);
+        output.innerHTML = result;
+      } catch (e) {
+        output.innerHTML = '<span style="color:red;">Error: ' + e.message + '</span>';
+      }
+
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
