@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 9.1 - Introduction to the DOM</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafc;
+      padding: 30px;
+      color: #2d3748;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    h1, h2 {
+      color: #1a202c;
+    }
+    pre {
+      background: #2d3748;
+      color: #f7fafc;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    button {
+      background: #4a90e2;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .demo-box {
+      padding: 20px;
+      background: #edf2f7;
+      margin-top: 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 9.1: Introduction to the DOM</h1>
+
+  <div class="section">
+    <h2>1. What is the DOM?</h2>
+    <p>The Document Object Model (DOM) represents the structure of a web page. JavaScript can interact with the DOM to change content, style, and structure dynamically—essential for AI dashboards or interfaces that adapt to user input or model predictions.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Selecting Elements with JavaScript</h2>
+    <p>Use methods like <code>getElementById</code>, <code>querySelector</code>, and <code>getElementsByClassName</code> to access elements.</p>
+    <pre><code>document.getElementById('demoText').textContent = "Updated by AI script";</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Try It Yourself</h2>
+    <p>Click the button to update the text below using the DOM.</p>
+    <button onclick="updateText()">Update Text</button>
+    <div class="demo-box" id="demoText">Original text from AI model.</div>
+  </div>
+
+  <script>
+    function updateText() {
+      document.getElementById('demoText').textContent = "Text updated using DOM by AI logic.";
+    }
+  </script>
+
+</body>
+</html>
