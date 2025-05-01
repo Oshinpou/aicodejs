@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 8.7 - Object Spread and Rest</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7fafc;
+      padding: 30px;
+      color: #2d3748;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    h1, h2 {
+      color: #1a202c;
+    }
+    pre {
+      background: #2d3748;
+      color: #f7fafc;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e0;
+    }
+    button {
+      background: #4299e1;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output {
+      background: #edf2f7;
+      padding: 12px;
+      font-family: monospace;
+      border-radius: 6px;
+      margin-top: 12px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 8.7: Object Spread and Rest</h1>
+
+  <div class="section">
+    <h2>1. What is Spread?</h2>
+    <p>The spread operator (<code>...</code>) allows you to expand the properties of an object. It's useful when copying or combining objects in AI configuration or dataset management.</p>
+    <pre><code>const baseModel = { name: "AI-X", version: "1.0" };
+const extendedModel = { ...baseModel, accuracy: "98%" };
+
+console.log(extendedModel);
+// { name: 'AI-X', version: '1.0', accuracy: '98%' }</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>2. What is Rest?</h2>
+    <p>The rest operator (<code>...</code>) is used to collect the remaining properties into a new object. This is useful when separating important AI model parameters from secondary ones.</p>
+    <pre><code>const modelData = { name: "NeuroNet", speed: "fast", type: "CNN" };
+const { name, ...details } = modelData;
+
+console.log(name);    // NeuroNet
+console.log(details); // { speed: 'fast', type: 'CNN' }</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Try It Yourself</h2>
+    <textarea id="codeInput">
+// AI Sensor Object Spread and Rest
+const sensors = {
+  camera: "12MP",
+  lidar: true,
+  thermal: "enabled",
+  gps: "active"
+};
+
+// Spread example
+const upgradedSensors = { ...sensors, radar: "installed" };
+
+// Rest example
+const { camera, ...otherSensors } = sensors;
+
+console.log("Upgraded:", upgradedSensors);
+console.log("Camera:", camera);
+console.log("Others:", otherSensors);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      let result = '';
+      const originalLog = console.log;
+      console.log = (...args) => result += args.join(' ') + '<br>';
+
+      try {
+        eval(document.getElementById('codeInput').value);
+        output.innerHTML = result;
+      } catch (e) {
+        output.innerHTML = '<span style="color:red;">Error: ' + e.message + '</span>';
+      }
+
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
