@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 7.8 - Performance Considerations for Arrays</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafb;
+      padding: 30px;
+      color: #1a202c;
+    }
+    .section {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      color: #2d3748;
+    }
+    pre {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 160px;
+      font-family: monospace;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    button {
+      background: #4299e1;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output {
+      background: #edf2f7;
+      padding: 10px;
+      border-radius: 6px;
+      font-family: monospace;
+      margin-top: 10px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 7.8: Performance Considerations for Arrays in AI</h1>
+
+  <div class="section">
+    <h2>1. Why Performance Matters</h2>
+    <p>In AI applications, data structures like arrays can grow very large. Efficient array operations are key to fast model training, data processing, and real-time predictions.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Avoiding Unnecessary Loops</h2>
+    <pre><code>// Slow approach
+let result = [];
+for (let i = 0; i < data.length; i++) {
+  if (data[i] > 0.5) {
+    result.push(data[i]);
+  }
+}
+
+// Fast, clean approach
+let result = data.filter(val => val > 0.5);</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Reuse Arrays Where Possible</h2>
+    <pre><code>// Instead of creating a new array every time
+let buffer = new Array(100000).fill(0);</code></pre>
+    <p>Preallocate memory and reuse buffers when processing large AI datasets.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Use `map`, `reduce`, and `forEach` Wisely</h2>
+    <p>Prefer <code>map</code>, <code>filter</code>, and <code>reduce</code> for readability and performance — but avoid chaining too many in large-scale AI loops.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Try It Yourself</h2>
+    <textarea id="codeInput">
+// Large dataset simulation
+let bigArray = Array.from({length: 100000}, (_, i) => Math.random());
+
+// Count how many values are above 0.9
+let start = performance.now();
+let count = bigArray.filter(n => n > 0.9).length;
+let end = performance.now();
+
+console.log("Count >", 0.9, ":", count);
+console.log("Time taken (ms):", (end - start).toFixed(2));
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById('codeInput').value;
+      const output = document.getElementById('outputBox');
+      let result = '';
+      const originalLog = console.log;
+      console.log = (...args) => {
+        result += args.join(' ') + '<br>';
+      };
+      try {
+        eval(code);
+        output.innerHTML = result;
+      } catch (err) {
+        output.innerHTML = '<span style="color:red;">Error: ' + err.message + '</span>';
+      }
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
