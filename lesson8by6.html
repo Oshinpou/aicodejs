@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 8.6 - Object Destructuring</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 30px;
+      color: #1a202c;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      color: #2d3748;
+    }
+    pre {
+      background: #2d3748;
+      color: #f7fafc;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    button {
+      background: #3182ce;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output {
+      background: #edf2f7;
+      padding: 12px;
+      font-family: monospace;
+      border-radius: 6px;
+      margin-top: 12px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 8.6: Object Destructuring</h1>
+
+  <div class="section">
+    <h2>1. What is Object Destructuring?</h2>
+    <p>Object destructuring is a concise way to extract values from objects and assign them to variables. It's very useful in AI data structures, where data is often deeply nested.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Example: Destructuring AI Configuration</h2>
+    <pre><code>const aiConfig = {
+  model: "VisionAI",
+  settings: {
+    resolution: "4K",
+    fps: 30
+  }
+};
+
+// Destructuring
+const { model, settings: { resolution } } = aiConfig;
+console.log(model);       // VisionAI
+console.log(resolution);  // 4K</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Try It Yourself</h2>
+    <textarea id="codeInput">
+// AI Device Example
+const device = {
+  id: "ImacxLens",
+  specs: {
+    cpu: "Hexa-core",
+    ram: "8GB",
+    sensors: {
+      camera: "108MP",
+      lidar: true
+    }
+  }
+};
+
+// Destructure values
+const {
+  specs: { cpu, sensors: { camera, lidar } }
+} = device;
+
+console.log("CPU:", cpu);
+console.log("Camera:", camera);
+console.log("Lidar Enabled:", lidar);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      let result = '';
+      const originalLog = console.log;
+      console.log = (...args) => result += args.join(' ') + '<br>';
+
+      try {
+        eval(document.getElementById('codeInput').value);
+        output.innerHTML = result;
+      } catch (e) {
+        output.innerHTML = '<span style="color:red;">Error: ' + e.message + '</span>';
+      }
+
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
