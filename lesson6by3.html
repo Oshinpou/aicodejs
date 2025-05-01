@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 6.3 - Return Values & Side Effects in AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      padding: 30px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .section {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    pre, code {
+      background: #1e1e1e;
+      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      display: block;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 160px;
+      font-family: monospace;
+      font-size: 15px;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .output {
+      background: #ecf0f1;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 6.3: Return Values & Side Effects</h1>
+
+  <div class="section">
+    <h2>What is a Return Value?</h2>
+    <p>A <strong>return value</strong> is the output a function provides after execution. In AI, return values are used to feed data into another process, such as scoring, training, or decision-making.</p>
+
+    <h2>What is a Side Effect?</h2>
+    <p>A <strong>side effect</strong> is any observable effect a function has outside its own scope, such as updating a global variable, printing to the console, or modifying data structures.</p>
+  </div>
+
+  <div class="section">
+    <h2>Example: Return vs Side Effect</h2>
+    <pre><code>// Return value
+function multiply(a, b) {
+  return a * b;
+}
+
+// Side effect
+let log = [];
+function logMessage(msg) {
+  log.push(msg); // modifies external state
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Try It Yourself</h2>
+    <textarea id="codeInput">
+// Return value example
+function activation(a, w) {
+  return a * w;
+}
+
+// Side effect example
+let weightsLog = [];
+function logWeightChange(newWeight) {
+  weightsLog.push("Weight set to: " + newWeight);
+}
+
+// Call both
+let act = activation(0.8, 1.2);
+logWeightChange(1.2);
+
+console.log("Activation Result:", act);
+console.log("Log:", weightsLog);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <h3>Output:</h3>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <div class="section">
+    <h2>Best Practices</h2>
+    <ul>
+      <li>Use return values when output is needed for further computation.</li>
+      <li>Avoid unnecessary side effects — they can cause bugs in AI logic.</li>
+      <li>Pure functions (no side effects) are more predictable and testable.</li>
+      <li>Use side effects only when updating logs, UI, state, or interacting with APIs.</li>
+    </ul>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      const code = document.getElementById('codeInput').value;
+      let result = '';
+      const originalLog = console.log;
+      console.log = function(...args) {
+        result += args.join(' ') + '<br>';
+      };
+      try {
+        eval(code);
+        output.innerHTML = result;
+      } catch (err) {
+        output.innerHTML = '<span style="color:red;">Error: ' + err.message + '</span>';
+      }
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
