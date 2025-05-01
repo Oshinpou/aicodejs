@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 9.4 - Modifying Styles with JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      padding: 30px;
+      color: #2d3748;
+    }
+    .lesson {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      color: #1a202c;
+    }
+    pre {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #styleBox {
+      width: 300px;
+      height: 150px;
+      background-color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lesson">
+    <h1>Lesson 9.4: Modifying Styles with JavaScript</h1>
+    <p>In AI applications, you may need to change how something looks based on AI predictions or actions. JavaScript allows you to modify any CSS style dynamically.</p>
+  </div>
+
+  <div class="lesson">
+    <h2>1. Changing Styles with JavaScript</h2>
+    <pre><code>
+const box = document.getElementById("styleBox");
+box.style.backgroundColor = "limegreen";
+box.style.color = "white";
+box.style.fontSize = "20px";
+    </code></pre>
+  </div>
+
+  <div class="lesson">
+    <h2>2. Example: AI Reacts with Style</h2>
+    <button onclick="aiStyleChange()">AI Style Update</button>
+    <div id="styleBox">Waiting for AI...</div>
+  </div>
+
+  <script>
+    function aiStyleChange() {
+      const box = document.getElementById("styleBox");
+      box.style.backgroundColor = "#10b981"; // emerald green
+      box.style.color = "#ffffff";
+      box.style.fontSize = "22px";
+      box.innerText = "AI Updated the Style!";
+    }
+  </script>
+
+</body>
+</html>
