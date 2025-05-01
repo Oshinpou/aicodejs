@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 7.6 - Nested Arrays in JavaScript for AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 30px;
+      color: #2c3e50;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #1a1a1a;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 180px;
+      font-family: monospace;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    button {
+      background: #2980b9;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .output {
+      background: #eef2f5;
+      padding: 12px;
+      margin-top: 10px;
+      font-family: monospace;
+      border-radius: 5px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 7.6: Nested Arrays in JavaScript for AI</h1>
+
+  <div class="section">
+    <h2>1. What Are Nested Arrays?</h2>
+    <p>Nested arrays (arrays inside arrays) are often used to represent complex AI data like matrices, pixel values, or neural network layers.</p>
+    <pre><code>let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>2. Accessing Elements</h2>
+    <pre><code>console.log(matrix[0][1]); // Output: 2 (first row, second column)</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Iterating Over Nested Arrays</h2>
+    <pre><code>for (let row of matrix) {
+  for (let value of row) {
+    console.log(value);
+  }
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>4. Modifying Nested Arrays</h2>
+    <pre><code>matrix[1][2] = 99;
+console.log(matrix[1]); // Output: [4, 5, 99]</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>5. Use Case: Pixel Grid (AI Image Input)</h2>
+    <pre><code>let pixelGrid = [
+  [255, 128, 0],
+  [0, 128, 255]
+];
+// Converting all values to grayscale scale 0–1
+let normalized = pixelGrid.map(row => row.map(val => val / 255));
+console.log(normalized);</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>6. Try It Yourself</h2>
+    <textarea id="codeInput">
+// Edit below:
+let data = [
+  [0.1, 0.2],
+  [0.3, 0.4],
+  [0.5, 0.6]
+];
+
+let total = 0;
+for (let row of data) {
+  for (let val of row) {
+    total += val;
+  }
+}
+console.log("Total Sum:", total);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      const code = document.getElementById('codeInput').value;
+      let result = '';
+      const originalLog = console.log;
+      console.log = function(...args) {
+        result += args.join(' ') + '<br>';
+      };
+      try {
+        eval(code);
+        output.innerHTML = result;
+      } catch (err) {
+        output.innerHTML = '<span style="color:red;">Error: ' + err.message + '</span>';
+      }
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
