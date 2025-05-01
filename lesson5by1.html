@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 5.1: Introduction to Loops</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    code {
+      background-color: #eee;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+    .example {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
+    textarea, pre, button {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    textarea {
+      height: 100px;
+    }
+    .output {
+      background: #222;
+      color: #0f0;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lesson 5.1: Introduction to Loops</h1>
+  <p>
+    Loops allow you to repeat a block of code multiple times, making your code more efficient and powerful.
+    JavaScript supports different types of loops: <code>for</code>, <code>while</code>, and <code>do...while</code>.
+  </p>  <h2>Why Loops Matter in AI</h2>
+  <p>
+    In AI programming, loops are used to train models, process datasets, or repeat actions until a condition is met.
+  </p>  <div class="example">
+    <h3>Example: Simple For Loop</h3>
+    <pre><code>for (let i = 0; i < 5; i++) {
+  console.log("Iteration: " + i);
+}</code></pre>
+    <p>This code will print the message 5 times.</p>
+  </div>  <div class="example">
+    <h3>Try It Yourself</h3>
+    <textarea id="codeInput">for (let i = 1; i <= 3; i++) {
+  console.log("Loop run: ", i);
+}</textarea>
+    <button onclick="runCode()">Run Code</button>
+    <div class="output" id="output"></div>
+  </div>  <script>
+    function runCode() {
+      const input = document.getElementById('codeInput').value;
+      const output = document.getElementById('output');
+      try {
+        const originalLog = console.log;
+        let result = '';
+        console.log = (msg, val) => { result += msg + (val !== undefined ? val : '') + '\n'; };
+        eval(input);
+        console.log = originalLog;
+        output.textContent = result;
+      } catch (err) {
+        output.textContent = 'Error: ' + err.message;
+      }
+    }
+  </script></body>
+</html>
