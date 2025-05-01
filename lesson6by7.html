@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 6.7 - Recursion and Self-Invoking Functions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7fa;
+      padding: 30px;
+      color: #2c3e50;
+    }
+    h1, h2 {
+      color: #1a2b3c;
+    }
+    .section {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+    pre, code {
+      background: #222;
+      color: #eee;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 180px;
+      font-family: monospace;
+      font-size: 15px;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    button {
+      background: #2980b9;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      background: #ecf0f1;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 6.7: Recursion and Self-Invoking Functions</h1>
+
+  <div class="section">
+    <h2>1. What is Recursion?</h2>
+    <p>Recursion occurs when a function calls itself until it reaches a termination condition. It's useful in AI tasks such as search trees, traversals, or backtracking.</p>
+    <pre><code>function factorial(n) {
+  if (n === 0) return 1;
+  return n * factorial(n - 1);
+}
+console.log(factorial(5)); // 120</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>2. Self-Invoking Functions</h2>
+    <p>A self-invoking (immediately invoked) function executes right after it's defined. It's commonly used for initialization logic in AI modules.</p>
+    <pre><code>(function() {
+  console.log("Initializing AI module...");
+})();</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Practical AI Example: Recursive Data Parsing</h2>
+    <pre><code>let aiData = {
+  type: "root",
+  children: [
+    { type: "node", value: 1 },
+    { type: "node", value: 2 },
+    {
+      type: "branch",
+      children: [
+        { type: "node", value: 3 },
+        { type: "node", value: 4 }
+      ]
+    }
+  ]
+};
+
+function parseNodes(data) {
+  if (data.value) {
+    console.log("Node:", data.value);
+  }
+  if (data.children) {
+    data.children.forEach(child => parseNodes(child));
+  }
+}
+
+parseNodes(aiData);</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Try It Yourself</h2>
+    <textarea id="codeInput">
+// Recursive sum of array
+function recursiveSum(arr) {
+  if (arr.length === 0) return 0;
+  return arr[0] + recursiveSum(arr.slice(1));
+}
+
+console.log("Sum:", recursiveSum([10, 20, 30]));
+
+// Self-invoking AI log
+(function() {
+  console.log("AI bootstrapped...");
+})();
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <h3>Output:</h3>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <div class="section">
+    <h2>Best Practices</h2>
+    <ul>
+      <li>Always set a termination condition in recursive functions to avoid infinite loops.</li>
+      <li>Use recursion for problems naturally defined recursively (trees, nested data).</li>
+      <li>Use self-invoking functions for setup, configuration, or scope isolation.</li>
+    </ul>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      const code = document.getElementById('codeInput').value;
+      let result = '';
+      const originalLog = console.log;
+      console.log = function(...args) {
+        result += args.join(' ') + '<br>';
+      };
+      try {
+        eval(code);
+        output.innerHTML = result;
+      } catch (err) {
+        output.innerHTML = '<span style="color:red;">Error: ' + err.message + '</span>';
+      }
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
