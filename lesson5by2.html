@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 5.2: Using for Loops</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-family: monospace;
+      font-size: 14px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .output {
+      background: #ecf0f1;
+      padding: 10px;
+      min-height: 30px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 5.2: Using <code>for</code> Loops to Iterate Over Data</h1>
+
+  <div class="section">
+    <h2>What is a <code>for</code> loop?</h2>
+    <p>A <code>for</code> loop allows you to repeat a block of code a specific number of times. It's especially useful when working with arrays or lists.</p>
+    <pre><code>for (let i = 0; i &lt; 5; i++) {
+  console.log("Hello AI, loop number " + i);
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Use Case: Looping Through an Array</h2>
+    <p>Let's print every item in an array using a <code>for</code> loop.</p>
+    <pre><code>const colors = ["red", "blue", "green"];
+for (let i = 0; i &lt; colors.length; i++) {
+  console.log(colors[i]);
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Try It Yourself</h2>
+    <textarea id="codeInput">// Write your loop here
+for (let i = 1; i &lt;= 3; i++) {
+  console.log("AI Loop: " + i);
+}</textarea><br>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <h3>Output:</h3>
+    <div id="output" class="output"></div>
+  </div>
+
+  <div class="section">
+    <h2>Explanation</h2>
+    <ul>
+      <li><code>for (let i = 0; i &lt; 5; i++)</code> has 3 parts: initialize, condition, increment.</li>
+      <li>Runs the loop body while the condition is true.</li>
+      <li><code>i++</code> increases the loop variable by 1 each time.</li>
+    </ul>
+  </div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById("codeInput").value;
+      const output = document.getElementById("output");
+      try {
+        let result = "";
+        const originalConsoleLog = console.log;
+        console.log = function(msg) {
+          result += msg + "<br>";
+        };
+        eval(code);
+        output.innerHTML = result;
+        console.log = originalConsoleLog;
+      } catch (e) {
+        output.innerHTML = "<span style='color:red;'>Error: " + e.message + "</span>";
+      }
+    }
+
+    function clearOutput() {
+      document.getElementById("output").innerHTML = "";
+    }
+  </script>
+
+</body>
+</html>
