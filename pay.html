@@ -8,33 +8,32 @@
       font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
+      text-align: center;
       margin: 0;
       padding: 0;
-      text-align: center;
     }
 
     .container {
       margin-top: 100px;
     }
 
-    h1 {
-      font-size: 28px;
+    .icon {
+      width: 150px;
+      border-radius: 20px;
       margin-bottom: 20px;
     }
 
-    .icon {
-      width: 150px;
-      margin: 20px auto;
-      border-radius: 20px;
+    h1 {
+      font-size: 26px;
     }
 
     .pay-buttons {
-      margin: 40px auto;
+      margin-top: 40px;
     }
 
-    .pay-buttons script {
+    form {
       display: inline-block;
-      margin: 10px;
+      margin: 20px;
     }
 
     p {
@@ -47,28 +46,24 @@
   <div class="container">
     <img src="iconr.webp" class="icon" alt="Course Icon" />
     <h1>Pay to Access All 30 Pages</h1>
-    
-    <div class="pay-buttons">
-      <!-- Razorpay INR Button -->
-      <script src="https://checkout.razorpay.com/v1/payment-button.js"
-              data-payment_button_id="rzp_live_inr_button_id"
-              data-button_text="Pay in INR"
-              data-button_theme="dark"
-              data-button_size="large"
-              data-callback_url="login.html">
-      </script>
 
-      <!-- Razorpay USD Button -->
-      <script src="https://checkout.razorpay.com/v1/payment-button.js"
-              data-payment_button_id="rzp_live_usd_button_id"
-              data-button_text="Pay in USD"
-              data-button_theme="dark"
-              data-button_size="large"
-              data-callback_url="login.html">
-      </script>
+    <div class="pay-buttons">
+      <!-- INR Payment Button -->
+      <form action="login.html">
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="rzp_live_INR_Button_ID" async>
+        </script>
+      </form>
+
+      <!-- USD Payment Button -->
+      <form action="login.html">
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="rzp_live_USD_Button_ID" async>
+        </script>
+      </form>
     </div>
 
-    <p>Once you pay, you'll be redirected to access all content pages.</p>
+    <p>After payment, you'll be redirected to access all course pages.</p>
   </div>
 </body>
 </html>
