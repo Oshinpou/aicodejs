@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 8.5 - Working with Nested Objects</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7fafc;
+      padding: 30px;
+      color: #1a202c;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      color: #2d3748;
+    }
+    pre {
+      background: #2d3748;
+      color: #f7fafc;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+    button {
+      background: #3182ce;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output {
+      background: #edf2f7;
+      padding: 12px;
+      font-family: monospace;
+      border-radius: 6px;
+      margin-top: 12px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 8.5: Working with Nested Objects</h1>
+
+  <div class="section">
+    <h2>1. What Are Nested Objects?</h2>
+    <p>Nested objects are objects that contain other objects as properties. This structure is useful for modeling complex AI data like neural layers, configurations, or model metadata.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Example: AI Model with Nested Properties</h2>
+    <pre><code>const aiModel = {
+  name: "TextGen",
+  version: "1.0",
+  metadata: {
+    created: "2025-04-01",
+    author: "AI Labs",
+    training: {
+      dataset: "CustomCorpus",
+      epochs: 10
+    }
+  }
+};
+
+console.log(aiModel.metadata.training.dataset);</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Updating Nested Object Values</h2>
+    <pre><code>aiModel.metadata.training.epochs = 20;
+console.log(aiModel.metadata.training);</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>4. Try It Yourself</h2>
+    <textarea id="codeInput">
+// Define a nested AI model object
+const aiAssistant = {
+  id: "ImacxGPT",
+  config: {
+    language: "en",
+    modes: {
+      standard: true,
+      advanced: false
+    }
+  },
+  status: {
+    online: true,
+    performance: {
+      cpu: "75%",
+      memory: "1.2GB"
+    }
+  }
+};
+
+// Access nested values
+console.log("Language:", aiAssistant.config.language);
+console.log("CPU usage:", aiAssistant.status.performance.cpu);
+
+// Update values
+aiAssistant.config.modes.advanced = true;
+console.log("Advanced Mode:", aiAssistant.config.modes.advanced);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      let result = '';
+      const originalLog = console.log;
+      console.log = (...args) => result += args.join(' ') + '<br>';
+
+      try {
+        eval(document.getElementById('codeInput').value);
+        output.innerHTML = result;
+      } catch (e) {
+        output.innerHTML = '<span style="color:red;">Error: ' + e.message + '</span>';
+      }
+
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
