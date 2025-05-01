@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 9.6 - Creating Dynamic Forms with the DOM</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f4f6;
+      padding: 30px;
+      color: #1f2937;
+    }
+    .lesson {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      color: #111827;
+    }
+    pre {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    input, button {
+      padding: 8px 14px;
+      margin: 5px 0;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+    #formContainer {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lesson">
+    <h1>Lesson 9.6: Creating Dynamic Forms with the DOM</h1>
+    <p>This lesson demonstrates how AI models can use JavaScript to create forms dynamically based on user interactions or data structures.</p>
+  </div>
+
+  <div class="lesson">
+    <h2>1. Why Dynamic Forms?</h2>
+    <p>AI applications often require custom forms generated based on user preferences, previous inputs, or model outputs. JavaScript makes this possible in real-time.</p>
+  </div>
+
+  <div class="lesson">
+    <h2>2. Example: Generate Form on Click</h2>
+    <button onclick="generateForm()">Create AI Input Form</button>
+    <div id="formContainer"></div>
+
+    <pre><code>
+function generateForm() {
+  const container = document.getElementById("formContainer");
+  container.innerHTML = ""; // Clear previous
+
+  const form = document.createElement("form");
+
+  const label = document.createElement("label");
+  label.textContent = "Enter AI input:";
+  form.appendChild(label);
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.name = "aiInput";
+  form.appendChild(input);
+
+  const submit = document.createElement("button");
+  submit.type = "submit";
+  submit.textContent = "Submit";
+  form.appendChild(submit);
+
+  form.onsubmit = function(e) {
+    e.preventDefault();
+    alert("AI received: " + input.value);
+  };
+
+  container.appendChild(form);
+}
+    </code></pre>
+  </div>
+
+  <div class="lesson">
+    <h2>3. Use in AI UI Design</h2>
+    <p>AI-powered interfaces may adjust questions based on previous answers, allowing personalized user experiences with dynamic DOM form generation.</p>
+  </div>
+
+</body>
+</html>
