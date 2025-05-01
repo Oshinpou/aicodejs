@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 9.2 - Manipulating HTML Content</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 30px;
+      color: #2d3748;
+    }
+    .lesson-box {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    h1, h2 {
+      color: #1a202c;
+    }
+    pre {
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    button {
+      background: #4a90e2;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .output-box {
+      padding: 15px;
+      background: #edf2f7;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lesson-box">
+    <h1>Lesson 9.2: Manipulating HTML Content</h1>
+    <p>Using JavaScript, AI-based web interfaces can update data dynamically based on model outputs, user interactions, or real-time events.</p>
+  </div>
+
+  <div class="lesson-box">
+    <h2>1. Change Inner HTML</h2>
+    <p>JavaScript can update the content of any HTML element using <code>innerHTML</code> or <code>textContent</code>.</p>
+    <pre><code>document.getElementById("contentBox").innerHTML = "AI has updated this content!";</code></pre>
+  </div>
+
+  <div class="lesson-box">
+    <h2>2. Demo: Manipulate HTML</h2>
+    <p>Click the button to simulate AI-generated content update:</p>
+    <button onclick="generateAIContent()">Update with AI Insight</button>
+    <div id="contentBox" class="output-box">Waiting for AI response...</div>
+  </div>
+
+  <script>
+    function generateAIContent() {
+      const insight = "Prediction: AI detected high interest in JavaScript automation.";
+      document.getElementById("contentBox").innerHTML = insight;
+    }
+  </script>
+
+</body>
+</html>
