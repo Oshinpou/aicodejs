@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 5.8 - Loops for AI Training</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 30px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+    code, pre {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 10px;
+      display: block;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 140px;
+      font-family: monospace;
+      font-size: 15px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    button {
+      background: #007acc;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .output {
+      background: #eef1f5;
+      padding: 12px;
+      border-radius: 5px;
+      min-height: 40px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 5.8: Implementing Loops for AI Training</h1>
+
+  <div class="section">
+    <h2>Overview</h2>
+    <p>When training AI models or simulating learning behavior, loops are used to iterate through training cycles or epochs. JavaScript can simulate such processes even in simplified or conceptual models like perceptrons or decision trees.</p>
+  </div>
+
+  <div class="section">
+    <h2>Concept: Training with Epochs</h2>
+    <pre><code>let epochs = 5;
+for (let i = 1; i <= epochs; i++) {
+  console.log(`Training epoch ${i}...`);
+  // perform weight updates, adjust loss etc.
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Try It Yourself</h2>
+    <textarea id="codeInput">
+// Simulate AI training loop
+let weights = [0.5, -0.3];
+let data = [[1, 0], [0, 1], [1, 1]];
+let learningRate = 0.1;
+
+for (let epoch = 1; epoch <= 3; epoch++) {
+  console.log("Epoch:", epoch);
+  for (let i = 0; i < data.length; i++) {
+    let input = data[i];
+    let output = input[0] * weights[0] + input[1] * weights[1];
+    let expected = 1;
+    let error = expected - output;
+
+    weights[0] += learningRate * error * input[0];
+    weights[1] += learningRate * error * input[1];
+
+    console.log(`Input: ${input}, Output: ${output.toFixed(2)}, Error: ${error.toFixed(2)}`);
+  }
+}
+console.log("Final Weights:", weights);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <h3>Output:</h3>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <div class="section">
+    <h2>Tips for AI Training Loops</h2>
+    <ul>
+      <li>Use outer loops for epochs and inner loops for data batches.</li>
+      <li>Update model weights or parameters based on the error.</li>
+      <li>Track and log performance metrics like loss, accuracy, or convergence.</li>
+      <li>Control training time and complexity with learning rate and conditions.</li>
+    </ul>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      const code = document.getElementById('codeInput').value;
+      let result = '';
+      const originalLog = console.log;
+      console.log = function(...args) {
+        result += args.join(' ') + '<br>';
+      };
+      try {
+        eval(code);
+        output.innerHTML = result;
+      } catch (err) {
+        output.innerHTML = '<span style="color:red;">Error: ' + err.message + '</span>';
+      }
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
