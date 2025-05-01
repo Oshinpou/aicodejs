@@ -1,64 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Buy Full Course</title>
+  <title>Course Payment | Unlock All Pages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f7fa;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  overflow-y: auto;
-  padding: 20px;
-}
+    .container {
+      margin-top: 100px;
+    }
 
-.logo {
-  width: 100px;
-  height: auto;
-  margin-top: 20px;
-}
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
 
-.title {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #333;
-  margin: 10px 0 30px;
-}
+    .icon {
+      width: 150px;
+      margin: 20px auto;
+      border-radius: 20px;
+    }
 
-  
-</style>
+    .pay-buttons {
+      margin: 40px auto;
+    }
 
+    .pay-buttons script {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    p {
+      margin-top: 30px;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-  <img src="iconr.webp" alt="AIcodejs Logo" class="logo">
-<h1 class="title">AIcodejs</h1>
-  <h1>Learn JavaScript in AI</h1>
-  <h2>Select Currency & Pay to Unlock Full Course For Lifetime</h2>
+  <div class="container">
+    <img src="iconr.webp" class="icon" alt="Course Icon" />
+    <h1>Pay to Access All 30 Pages</h1>
+    
+    <div class="pay-buttons">
+      <!-- Razorpay INR Button -->
+      <script src="https://checkout.razorpay.com/v1/payment-button.js"
+              data-payment_button_id="rzp_live_inr_button_id"
+              data-button_text="Pay in INR"
+              data-button_theme="dark"
+              data-button_size="large"
+              data-callback_url="login.html">
+      </script>
 
-  <p>Pay in INR:</p>
-  <form>
-    <script src="https://checkout.razorpay.com/v1/payment-button.js"
-      data-payment_button_id="pl_QMUp0X29Gt0lG5"
-      data-currency="INR"
-      data-callback_url="login.html"
-      async>
-    </script>
-  </form>
+      <!-- Razorpay USD Button -->
+      <script src="https://checkout.razorpay.com/v1/payment-button.js"
+              data-payment_button_id="rzp_live_usd_button_id"
+              data-button_text="Pay in USD"
+              data-button_theme="dark"
+              data-button_size="large"
+              data-callback_url="login.html">
+      </script>
+    </div>
 
-  <p>Pay in USD:</p>
-  <form>
-    <script src="https://checkout.razorpay.com/v1/payment-button.js"
-      data-payment_button_id="pl_QMUp0X29Gt0lG5"
-      data-currency="USD"
-      data-callback_url="login.html"
-      async>
-    </script>
-  </form>
+    <p>Once you pay, you'll be redirected to access all content pages.</p>
+  </div>
 </body>
 </html>
