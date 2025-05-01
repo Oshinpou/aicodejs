@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 9.5 - Traversing the DOM</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      padding: 30px;
+      color: #111827;
+    }
+    .lesson {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      color: #1f2937;
+    }
+    pre {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .highlight {
+      background-color: #fef08a;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lesson">
+    <h1>Lesson 9.5: Traversing the DOM</h1>
+    <p>Traversing the DOM means moving through elements using JavaScript. It's essential when building AI interfaces that need to react to specific data or UI structures.</p>
+  </div>
+
+  <div class="lesson">
+    <h2>1. DOM Traversal Methods</h2>
+    <ul>
+      <li><span class="highlight">parentNode</span> – Access the parent element.</li>
+      <li><span class="highlight">children</span> – Get all child elements.</li>
+      <li><span class="highlight">firstElementChild / lastElementChild</span> – Access first/last child.</li>
+      <li><span class="highlight">nextElementSibling / previousElementSibling</span> – Move to siblings.</li>
+    </ul>
+  </div>
+
+  <div class="lesson">
+    <h2>2. Example: AI reads elements</h2>
+    <pre><code>
+// Select a list and traverse its children
+const list = document.getElementById("aiList");
+const firstItem = list.firstElementChild;
+const secondItem = firstItem.nextElementSibling;
+console.log("First item:", firstItem.textContent);
+console.log("Second item:", secondItem.textContent);
+    </code></pre>
+
+    <ul id="aiList">
+      <li>AI Prediction 1</li>
+      <li>AI Prediction 2</li>
+      <li>AI Prediction 3</li>
+    </ul>
+  </div>
+
+  <div class="lesson">
+    <h2>3. Use in AI Systems</h2>
+    <p>In JavaScript-based AI dashboards, DOM traversal allows you to extract values, respond to changes, or apply updates conditionally based on structure or hierarchy.</p>
+  </div>
+
+</body>
+</html>
