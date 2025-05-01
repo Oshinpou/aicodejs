@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 7.2 - Multi-Dimensional Arrays</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      padding: 30px;
+      color: #2d2d2d;
+    }
+    h1, h2 {
+      color: #1a1a1a;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    pre, code {
+      background: #1e1e1e;
+      color: #e0e0e0;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 160px;
+      font-family: monospace;
+      font-size: 15px;
+      padding: 12px;
+      border-radius: 6px;
+    }
+    button {
+      background: #34495e;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      background: #eef3f7;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lesson 7.2: Multi-Dimensional Arrays</h1>
+
+  <div class="section">
+    <h2>1. What is a Multi-Dimensional Array?</h2>
+    <p>Multi-dimensional arrays are arrays of arrays. In AI, they are commonly used for representing matrices, image grids, and input-output layers in neural networks.</p>
+    <pre><code>let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>2. Accessing Values</h2>
+    <p>Access elements using two indexes: <code>array[row][column]</code></p>
+    <pre><code>console.log(matrix[0][2]); // Output: 3</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Looping Through Multi-Dimensional Arrays</h2>
+    <pre><code>for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix[i].length; j++) {
+    console.log(matrix[i][j]);
+  }
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>4. AI Use Cases</h2>
+    <ul>
+      <li>Representing grayscale images (2D pixel arrays)</li>
+      <li>Storing AI training examples in matrix format</li>
+      <li>Building connection weights in neural networks</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Try It Yourself</h2>
+    <textarea id="codeInput">
+// Sample: Add all values in a 3x3 matrix
+let mat = [
+  [3, 2, 1],
+  [6, 5, 4],
+  [9, 8, 7]
+];
+
+let total = 0;
+for (let row = 0; row < mat.length; row++) {
+  for (let col = 0; col < mat[row].length; col++) {
+    total += mat[row][col];
+  }
+}
+console.log("Matrix Total:", total);
+    </textarea>
+    <button onclick="runCode()">Run Code</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <h3>Output:</h3>
+    <div class="output" id="outputBox"></div>
+  </div>
+
+  <script>
+    function runCode() {
+      const output = document.getElementById('outputBox');
+      const code = document.getElementById('codeInput').value;
+      let result = '';
+      const originalLog = console.log;
+      console.log = function(...args) {
+        result += args.join(' ') + '<br>';
+      };
+      try {
+        eval(code);
+        output.innerHTML = result;
+      } catch (err) {
+        output.innerHTML = '<span style="color:red;">Error: ' + err.message + '</span>';
+      }
+      console.log = originalLog;
+    }
+
+    function clearOutput() {
+      document.getElementById('outputBox').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>
