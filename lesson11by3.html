@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 11.3 - Validating Text Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      color: #1e293b;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #3b82f6;
+      color: white;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .error {
+      color: #dc2626;
+      margin-top: 10px;
+    }
+    .success {
+      color: #16a34a;
+      margin-top: 10px;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 11.3: Validating Text Input</h1>
+  <p>Validate AI model name before using it.</p>
+
+  <label for="modelName">AI Model Name:</label>
+  <input type="text" id="modelName" placeholder="e.g., SmartPredictX">
+
+  <button onclick="validateInput()">Validate</button>
+
+  <div id="message"></div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+function validateInput() {
+  const input = document.getElementById("modelName").value.trim();
+  const message = document.getElementById("message");
+
+  if (input.length < 3 || !/^[a-zA-Z0-9]+$/.test(input)) {
+    message.innerHTML = "Invalid model name. Use at least 3 alphanumeric characters.";
+    message.className = "error";
+  } else {
+    message.innerHTML = "Valid model name: " + input;
+    message.className = "success";
+  }
+}
+  </code></pre>
+</div>
+
+<script>
+  function validateInput() {
+    const input = document.getElementById("modelName").value.trim();
+    const message = document.getElementById("message");
+
+    if (input.length < 3 || !/^[a-zA-Z0-9]+$/.test(input)) {
+      message.innerHTML = "Invalid model name. Use at least 3 alphanumeric characters.";
+      message.className = "error";
+    } else {
+      message.innerHTML = "Valid model name: " + input;
+      message.className = "success";
+    }
+  }
+</script>
+
+</body>
+</html>
