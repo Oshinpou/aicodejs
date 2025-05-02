@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10.1 - What Are Events in JavaScript?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #1f2937;
+    }
+    h2 {
+      color: #2563eb;
+      margin-top: 25px;
+    }
+    p, ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    pre {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #e0f2fe;
+      border-left: 4px solid #38bdf8;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 10.1: What Are Events in JavaScript?</h1>
+  <p>Events are actions that happen in the browser – like clicking a button, pressing a key, or moving a mouse. In JavaScript, you can listen for these events and run code in response – critical for AI interfaces that rely on user input or dynamic interaction.</p>
+
+  <h2>Why Events Matter in AI</h2>
+  <ul>
+    <li>Trigger predictions when a user submits data.</li>
+    <li>Start or pause training loops with a button.</li>
+    <li>Dynamically update the UI based on sensor input or AI decisions.</li>
+  </ul>
+
+  <h2>Example: Button Click Event</h2>
+  <button id="aiTrigger">Trigger AI Decision</button>
+  <div id="output">AI Activated</div>
+
+  <pre><code>
+// JavaScript Event Listener
+document.getElementById("aiTrigger").addEventListener("click", function() {
+  document.getElementById("output").style.display = "block";
+  document.getElementById("output").textContent = "AI: Decision triggered!";
+});
+  </code></pre>
+</div>
+
+<script>
+  document.getElementById("aiTrigger").addEventListener("click", function() {
+    document.getElementById("output").style.display = "block";
+    document.getElementById("output").textContent = "AI: Decision triggered!";
+  });
+</script>
+
+</body>
+</html>
