@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 11.1 - Introduction to Forms in JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8fafc;
+      padding: 30px;
+    }
+    .container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      color: #0f172a;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+    }
+    button {
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #f1f5f9;
+      border-radius: 6px;
+      color: #334155;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 11.1: Introduction to Forms in JavaScript</h1>
+  <p>This lesson introduces how JavaScript interacts with forms to collect user or AI input.</p>
+
+  <form id="aiForm">
+    <label for="name">AI Model Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="level">Select Intelligence Level:</label>
+    <select id="level" name="level">
+      <option value="Basic">Basic</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="result" id="result">Form result will appear here.</div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+const form = document.getElementById("aiForm");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = form.name.value;
+  const level = form.level.value;
+  result.textContent = \`AI Model: \${name}, Intelligence Level: \${level}\`;
+});
+  </code></pre>
+</div>
+
+<script>
+  const form = document.getElementById("aiForm");
+  const result = document.getElementById("result");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = form.name.value;
+    const level = form.level.value;
+    result.textContent = `AI Model: ${name}, Intelligence Level: ${level}`;
+  });
+</script>
+
+</body>
+</html>
