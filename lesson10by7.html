@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10.7 - Custom Events in AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      padding: 30px;
+    }
+    .container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+      max-width: 650px;
+      margin: auto;
+    }
+    h1 {
+      color: #1e293b;
+    }
+    button {
+      padding: 12px 20px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #047857;
+    }
+    pre {
+      background-color: #1f2937;
+      color: #f8fafc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 30px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 10.7: Custom Events in AI</h1>
+  <p>Create and dispatch custom JavaScript events to simulate AI behaviors.</p>
+
+  <button id="triggerAI">Trigger AI Decision</button>
+  <div class="output" id="aiResult">Awaiting AI event...</div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+const aiResult = document.getElementById("aiResult");
+
+// Listen for the custom event
+document.addEventListener("aiDecisionMade", (e) => {
+  aiResult.textContent = `AI decided: ${e.detail}`;
+});
+
+// Simulate triggering the event
+document.getElementById("triggerAI").addEventListener("click", () => {
+  const decision = "Proceed with enhanced prediction.";
+  const aiEvent = new CustomEvent("aiDecisionMade", {
+    detail: decision
+  });
+  document.dispatchEvent(aiEvent);
+});
+  </code></pre>
+</div>
+
+<script>
+  const aiResult = document.getElementById("aiResult");
+
+  // Listen for the custom event
+  document.addEventListener("aiDecisionMade", (e) => {
+    aiResult.textContent = `AI decided: ${e.detail}`;
+  });
+
+  // Simulate triggering the event
+  document.getElementById("triggerAI").addEventListener("click", () => {
+    const decision = "Proceed with enhanced prediction.";
+    const aiEvent = new CustomEvent("aiDecisionMade", {
+      detail: decision
+    });
+    document.dispatchEvent(aiEvent);
+  });
+</script>
+
+</body>
+</html>
