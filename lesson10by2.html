@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10.2 - Click Events in AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #1f2937;
+    }
+    h2 {
+      color: #2563eb;
+      margin-top: 25px;
+    }
+    p, ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    pre {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #d1fae5;
+      border-left: 4px solid #10b981;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 10.2: Click Events in AI</h1>
+  <p>Click events allow AI systems built with JavaScript to respond to user actions like clicking buttons or elements. You can use them to trigger model evaluations, input processing, or predictions.</p>
+
+  <h2>Example: Simulating AI Prediction with Click</h2>
+  <p>Click the button below to simulate a basic AI decision triggered by a user interaction:</p>
+  
+  <button id="predictBtn">Predict AI Output</button>
+  <div id="result">Prediction: [Pending]</div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+document.getElementById("predictBtn").addEventListener("click", function() {
+  const prediction = "Positive outcome detected!";
+  const resultDiv = document.getElementById("result");
+  resultDiv.textContent = "Prediction: " + prediction;
+  resultDiv.style.display = "block";
+});
+  </code></pre>
+</div>
+
+<script>
+  document.getElementById("predictBtn").addEventListener("click", function() {
+    const prediction = "Positive outcome detected!";
+    const resultDiv = document.getElementById("result");
+    resultDiv.textContent = "Prediction: " + prediction;
+    resultDiv.style.display = "block";
+  });
+</script>
+
+</body>
+</html>
