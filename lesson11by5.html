@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 11.5 - Password and Confirm Password Checks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      color: #1f2937;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    .error {
+      color: #dc2626;
+      margin-top: 10px;
+    }
+    .success {
+      color: #059669;
+      margin-top: 10px;
+    }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 11.5: Password and Confirm Password Checks</h1>
+  <p>Check if the password is strong and matches the confirmation field.</p>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" placeholder="Enter password">
+
+  <label for="confirmPassword">Confirm Password:</label>
+  <input type="password" id="confirmPassword" placeholder="Re-enter password">
+
+  <button onclick="checkPasswords()">Check Passwords</button>
+
+  <div id="passwordMessage"></div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+function checkPasswords() {
+  const pass = document.getElementById("password").value;
+  const confirm = document.getElementById("confirmPassword").value;
+  const message = document.getElementById("passwordMessage");
+
+  if (pass.length < 6) {
+    message.innerHTML = "Password must be at least 6 characters.";
+    message.className = "error";
+  } else if (pass !== confirm) {
+    message.innerHTML = "Passwords do not match.";
+    message.className = "error";
+  } else {
+    message.innerHTML = "Passwords are valid and match.";
+    message.className = "success";
+  }
+}
+  </code></pre>
+</div>
+
+<script>
+  function checkPasswords() {
+    const pass = document.getElementById("password").value;
+    const confirm = document.getElementById("confirmPassword").value;
+    const message = document.getElementById("passwordMessage");
+
+    if (pass.length < 6) {
+      message.innerHTML = "Password must be at least 6 characters.";
+      message.className = "error";
+    } else if (pass !== confirm) {
+      message.innerHTML = "Passwords do not match.";
+      message.className = "error";
+    } else {
+      message.innerHTML = "Passwords are valid and match.";
+      message.className = "success";
+    }
+  }
+</script>
+
+</body>
+</html>
