@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10.8 - Event Delegation for Smart Handling</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f5f9;
+      padding: 30px;
+    }
+    .container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+      max-width: 650px;
+      margin: auto;
+    }
+    h1 {
+      color: #1e293b;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .output {
+      margin-top: 20px;
+      color: #475569;
+    }
+    pre {
+      background-color: #1e293b;
+      color: #f1f5f9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 30px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 10.8: Event Delegation for Smart Handling</h1>
+  <p>Use event delegation to handle AI-generated elements efficiently.</p>
+
+  <div id="ai-container">
+    <button data-ai="A">AI Action A</button>
+    <button data-ai="B">AI Action B</button>
+    <button data-ai="C">AI Action C</button>
+  </div>
+
+  <div class="output" id="output">Waiting for AI interaction...</div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+const container = document.getElementById("ai-container");
+const output = document.getElementById("output");
+
+// Event delegation: handle all buttons from one parent
+container.addEventListener("click", function(event) {
+  if (event.target.tagName === "BUTTON") {
+    const action = event.target.getAttribute("data-ai");
+    output.textContent = \`AI triggered: Action \${action}\`;
+  }
+});
+  </code></pre>
+</div>
+
+<script>
+  const container = document.getElementById("ai-container");
+  const output = document.getElementById("output");
+
+  // Event delegation handler
+  container.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+      const action = event.target.getAttribute("data-ai");
+      output.textContent = `AI triggered: Action ${action}`;
+    }
+  });
+</script>
+
+</body>
+</html>
