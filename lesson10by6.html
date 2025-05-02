@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10.6 - Submitting Forms with AI Help</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      padding: 30px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      color: #0f172a;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 5px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #1d4ed8;
+      color: white;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .ai-feedback {
+      margin-top: 20px;
+      color: #16a34a;
+      font-size: 17px;
+    }
+    pre {
+      background: #111827;
+      color: #f1f5f9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 10.6: Submitting Forms with AI Help</h1>
+  <p>Enhance your form by using AI-like JavaScript validation before sending data.</p>
+
+  <form id="aiForm">
+    <label for="userName">Name:</label>
+    <input type="text" id="userName" required placeholder="Enter your name" />
+
+    <label for="userEmail">Email:</label>
+    <input type="email" id="userEmail" required placeholder="Enter your email" />
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="ai-feedback" id="aiMessage">Waiting for input...</div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+const form = document.getElementById("aiForm");
+const aiMessage = document.getElementById("aiMessage");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("userName").value.trim();
+  const email = document.getElementById("userEmail").value.trim();
+
+  if (name.length < 3) {
+    aiMessage.textContent = "AI suggests: Please enter a valid name with 3+ characters.";
+    return;
+  }
+
+  if (!email.includes("@")) {
+    aiMessage.textContent = "AI detected: Email should include '@'.";
+    return;
+  }
+
+  aiMessage.textContent = `AI says: Thank you, ${name}! Your form is being processed...`;
+  // Simulate sending data or further AI processing
+});
+  </code></pre>
+</div>
+
+<script>
+  const form = document.getElementById("aiForm");
+  const aiMessage = document.getElementById("aiMessage");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("userName").value.trim();
+    const email = document.getElementById("userEmail").value.trim();
+
+    if (name.length < 3) {
+      aiMessage.textContent = "AI suggests: Please enter a valid name with 3+ characters.";
+      return;
+    }
+
+    if (!email.includes("@")) {
+      aiMessage.textContent = "AI detected: Email should include '@'.";
+      return;
+    }
+
+    aiMessage.textContent = `AI says: Thank you, ${name}! Your form is being processed...`;
+    // Simulate AI form submission logic
+  });
+</script>
+
+</body>
+</html>
