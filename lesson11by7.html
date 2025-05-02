@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 11.7 - AI Feedback and Error Handling</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+      margin: auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 12px;
+      width: 100%;
+      background-color: #10b981;
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .feedback {
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .success {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    .error {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 11.7: AI Feedback and Error Handling</h1>
+  <label for="username">Username:</label>
+  <input type="text" id="username" placeholder="Enter username...">
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" placeholder="Enter email...">
+
+  <button onclick="submitForm()">Submit to AI</button>
+  <div id="aiFeedback" class="feedback"></div>
+</div>
+
+<script>
+  function validateEmail(email) {
+    const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    return pattern.test(email);
+  }
+
+  function submitForm() {
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const feedback = document.getElementById("aiFeedback");
+
+    try {
+      if (username === "") {
+        throw new Error("Username cannot be empty.");
+      }
+      if (!validateEmail(email)) {
+        throw new Error("Invalid email address.");
+      }
+
+      // Simulated AI feedback (could connect to real model)
+      feedback.innerHTML = `Hello <b>${username}</b>, your data looks great. Processing with AI...`;
+      feedback.className = "feedback success";
+
+    } catch (err) {
+      feedback.innerHTML = err.message;
+      feedback.className = "feedback error";
+    }
+  }
+</script>
+
+</body>
+</html>
