@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10.5 - Input Events for Smart Forms</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      padding: 30px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #0f172a;
+    }
+    h2 {
+      color: #1d4ed8;
+      margin-top: 20px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .ai-response {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #16a34a;
+    }
+    pre {
+      background: #111827;
+      color: #f1f5f9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 10.5: Input Events for Smart Forms</h1>
+  <p>Input events help build smart forms where AI suggestions, feedback, or validations are provided in real-time as users type.</p>
+
+  <h2>Example: AI Smart Greeting</h2>
+  <input type="text" id="nameInput" placeholder="Type your name..." />
+  <div class="ai-response" id="responseText">AI is waiting for your input...</div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+const nameInput = document.getElementById("nameInput");
+const responseText = document.getElementById("responseText");
+
+nameInput.addEventListener("input", function(e) {
+  const name = e.target.value.trim();
+  if (name.length > 0) {
+    responseText.textContent = `Hello, ${name}! Let's get started with AI.`;
+  } else {
+    responseText.textContent = "AI is waiting for your input...";
+  }
+});
+  </code></pre>
+</div>
+
+<script>
+  const nameInput = document.getElementById("nameInput");
+  const responseText = document.getElementById("responseText");
+
+  nameInput.addEventListener("input", function(e) {
+    const name = e.target.value.trim();
+    if (name.length > 0) {
+      responseText.textContent = `Hello, ${name}! Let's get started with AI.`;
+    } else {
+      responseText.textContent = "AI is waiting for your input...";
+    }
+  });
+</script>
+
+</body>
+</html>
