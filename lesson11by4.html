@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 11.4 - Email Validation with AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      color: #1e3a8a;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .error {
+      color: #dc2626;
+      margin-top: 10px;
+    }
+    .success {
+      color: #059669;
+      margin-top: 10px;
+    }
+    pre {
+      background: #1f2937;
+      color: #f3f4f6;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 11.4: Email Validation with AI</h1>
+  <p>Make sure the user's email is in a valid format before storing or using it in an AI model.</p>
+
+  <label for="emailInput">Email Address:</label>
+  <input type="email" id="emailInput" placeholder="e.g., user@example.com">
+
+  <button onclick="validateEmail()">Validate Email</button>
+
+  <div id="emailMessage"></div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+function validateEmail() {
+  const email = document.getElementById("emailInput").value.trim();
+  const message = document.getElementById("emailMessage");
+  const regex = /^[\\w.-]+@[\\w.-]+\\.\\w+$/;
+
+  if (regex.test(email)) {
+    message.innerHTML = "Valid email: " + email;
+    message.className = "success";
+  } else {
+    message.innerHTML = "Invalid email format. Please enter a correct email.";
+    message.className = "error";
+  }
+}
+  </code></pre>
+</div>
+
+<script>
+  function validateEmail() {
+    const email = document.getElementById("emailInput").value.trim();
+    const message = document.getElementById("emailMessage");
+    const regex = /^[\w.-]+@[\w.-]+\.\w+$/;
+
+    if (regex.test(email)) {
+      message.innerHTML = "Valid email: " + email;
+      message.className = "success";
+    } else {
+      message.innerHTML = "Invalid email format. Please enter a correct email.";
+      message.className = "error";
+    }
+  }
+</script>
+
+</body>
+</html>
