@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 12.1 - What is JSON?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      color: #333;
+      padding: 2rem;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    .code-title {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lesson 12.1: What is JSON?</h1>
+  <section>
+    <p><strong>JSON</strong> (JavaScript Object Notation) is a lightweight format for exchanging data between applications. It's especially popular in AI for data representation, predictions, configurations, and training logs.</p>
+  </section>  <section>
+    <h2>Why AI Uses JSON</h2>
+    <ul>
+      <li>Standardized and easy to read/write</li>
+      <li>Fast and lightweight</li>
+      <li>Works across languages and systems</li>
+    </ul>
+  </section>  <section>
+    <h2>Example JSON</h2>
+    <pre>{
+  "name": "Imacx AI Assistant",
+  "skills": ["language understanding", "data processing", "prediction"],
+  "active": true,
+  "version": 1.5
+}</pre>
+  </section>  <section>
+    <h2>JavaScript and JSON</h2>
+    <div class="code-title">Parsing JSON:</div>
+    <pre>let jsonData = '{"name": "AI", "active": true}';
+let obj = JSON.parse(jsonData);
+console.log(obj.name); // Output: "AI"</pre><div class="code-title">Stringifying JS Object:</div>
+<pre>let jsObj = { model: "GPT", version: 4.0 };
+
+let jsonString = JSON.stringify(jsObj); console.log(jsonString); // Output: '{"model":"GPT","version":4}'</pre>
+
+  </section>  <section>
+    <h2>AI Use Case Example</h2>
+    <p>A machine learning model may return a JSON object like:</p>
+    <pre>{
+  "prediction": "cat",
+  "confidence": 0.983
+}</pre>
+  </section>  <section>
+    <strong>Next Lesson:</strong> <a href="#">Lesson 12.2 — Fetching AI Data with JSON in JavaScript</a>
+  </section>
+</body>
+</html>
