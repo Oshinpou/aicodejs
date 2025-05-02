@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 10.3 - Keyboard Events for AI Input</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      padding: 30px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #1f2937;
+    }
+    h2 {
+      color: #2563eb;
+      margin-top: 20px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 300px;
+    }
+    #log {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      display: none;
+    }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson 10.3: Keyboard Events for AI Input</h1>
+  <p>Keyboard events are useful for AI applications where you need to process typed input, like text analysis, chatbots, or search prediction.</p>
+
+  <h2>Example: Capturing User Input</h2>
+  <p>Type something to simulate real-time AI text input:</p>
+  <input type="text" id="aiInput" placeholder="Start typing..." />
+  <div id="log">You typed: <span id="typedText"></span></div>
+
+  <h2>JavaScript Code</h2>
+  <pre><code>
+const input = document.getElementById("aiInput");
+const log = document.getElementById("log");
+const textSpan = document.getElementById("typedText");
+
+input.addEventListener("keyup", function(event) {
+  const value = event.target.value;
+  textSpan.textContent = value;
+  log.style.display = value ? "block" : "none";
+});
+  </code></pre>
+</div>
+
+<script>
+  const input = document.getElementById("aiInput");
+  const log = document.getElementById("log");
+  const textSpan = document.getElementById("typedText");
+
+  input.addEventListener("keyup", function(event) {
+    const value = event.target.value;
+    textSpan.textContent = value;
+    log.style.display = value ? "block" : "none";
+  });
+</script>
+
+</body>
+</html>
