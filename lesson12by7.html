@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 12.7 - Sending JSON to a Server | JavaScript in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #1e272e;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    pre {
+      background: #2d3436;
+      color: #dfe6e9;
+      padding: 12px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    #output {
+      background: #dff9fb;
+      border-left: 4px solid #00cec9;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+    button {
+      background-color: #00cec9;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #81ecec;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 12.7 — Sending JSON to a Server</h1>
+    <p>Connect your AI to the cloud with JSON communication</p>
+  </header>
+
+  <section>
+    <h2>Why Send JSON?</h2>
+    <p>AI apps often need to send predictions, data logs, or user input to a server. JSON makes this simple, structured, and compatible with APIs.</p>
+
+    <h2>Example: Sending Data Using <code>fetch</code></h2>
+    <pre>
+let aiData = {
+  model: "AlphaBot",
+  prediction: "Approved",
+  confidence: 91
+};
+
+fetch("https://example.com/api/ai-data", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(aiData)
+})
+.then(response => response.json())
+.then(data => console.log("Server response:", data))
+.catch(error => console.error("Error:", error));
+    </pre>
+
+    <button onclick="sendJson()">Send Sample JSON</button>
+    <div id="output">Waiting for response...</div>
+
+    <script>
+      function sendJson() {
+        const aiData = {
+          model: "AlphaBot",
+          prediction: "Approved",
+          confidence: 91
+        };
+
+        // Simulated fetch with dummy response
+        document.getElementById("output").textContent = "Sending data to server...";
+
+        setTimeout(() => {
+          document.getElementById("output").textContent = JSON.stringify({
+            status: "success",
+            received: aiData
+          }, null, 2);
+        }, 1000);
+      }
+    </script>
+
+    <h2>Common Use Cases</h2>
+    <ul>
+      <li>Sending predictions to a backend for storage</li>
+      <li>Reporting model errors and metrics</li>
+      <li>Real-time AI interaction logging</li>
+    </ul>
+  </section>
+
+</body>
+</html>
