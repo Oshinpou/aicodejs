@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 12.2 - JSON Syntax & Structure | JavaScript in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 12.2 — JSON Syntax & Structure</h1>
+    <p>JavaScript in AI</p>
+  </header>
+
+  <section>
+    <h2>What is JSON?</h2>
+    <p>JSON (JavaScript Object Notation) is a lightweight format for storing and exchanging data, widely used in AI to structure and transfer information between models, systems, or APIs.</p>
+
+    <h2>JSON Syntax</h2>
+    <ul>
+      <li>Data is in key/value pairs.</li>
+      <li>Data is separated by commas.</li>
+      <li>Curly braces <code>{}</code> hold objects.</li>
+      <li>Square brackets <code>[]</code> hold arrays.</li>
+    </ul>
+
+    <h2>Basic JSON Example</h2>
+    <pre>{
+  "name": "AI Bot",
+  "version": 1.0,
+  "skills": ["language", "vision", "analysis"],
+  "active": true
+}</pre>
+
+    <h2>Accessing JSON in JavaScript</h2>
+    <pre>const aiData = {
+  name: "AI Bot",
+  version: 1.0,
+  skills: ["language", "vision", "analysis"],
+  active: true
+};
+
+console.log(aiData.name); // "AI Bot"</pre>
+
+    <h2>Why AI Uses JSON</h2>
+    <ul>
+      <li>Universal readability.</li>
+      <li>Easy parsing by machines and models.</li>
+      <li>Compatible with APIs, databases, and AI tools.</li>
+    </ul>
+  </section>
+
+</body>
+</html>
