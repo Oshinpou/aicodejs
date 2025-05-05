@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 12.6 - Looping Through JSON | JavaScript in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #1e272e;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    pre {
+      background: #2d3436;
+      color: #dfe6e9;
+      padding: 12px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    #output {
+      background: #dff9fb;
+      border-left: 4px solid #0984e3;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+    button {
+      background-color: #0984e3;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #74b9ff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 12.6 — Looping Through JSON</h1>
+    <p>Teach your AI to analyze large structured data</p>
+  </header>
+
+  <section>
+    <h2>Why Loop Through JSON?</h2>
+    <p>In AI development, JSON is often used for datasets and configuration files. Looping helps extract insights, filter data, and feed machine learning logic.</p>
+
+    <h2>Example: Looping Over AI Dataset</h2>
+    <pre>
+let dataset = [
+  { id: 1, name: "AlphaBot", accuracy: 92 },
+  { id: 2, name: "NeuroNet", accuracy: 88 },
+  { id: 3, name: "VisionCore", accuracy: 95 }
+];
+
+dataset.forEach(bot => {
+  console.log(bot.name + ": " + bot.accuracy + "%");
+});
+    </pre>
+
+    <button onclick="loopThroughJson()">Run JSON Loop</button>
+    <div id="output">Result will appear here...</div>
+
+    <script>
+      function loopThroughJson() {
+        const dataset = [
+          { id: 1, name: "AlphaBot", accuracy: 92 },
+          { id: 2, name: "NeuroNet", accuracy: 88 },
+          { id: 3, name: "VisionCore", accuracy: 95 }
+        ];
+
+        let result = '';
+        dataset.forEach(bot => {
+          result += `Name: ${bot.name} | Accuracy: ${bot.accuracy}%\n`;
+        });
+
+        document.getElementById("output").textContent = result;
+      }
+    </script>
+
+    <h2>Use Cases in AI</h2>
+    <ul>
+      <li>Displaying AI model performance results</li>
+      <li>Filtering out underperforming models</li>
+      <li>Generating reports from structured data</li>
+    </ul>
+  </section>
+
+</body>
+</html>
