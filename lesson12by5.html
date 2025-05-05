@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 12.5 - Modifying JSON | JavaScript in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    #output {
+      white-space: pre-wrap;
+      background: #eef;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+    button {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #3498db;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 12.5 — Modifying JSON</h1>
+    <p>Change the structure and content of data with logic</p>
+  </header>
+
+  <section>
+    <h2>Understanding JSON Modification</h2>
+    <p>In AI, modifying JSON helps customize datasets, alter results, or format API data before use. You can update, remove, or add new properties using JavaScript.</p>
+
+    <h2>Example: Update AI Bot Profile</h2>
+    <pre>
+let aiBot = {
+  name: "NeuroBot",
+  version: 1.0,
+  tasks: ["vision", "speech", "reasoning"]
+};
+
+// Modify JSON:
+aiBot.version = 2.0;
+aiBot.tasks.push("planning");
+aiBot.active = true;
+    </pre>
+
+    <button onclick="modifyJson()">Modify AI JSON</button>
+    <div id="output">Original AI data will appear here...</div>
+
+    <script>
+      function modifyJson() {
+        let aiBot = {
+          name: "NeuroBot",
+          version: 1.0,
+          tasks: ["vision", "speech", "reasoning"]
+        };
+
+        // Modifying the JSON
+        aiBot.version = 2.0;
+        aiBot.tasks.push("planning");
+        aiBot.active = true;
+        delete aiBot.speechModule;
+
+        document.getElementById("output").textContent = JSON.stringify(aiBot, null, 2);
+      }
+    </script>
+
+    <h2>AI Use Cases</h2>
+    <ul>
+      <li>Modifying data received from an ML API</li>
+      <li>Adding or removing AI features dynamically</li>
+      <li>Filtering or reformatting datasets before training</li>
+    </ul>
+  </section>
+
+</body>
+</html>
