@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 12.4 - Fetching JSON from APIs | JavaScript in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background: #20232a;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    #result {
+      margin-top: 15px;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 12.4 — Fetching JSON from APIs</h1>
+    <p>JavaScript in AI</p>
+  </header>
+
+  <section>
+    <h2>Why APIs Matter in AI</h2>
+    <p>APIs provide access to real-world data, AI models, and machine learning predictions. JavaScript can fetch JSON from these APIs using <code>fetch()</code>.</p>
+
+    <h2>Example: Fetching AI Bot Info from API</h2>
+    <pre>
+fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then(response => response.json())
+  .then(data => {
+    console.log("AI Bot Info:", data);
+  })
+  .catch(error => {
+    console.error("API Error:", error);
+  });
+    </pre>
+
+    <button onclick="fetchBotInfo()">Get Sample AI Info</button>
+    <div id="result">Waiting for API response...</div>
+
+    <script>
+      function fetchBotInfo() {
+        const result = document.getElementById('result');
+        result.textContent = 'Loading AI data...';
+
+        fetch("https://jsonplaceholder.typicode.com/users/1")
+          .then(response => response.json())
+          .then(data => {
+            result.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(error => {
+            result.textContent = "Error fetching AI data: " + error;
+          });
+      }
+    </script>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Always handle errors using <code>catch()</code>.</li>
+      <li>Use real AI APIs for production, like OpenAI, HuggingFace, or custom ML endpoints.</li>
+    </ul>
+  </section>
+
+</body>
+</html>
