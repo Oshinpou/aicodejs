@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 12.8 — Final JSON & AI Data Project | JavaScript in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #1e272e;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    pre {
+      background: #2d3436;
+      color: #dfe6e9;
+      padding: 12px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    #output {
+      background: #dff9fb;
+      border-left: 4px solid #00cec9;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+    button {
+      background-color: #00cec9;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #81ecec;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .input-box {
+      margin-top: 20px;
+    }
+    .input-box input, .input-box button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 12.8 — Final JSON & AI Data Project</h1>
+    <p>Use everything to create an AI-powered data app</p>
+  </header>
+
+  <section>
+    <h2>AI Data App: Using JSON to Process Data</h2>
+    <p>In this lesson, we will create a simple AI-powered data app that processes data with JSON. The app allows the user to input AI model predictions, send it as JSON, and simulate receiving data from a server.</p>
+
+    <div class="container">
+      <h3>Enter Your AI Prediction Data</h3>
+
+      <!-- Input Fields for AI Data -->
+      <div class="input-box">
+        <label for="model">Model Name: </label>
+        <input type="text" id="model" placeholder="Enter model name" />
+      </div>
+      <div class="input-box">
+        <label for="prediction">Prediction: </label>
+        <input type="text" id="prediction" placeholder="Enter prediction" />
+      </div>
+      <div class="input-box">
+        <label for="confidence">Confidence: </label>
+        <input type="number" id="confidence" placeholder="Enter confidence score" />
+      </div>
+
+      <!-- Button to Send Data -->
+      <button onclick="sendAIData()">Send AI Data</button>
+
+      <!-- Display output -->
+      <div id="output">Waiting for response...</div>
+    </div>
+
+    <pre>
+const aiData = {
+  model: "AlphaBot",
+  prediction: "Approved",
+  confidence: 91
+};
+
+function sendAIData() {
+  // Simulate creating AI Data
+  let model = document.getElementById('model').value;
+  let prediction = document.getElementById('prediction').value;
+  let confidence = document.getElementById('confidence').value;
+
+  const aiData = {
+    model: model,
+    prediction: prediction,
+    confidence: parseInt(confidence)
+  };
+
+  // Simulate sending to the server and getting response
+  document.getElementById("output").textContent = "Sending AI data to server...";
+
+  setTimeout(() => {
+    document.getElementById("output").textContent = JSON.stringify({
+      status: "success",
+      received: aiData
+    }, null, 2);
+  }, 1000);
+}
+    </pre>
+
+    <h2>How It Works</h2>
+    <ul>
+      <li><strong>Input Fields:</strong> The user enters data about the AI model, its prediction, and confidence.</li>
+      <li><strong>Send Data:</strong> When the user clicks "Send AI Data," the app simulates sending this data as a JSON object to a server.</li>
+      <li><strong>Response:</strong> After a brief simulation, the server responds with a success message and the data that was received.</li>
+    </ul>
+
+    <h2>Final Thoughts</h2>
+    <p>This lesson helped you understand how JSON is used in AI applications to send, process, and receive data. By combining all the concepts learned, you can now create AI-powered data apps that communicate seamlessly with external systems.</p>
+  </section>
+
+</body>
+</html>
