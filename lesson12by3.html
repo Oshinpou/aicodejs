@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 12.3 - JSON in JavaScript | JavaScript in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 12.3 — JSON in JavaScript</h1>
+    <p>JavaScript in AI</p>
+  </header>
+
+  <section>
+    <h2>Using JSON in JavaScript</h2>
+    <p>JavaScript makes it simple to work with JSON to process smart data from APIs, datasets, and AI models. JSON is often the format used for data exchange between front-end interfaces and AI backends.</p>
+
+    <h2>Converting JSON Strings to JavaScript Objects</h2>
+    <pre>
+const jsonString = '{"name":"NeuroBot","model":"GPT-9","active":true}';
+const aiObj = JSON.parse(jsonString);
+
+console.log(aiObj.name); // NeuroBot
+    </pre>
+
+    <h2>Converting JavaScript Objects to JSON Strings</h2>
+    <pre>
+const aiData = {
+  name: "VisionX",
+  tasks: ["image detection", "pattern analysis"],
+  online: false
+};
+
+const jsonOutput = JSON.stringify(aiData);
+console.log(jsonOutput);
+    </pre>
+
+    <h2>Why It Matters in AI</h2>
+    <ul>
+      <li>Exchange data with AI APIs like OpenAI, TensorFlow, and custom models.</li>
+      <li>Save training metadata, predictions, and user inputs.</li>
+      <li>Integrate AI into web apps with structured communication.</li>
+    </ul>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Use <code>JSON.parse()</code> to read JSON data.</li>
+      <li>Use <code>JSON.stringify()</code> to prepare data for APIs or storage.</li>
+    </ul>
+  </section>
+
+</body>
+</html>
