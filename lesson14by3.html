@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 14.3 — The finally Block</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      padding: 20px;
+    }
+    header {
+      background: #3c6382;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e3fcef;
+      border-left: 4px solid #2ecc71;
+    }
+    .error {
+      background: #fcebea;
+      border-left: 4px solid #e74c3c;
+    }
+    .final {
+      font-style: italic;
+      color: #7f8c8d;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 14.3 — The finally Block</h1>
+  <p>Always complete AI tasks with <code>finally</code></p>
+</header>
+
+<section>
+  <h2>AI Task with Cleanup</h2>
+  <p>Enter a value to simulate an AI process. If it's invalid, an error occurs, but <code>finally</code> always runs.</p>
+  <input type="text" id="taskInput" placeholder="Enter any number">
+  <button onclick="runAITask()">Run AI Task</button>
+  <div class="output" id="resultBox">Waiting for task input...</div>
+  <div class="final" id="finalBox"></div>
+</section>
+
+<script>
+  function runAITask() {
+    const input = document.getElementById("taskInput").value;
+    const result = document.getElementById("resultBox");
+    const finalBox = document.getElementById("finalBox");
+
+    try {
+      if (input === "") throw new Error("No input provided.");
+      const value = parseFloat(input);
+      if (isNaN(value)) throw new Error("Input must be a valid number.");
+
+      // Simulated AI operation
+      const processed = value * 2 + 10;
+      result.className = 'output';
+      result.textContent = `AI processed result: ${processed}`;
+    } catch (error) {
+      result.className = 'output error';
+      result.textContent = `Error: ${error.message}`;
+    } finally {
+      finalBox.textContent = "AI Task Completed — Final block executed.";
+    }
+  }
+</script>
+
+</body>
+</html>
