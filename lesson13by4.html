@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 13.4 — Timers with Arguments and Anonymous Functions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      padding: 20px;
+      color: #2c3e50;
+    }
+    header {
+      background-color: #273c75;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    button {
+      margin: 10px 5px 0 0;
+      padding: 10px 16px;
+      background-color: #44bd32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #dcdde1;
+      border-radius: 4px;
+      min-height: 30px;
+      font-size: 16px;
+    }
+    code {
+      background: #f1f2f6;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 13.4 — Timers with Arguments and Anonymous Functions</h1>
+  <p>Make your timers smarter for AI use</p>
+</header>
+
+<section>
+  <h2>Passing Arguments to Timers</h2>
+  <p>You can pass arguments to a timer using arrow or anonymous functions:</p>
+  <pre><code>setTimeout(() => myFunc(arg1, arg2), delay);</code></pre>
+
+  <h3>Try It:</h3>
+  <button onclick="runWithArgs()">Run with Arguments</button>
+  <button onclick="runAnonymous()">Run Anonymous Function</button>
+  <div id="output">Timer output will appear here.</div>
+
+  <script>
+    function displayMessage(message, color) {
+      const out = document.getElementById("output");
+      out.textContent = message;
+      out.style.color = color;
+    }
+
+    function runWithArgs() {
+      setTimeout((msg, clr) => displayMessage(msg, clr), 1000, "AI says hello!", "#e84118");
+    }
+
+    function runAnonymous() {
+      setTimeout(() => {
+        const time = new Date().toLocaleTimeString();
+        displayMessage("Anonymous AI ping at " + time, "#00a8ff");
+      }, 1500);
+    }
+  </script>
+
+  <h3>AI Use Case</h3>
+  <ul>
+    <li>Simulate delayed data feedback</li>
+    <li>Pass data to AI monitoring tools</li>
+    <li>Use anonymous functions for inline logic</li>
+  </ul>
+</section>
+
+</body>
+</html>
