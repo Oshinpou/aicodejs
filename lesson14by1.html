@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 14.1 — Error Handling in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f8fa;
+      padding: 20px;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    section {
+      margin-top: 20px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 8px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 15px;
+      padding: 10px;
+      background: #eaeaea;
+      border-left: 4px solid #3498db;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 14.1 — Introduction to Error Handling</h1>
+  <p>Why errors happen in AI and how to handle them gracefully using JavaScript</p>
+</header>
+
+<section>
+  <h2>Try an AI Calculation</h2>
+  <input type="text" id="numberInput" placeholder="Enter a number">
+  <button onclick="processAI()">Run AI Logic</button>
+  <div class="output" id="resultOutput">AI is waiting for input...</div>
+</section>
+
+<script>
+  function processAI() {
+    const input = document.getElementById('numberInput').value;
+    const output = document.getElementById('resultOutput');
+
+    try {
+      if (input === '') throw new Error("Input cannot be empty.");
+      const number = parseFloat(input);
+      if (isNaN(number)) throw new Error("That's not a valid number.");
+
+      // Simulated AI logic: e.g., inverse square root
+      if (number < 0) throw new Error("AI can't handle square roots of negative numbers.");
+
+      const result = 1 / Math.sqrt(number);
+      output.textContent = `AI Result: ${result.toFixed(4)}`;
+
+    } catch (error) {
+      output.textContent = `AI Error: ${error.message}`;
+    }
+  }
+</script>
+
+</body>
+</html>
