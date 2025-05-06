@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 14.6 — Practical Debugging Techniques</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0ea5e9;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    code, pre {
+      background-color: #f0f0f0;
+      display: block;
+      padding: 10px;
+      border-left: 4px solid #0ea5e9;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+    button {
+      background-color: #38bdf8;
+      border: none;
+      padding: 10px 15px;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 15px;
+      padding: 10px;
+      background: #ecfdf5;
+      border-left: 4px solid #34d399;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 14.6 — Practical Debugging Techniques</h1>
+  <p>Detect AI problems like a detective using <code>console.log()</code>, breakpoints, and smart inspection.</p>
+</header>
+
+<section>
+  <h2>Debugging a Faulty AI Calculation</h2>
+  <p>Click the button to simulate a bug. Use <code>console.log()</code> to trace the issue.</p>
+  <button onclick="debugAI()">Run Debug</button>
+  <div class="output" id="debugOutput">No output yet.</div>
+</section>
+
+<script>
+  function debugAI() {
+    const output = document.getElementById('debugOutput');
+
+    // AI wants to sum values, but there's a bug
+    const data = [10, 20, '30', 40]; // '30' is a string
+    let total = 0;
+
+    console.log("Debug Start: Data =", data);
+
+    for (let i = 0; i < data.length; i++) {
+      console.log(`Adding index ${i}: value = ${data[i]}`);
+      total += data[i]; // This causes string concatenation
+    }
+
+    console.log("Final total:", total);
+    output.innerHTML = `<strong>Result:</strong> ${total} <br> (Check console for debugging logs)`;
+  }
+</script>
+
+</body>
+</html>
