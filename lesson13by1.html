@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lesson 13.1 — Introduction to Timers in AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #2f3640;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00a8ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 20px;
+      background-color: #dcdde1;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    code {
+      background-color: #f1f2f6;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lesson 13.1 — Introduction to Timers in AI</h1>
+    <p>Using setTimeout and setInterval in AI interactions</p>
+  </header>
+
+  <section>
+    <h2>Why Timers Matter in AI</h2>
+    <p>Timers allow AI-powered web applications to delay execution, schedule actions, and simulate thinking or response delays, creating a more human-like interaction.</p>
+
+    <h3>Example: AI Thinking Timer</h3>
+    <button onclick="simulateAIResponse()">Ask AI</button>
+    <div id="output">Click the button to simulate an AI response...</div>
+
+    <script>
+      function simulateAIResponse() {
+        document.getElementById("output").textContent = "AI is thinking...";
+
+        setTimeout(() => {
+          document.getElementById("output").textContent = "AI Response: Yes, I can help you with that!";
+        }, 2000); // Delays the response by 2 seconds
+      }
+    </script>
+
+    <h3>Understanding setTimeout and setInterval</h3>
+    <p><code>setTimeout()</code> runs code once after a delay. <br />
+    <code>setInterval()</code> runs code repeatedly at fixed intervals.</p>
+
+    <pre>
+setTimeout(() => {
+  console.log("AI response after delay");
+}, 3000);
+
+setInterval(() => {
+  console.log("AI heartbeat...");
+}, 1000);
+    </pre>
+
+    <p>Timers help create realistic AI-like features such as delayed responses, polling sensors, or repeating alerts.</p>
+  </section>
+
+</body>
+</html>
