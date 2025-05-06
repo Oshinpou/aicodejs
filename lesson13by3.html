@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 13.3 — Exploring setInterval()</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      color: #2f3640;
+    }
+    header {
+      background-color: #192a56;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    button {
+      margin: 10px 5px 0 0;
+      padding: 10px 16px;
+      background-color: #00a8ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #display {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #dcdde1;
+      border-radius: 4px;
+      min-height: 30px;
+      font-size: 18px;
+    }
+    code {
+      background: #f1f2f6;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 13.3 — Exploring <code>setInterval()</code></h1>
+  <p>Use time-based repetition in AI-driven applications</p>
+</header>
+
+<section>
+  <h2>What is <code>setInterval()</code>?</h2>
+  <p><code>setInterval()</code> repeatedly executes a function at fixed time intervals (in milliseconds).</p>
+
+  <h3>Syntax:</h3>
+  <pre><code>setInterval(function, intervalInMilliseconds)</code></pre>
+
+  <h3>Example: AI Heartbeat Simulation</h3>
+  <button onclick="startAIHeartbeat()">Start Heartbeat</button>
+  <button onclick="stopAIHeartbeat()">Stop</button>
+
+  <div id="display">Click "Start Heartbeat" to begin.</div>
+
+  <script>
+    let intervalId;
+    let count = 0;
+
+    function startAIHeartbeat() {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        count++;
+        document.getElementById("display").textContent = `AI heartbeat: ${count}`;
+      }, 1000);
+    }
+
+    function stopAIHeartbeat() {
+      clearInterval(intervalId);
+      intervalId = null;
+      document.getElementById("display").textContent = "AI heartbeat stopped.";
+    }
+  </script>
+
+  <h3>AI Use Case</h3>
+  <p>Use <code>setInterval()</code> for tasks like:</p>
+  <ul>
+    <li>AI sensor data monitoring</li>
+    <li>Real-time UI updates</li>
+    <li>Polling APIs for AI insights</li>
+    <li>Simulating continuous learning loops</li>
+  </ul>
+</section>
+
+</body>
+</html>
