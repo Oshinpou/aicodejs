@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 13.2 — Mastering setTimeout()</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #273c75;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #44bd32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #log {
+      margin-top: 20px;
+      background-color: #dcdde1;
+      padding: 10px;
+      border-radius: 5px;
+      min-height: 50px;
+    }
+    code {
+      background-color: #f1f2f6;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 13.2 — Mastering <code>setTimeout()</code></h1>
+  <p>Control time-based actions in AI-driven interfaces</p>
+</header>
+
+<section>
+  <h2>What is <code>setTimeout()</code>?</h2>
+  <p><code>setTimeout()</code> is a built-in JavaScript function used to delay the execution of a function or code snippet.</p>
+
+  <h3>Syntax:</h3>
+  <pre><code>setTimeout(function, delayInMilliseconds)</code></pre>
+
+  <h3>Example: AI Thinking Simulation</h3>
+  <button onclick="startDelayedAI()">Ask AI Now</button>
+  <div id="log">Click the button to simulate delayed AI logic.</div>
+
+  <script>
+    function startDelayedAI() {
+      document.getElementById("log").textContent = "AI is processing your question...";
+      setTimeout(() => {
+        document.getElementById("log").textContent = "AI: Here's your intelligent answer.";
+      }, 3000);
+    }
+  </script>
+
+  <h3>Advanced Use Case: Canceling Timeouts</h3>
+  <p>You can cancel a timeout with <code>clearTimeout()</code>.</p>
+  <pre><code>
+const id = setTimeout(() => {
+  console.log("This might not run!");
+}, 5000);
+clearTimeout(id);</code></pre>
+
+  <p>This is useful if the user cancels a request before the AI completes it.</p>
+</section>
+
+</body>
+</html>
