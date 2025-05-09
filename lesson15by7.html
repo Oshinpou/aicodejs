@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 15.7 — Lexical Scope in JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      padding: 20px;
+    }
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background: white;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+    pre {
+      background: #e2e8f0;
+      padding: 10px;
+      border-left: 4px solid #2563eb;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 15.7 — Lexical Scope in JavaScript</h1>
+  <p>Learn how scope is defined by code structure to power smarter AI functions.</p>
+</header>
+
+<section>
+  <h2>What is Lexical Scope?</h2>
+  <p>Lexical scope (or static scope) means that the scope of a variable is determined by its location in the source code.</p>
+  <p>Inner functions have access to variables defined in their outer functions.</p>
+</section>
+
+<section>
+  <h2>Example: Lexical Scope</h2>
+  <pre><code>function aiEngine() {
+  let core = "Neural Core";
+
+  function aiModule() {
+    console.log(core); // Accessible because of lexical scope
+  }
+
+  aiModule();
+}
+
+aiEngine();</code></pre>
+  <p><strong>Explanation:</strong> The inner function <code>aiModule</code> can access <code>core</code> because it's within the same lexical environment.</p>
+</section>
+
+<section>
+  <h2>Lexical Scope and AI Functions</h2>
+  <p>In AI programs, you may nest logic or AI models inside controllers or training routines. Lexical scoping ensures these inner models have access to outer variables.</p>
+</section>
+
+<section>
+  <h2>Why It Matters</h2>
+  <ul>
+    <li>Reduces the need for global variables</li>
+    <li>Improves code clarity and maintainability</li>
+    <li>Enables closures and advanced patterns</li>
+  </ul>
+</section>
+
+</body>
+</html>
