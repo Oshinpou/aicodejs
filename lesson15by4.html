@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 15.4 — Function Scope vs Block Scope</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+    header {
+      background-color: #0f172a;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background-color: white;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1e293b;
+    }
+    pre {
+      background-color: #f8fafc;
+      padding: 12px;
+      border-left: 4px solid #3b82f6;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 15.4 — Function Scope vs Block Scope</h1>
+  <p>Understand where your AI variables live and why it matters.</p>
+</header>
+
+<section>
+  <h2>Function Scope</h2>
+  <p>Variables declared with <code>var</code> are function-scoped, meaning they are only accessible within the function they are declared in.</p>
+  <pre><code>function aiProcess() {
+  var model = "NeuralNet";
+  console.log(model); // Works
+}
+console.log(model); // Error: model is not defined</code></pre>
+</section>
+
+<section>
+  <h2>Block Scope</h2>
+  <p>Variables declared with <code>let</code> and <code>const</code> are block-scoped, meaning they only exist inside the curly braces <code>{ }</code> where they are defined.</p>
+  <pre><code>{
+  let layer = "Convolution";
+  console.log(layer); // Works
+}
+console.log(layer); // Error: layer is not defined</code></pre>
+</section>
+
+<section>
+  <h2>AI Insight</h2>
+  <p>For secure and modular AI design, use block-scoped variables (<code>let</code> and <code>const</code>) to prevent accidental data access across unrelated processes.</p>
+</section>
+
+</body>
+</html>
