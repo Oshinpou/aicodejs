@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 15.6 — Hoisting in Scope</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+    header {
+      background-color: #1e293b;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background-color: #ffffff;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0f172a;
+    }
+    pre {
+      background-color: #e2e8f0;
+      padding: 12px;
+      border-left: 4px solid #3b82f6;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 15.6 — Hoisting in Scope</h1>
+  <p>Understand how JavaScript lifts declarations for smarter AI behavior.</p>
+</header>
+
+<section>
+  <h2>What is Hoisting?</h2>
+  <p>Hoisting is JavaScript’s default behavior of moving declarations to the top of the current scope (function or global).</p>
+</section>
+
+<section>
+  <h2>Example: Hoisting with Variables</h2>
+  <pre><code>console.log(brain); // undefined
+var brain = "AI Core";</code></pre>
+  <p>JavaScript interprets it as:</p>
+  <pre><code>var brain;
+console.log(brain); // undefined
+brain = "AI Core";</code></pre>
+</section>
+
+<section>
+  <h2>Hoisting with Functions</h2>
+  <pre><code>aiGreet(); // Works because function is hoisted
+
+function aiGreet() {
+  console.log("Hello from AI!");
+}</code></pre>
+  <p><strong>Note:</strong> Function declarations are fully hoisted, while function expressions are not.</p>
+</section>
+
+<section>
+  <h2>let and const Are Not Hoisted Like var</h2>
+  <pre><code>console.log(mode); // ReferenceError
+let mode = "Learning";</code></pre>
+  <p>Variables declared with <code>let</code> and <code>const</code> are in a “temporal dead zone” until their declaration is encountered.</p>
+</section>
+
+<section>
+  <h2>Why Hoisting Matters in AI</h2>
+  <p>In AI models where data flow and processing order matter, hoisting can impact when variables and functions are available. Mastering it helps avoid bugs and ensures reliable AI logic flow.</p>
+</section>
+
+</body>
+</html>
