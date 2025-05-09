@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 15.2 — Global Scope in AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef2f7;
+      padding: 20px;
+    }
+    header {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #1e293b;
+    }
+    pre {
+      background-color: #f1f5f9;
+      border-left: 4px solid #3b82f6;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 15.2 — Global Scope in AI</h1>
+  <p>How global variables impact AI logic and behavior in JavaScript.</p>
+</header>
+
+<section>
+  <h2>What is Global Scope?</h2>
+  <p>A variable is in the <strong>global scope</strong> if it is declared outside any function or block. It can be accessed or modified from anywhere in the program, including inside functions or AI routines.</p>
+</section>
+
+<section>
+  <h2>Example: Global Scope</h2>
+  <pre><code>// Global variable
+let aiMode = "learning";
+
+function processAI() {
+  console.log("AI mode is:", aiMode); // Accessing global variable
+}
+
+function updateMode() {
+  aiMode = "predicting"; // Modifying global variable
+}
+
+processAI();
+updateMode();
+processAI();
+</code></pre>
+</section>
+
+<section>
+  <h2>AI Insight</h2>
+  <p>Global variables are powerful but risky in AI systems. Overusing them can lead to unexpected behavior, especially when multiple components access or modify shared values. For scalable AI logic, keep most variables local and use global scope only for constants or configuration settings.</p>
+</section>
+
+</body>
+</html>
