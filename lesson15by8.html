@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 15.8 — Best Practices for Scope in AI Code</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f5f9;
+      padding: 20px;
+    }
+    header {
+      background-color: #0f172a;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    h2 {
+      color: #1e293b;
+    }
+    code, pre {
+      background: #e2e8f0;
+      padding: 10px;
+      display: block;
+      border-left: 4px solid #2563eb;
+      margin-top: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 15.8 — Best Practices for Scope in AI Code</h1>
+  <p>Write secure, clean, and efficient AI JavaScript using proper scope management.</p>
+</header>
+
+<section>
+  <h2>Why Scope Matters in AI Code</h2>
+  <p>Improper scoping can lead to bugs, security flaws, and unexpected behavior — especially in asynchronous AI systems and machine learning loops.</p>
+</section>
+
+<section>
+  <h2>Best Practices</h2>
+  <ul>
+    <li><strong>Use <code>let</code> and <code>const</code></strong> instead of <code>var</code> to avoid hoisting and block confusion.</li>
+    <li><strong>Minimize global variables</strong> to reduce memory leaks and conflicts.</li>
+    <li><strong>Keep variables as close as possible</strong> to where they're used (local scope).</li>
+    <li><strong>Use functions to create scope boundaries</strong> especially in loops and event handlers.</li>
+    <li><strong>Structure nested functions clearly</strong> for lexical clarity and closure use in AI.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Example: Scoped AI Loop</h2>
+  <pre><code>function trainAI(data) {
+  for (let i = 0; i < data.length; i++) {
+    const item = data[i];
+    process(item); // Scoped correctly
+  }
+}</code></pre>
+</section>
+
+<section>
+  <h2>Summary</h2>
+  <p>Effective scope management ensures cleaner, safer, and more intelligent AI programs. It also enables better reuse of logic and fewer side-effects.</p>
+</section>
+
+</body>
+</html>
