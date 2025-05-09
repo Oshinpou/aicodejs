@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 15.5 — Nested Scope (Scope Chains)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      padding: 20px;
+    }
+    header {
+      background-color: #0d1b2a;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    section {
+      background-color: #ffffff;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    h2 {
+      color: #1f2937;
+    }
+    pre {
+      background-color: #f1f5f9;
+      padding: 15px;
+      border-left: 4px solid #3b82f6;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lesson 15.5 — Nested Scope (Scope Chains)</h1>
+  <p>Follow the chain of AI variable access through functions.</p>
+</header>
+
+<section>
+  <h2>What is Nested Scope?</h2>
+  <p>In JavaScript, functions can be nested inside other functions. Inner functions have access to the variables of their outer functions. This structure is called the <strong>scope chain</strong>.</p>
+</section>
+
+<section>
+  <h2>Example: AI Variable Scope Chain</h2>
+  <pre><code>function aiCore() {
+  const core = "Main AI";
+
+  function aiModule() {
+    const module = "Vision";
+
+    function aiTask() {
+      const task = "Face Recognition";
+      console.log(core);    // Accessible
+      console.log(module);  // Accessible
+      console.log(task);    // Accessible
+    }
+
+    aiTask();
+  }
+
+  aiModule();
+}</code></pre>
+  <p><strong>Note:</strong> Each inner function can access variables from its parent scopes, forming a "chain" of access.</p>
+</section>
+
+<section>
+  <h2>Why It Matters in AI</h2>
+  <p>Understanding nested scope helps in building modular AI components where inner layers (like decision engines or preprocessors) rely on shared logic from outer scopes.</p>
+</section>
+
+</body>
+</html>
