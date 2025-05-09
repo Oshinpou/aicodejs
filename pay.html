@@ -32,7 +32,7 @@
     }
 
     form {
-      display: inline-block;
+      display: none;
       margin: 20px;
     }
 
@@ -40,33 +40,76 @@
       margin-top: 30px;
       color: #aaa;
     }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <img src="iconr.webp" class="icon" alt="Course Icon" />
-    <h1>Pay to Access All 30 Pages</h1>
+    <h1>Buy AIcodeJS at <del>$300</del> $1 only one time payment to access full course for lifetime</h1>
+
+    <!-- Currency Selector -->
+    <select id="currencySelector" onchange="showPaymentButton(this.value)">
+      <option value="">Select Your Currency</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="INR">INR</option>
+      <option value="GBP">GBP</option>
+      <option value="AUD">AUD</option>
+      <!-- Add more as needed -->
+    </select>
 
     <div class="pay-buttons">
-      <!-- INR Payment Button -->
-      <!-- Correct Razorpay Payment Form for INR -->
-<form action="https://aicodejs.netlify.app/login.html" method="POST">
-  <script
-    src="https://checkout.razorpay.com/v1/payment-button.js"
-    data-payment_button_id="pl_QMUp0X29Gt0lG5"
-    async>
-  </script>
-</form>
-
-      <!-- USD Payment Button -->
-      <form action="login.html">
+      <!-- USD -->
+      <form id="formUSD" action="https://jspyconverter.netlify.app/login.html" method="POST">
         <script src="https://checkout.razorpay.com/v1/payment-button.js"
-                data-payment_button_id="rzp_live_USD_Button_ID" async>
-        </script>
+                data-payment_button_id="pl_USD_EXAMPLE_ID" async></script>
+      </form>
+
+      <!-- EUR -->
+      <form id="formEUR" action="https://jspyconverter.netlify.app/login.html" method="POST">
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="pl_EUR_EXAMPLE_ID" async></script>
+      </form>
+
+      <!-- INR -->
+      <form id="formINR" action="https://jspyconverter.netlify.app/login.html" method="POST">
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="pl_QRaadWOXVupya3" async></script>
+      </form>
+
+      <!-- GBP -->
+      <form id="formGBP" action="https://jspyconverter.netlify.app/login.html" method="POST">
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="pl_GBP_EXAMPLE_ID" async></script>
+      </form>
+
+      <!-- AUD -->
+      <form id="formAUD" action="https://jspyconverter.netlify.app/login.html" method="POST">
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                data-payment_button_id="pl_AUD_EXAMPLE_ID" async></script>
       </form>
     </div>
 
-    <p>After payment, you'll be redirected to access all course pages.</p>
+    <p>After payment, you'll be redirected to access full course for lifetime.</p>
   </div>
+
+  <script>
+    function showPaymentButton(currency) {
+      // Hide all forms
+      document.querySelectorAll("form").forEach(form => form.style.display = "none");
+
+      // Show the selected one
+      const selectedForm = document.getElementById("form" + currency);
+      if (selectedForm) {
+        selectedForm.style.display = "inline-block";
+      }
+    }
+  </script>
 </body>
 </html>
